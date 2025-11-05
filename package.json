@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build.mjs",
-    "serve": "node serve.mjs"
+    "serve": "node serve.mjs",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "author": "dominicyuan1024",
   "license": "ISC",
