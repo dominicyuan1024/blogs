@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{TITLE}} - Dominic's blog</title>
+  <link rel="icon" type="image/x-icon" href="../pitaya.svg">
+  <style>
+{{INDEX_CSS}}
+  </style>
+  <style>
+{{ARTICLE_CSS}}
+  /* offline token styles */
+  .token.keyword{ color:#d73a49; font-weight:600; }
+  .token.string{ color:#032f62; }
+  .token.number{ color:#005cc5; }
+  .token.comment{ color:#6a737d; font-style: italic; }
+  </style>
+  {{HL_CSS_LINK}}
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(../pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#projects">程序</a></li>
+            <li><a href="../index.html#writes">文章</a></li>
+            <li><a href="../index.html#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <div class="toc-title"><a href="#article-top">{{TITLE}}</a></div>
+        {{TOC}}
+      </aside>
+      <main class="article">
+        <h1 id="article-top">{{TITLE}}</h1>
+        <p><small>{{DATE}}{{CATEGORY_SUFFIX}}</small></p>
+        <article>{{CONTENT}}</article>
+      </main>
+    </div>
+    <button class="toc-fab" aria-label="目录"></button>
+    <div class="toc-overlay" aria-hidden="true"></div>
+    <button type="button" class="vp-back-to-top-button" aria-label="返回顶部">
+      <span class="vp-scroll-progress" role="progressbar" aria-labelledby="loadinglabel" aria-valuenow="0">
+        <svg><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="0 151"></circle></svg>
+      </span>
+      <div class="back-to-top-icon"></div>
+    </button>
+    <script>
+      (function(){
+        const links = Array.from(document.querySelectorAll('.toc-list a'));
+        const headings = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        function onScroll(){
+          let activeIndex = 0;
+          for (let i=0;i<headings.length;i++){
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= 100) activeIndex = i;
+          }
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[activeIndex]) links[activeIndex].classList.add('active');
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // copy buttons (offline)
+        document.querySelectorAll('pre > code').forEach(code => {
+          const pre = code.parentElement;
+          const raw = code.textContent || '';
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(raw); btn.textContent = '已复制'; setTimeout(()=>btn.textContent='复制', 1200); } catch(e) { btn.textContent='失败'; setTimeout(()=>btn.textContent='复制', 1200); }
+          });
+          pre.style.position = 'relative';
+          pre.appendChild(btn);
+        });
+
+        // ensure images use lazy loading
+        document.querySelectorAll('img').forEach(img=>{ if(!img.loading) img.loading = 'lazy'; });
+
+        // mobile TOC toggle (top-right hamburger)
+        const tocFab = document.querySelector('.toc-fab');
+        const tocOverlay = document.querySelector('.toc-overlay');
+        if (tocFab) {
+          const closeToc = () => document.body.classList.remove('toc-open');
+          tocFab.addEventListener('click', () => { document.body.classList.toggle('toc-open'); });
+          links.forEach(a => a.addEventListener('click', closeToc));
+          if (tocOverlay) tocOverlay.addEventListener('click', closeToc);
+        }
+
+        // back-to-top with progress ring
+        const backBtn = document.querySelector('.vp-back-to-top-button');
+        const circle = document.querySelector('.vp-scroll-progress circle');
+        const PROG_LEN = 2 * Math.PI * 24; // r=24
+        function updateProgress(){
+          const st = document.documentElement.scrollTop || document.body.scrollTop;
+          const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const p = Math.max(0, Math.min(100, h ? (st / h) * 100 : 0));
+          if (backBtn) backBtn.querySelector('.vp-scroll-progress').setAttribute('aria-valuenow', p.toFixed(2));
+          if (circle) circle.setAttribute('stroke-dasharray', ((p/100)*PROG_LEN) + ' ' + PROG_LEN);
+        }
+        updateProgress();
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        if (backBtn) backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
+  </body>
+</html>
+
+

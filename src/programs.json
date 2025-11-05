@@ -1,0 +1,20 @@
+[
+    {
+      "icon": "",
+      "title": "山海市交通建设项目跟踪问效管理平台 （databox）",
+      "summary": "一个 gis 数据可视化示例项目,使用 vue2 + arcgis 地图 + echarts 图表的炫酷展示页面,该类项目常见于中国智慧城市相关应用",
+      "link": "https://github.com/dominicyuan1024/databox"
+    },
+    {
+        "icon": "",
+        "title": "伊恩阅读器（enreader）",
+        "summary": "一款英文原著阅读器，支持阅读 epub 书籍，便于在阅读时翻译与记录生词单句",
+        "link": "https://github.com/dominicyuan1024/enreader"
+      },
+      {
+        "icon": "",
+        "title": "翻转消消乐（flipmatch）",
+        "summary": "使用 react 制作的一款益智小游戏，适合大人陪同小孩一起玩，考验记忆力，帮助记忆词汇",
+        "link": "https://github.com/dominicyuan1024/flipmatch"
+      }
+  ]
