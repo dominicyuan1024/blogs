@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>骑行 成都-拉萨 - Dominic's blog</title>
+  <link rel="icon" type="image/x-icon" href="../pitaya.svg">
+  <style>
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --pitaya-pink: #cc2a41;
+  --pitaya-green: #2bbc8a;
+  --pitaya-white: #f8f8f8;
+  --pitaya-dark: #2c2c2c;
+  --pitaya-light-pink: #ffe6ef;
+  --pitaya-light-green: #e8f5e8;
+}
+
+.link {
+  cursor: pointer;
+  background-image: linear-gradient(transparent, transparent 5px, #22272a 5px, #22272a);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.link:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+}
+
+html {
+  border-top: 2px solid rgb(34, 39, 42);
+}
+body {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 48rem;
+  margin: auto;
+  color: rgb(34, 39, 42);
+  font-family: "Menlo", "Meslo LG", monospace;
+  text-rendering: geometricPrecision;
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-image: url(pitaya.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nick-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+  line-height: 1.2;
+}
+
+.best-flow-title {
+  background: linear-gradient(135deg, var(--pitaya-pink), var(--pitaya-green), var(--pitaya-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: gradientFlow 2s linear forwards;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 250% 0;
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background-position: 0% 0;
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+.nav ul {
+  display: flex;
+}
+.nav li {
+  border-right: 1px dotted;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.nav a:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.nav li:first-child {
+  padding-left: 0;
+}
+.nav li:last-child {
+  border-right: none;
+}
+.h1 {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--pitaya-pink);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+.projects li,
+.writes li {
+  margin-bottom: 1rem;
+}
+.projects li:last-child,
+.writes li:last-child {
+  margin-bottom: 0;
+}
+.writes time {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.writes a {
+  margin-right: 1rem;
+}
+.writes .category {
+  background-color: var(--pitaya-dark);
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-transform: capitalize;
+  opacity: 0.2;
+  font-size: 0.4rem;
+  display: none;
+}
+
+.category.life {
+  background-color: var(--pitaya-pink);
+}
+.category.skill {
+  background-color: var(--pitaya-dark);
+}
+.category.english {
+  background-color: var(--pitaya-green);
+}
+.writes .summary {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.footer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+@media (max-width: 960px) {
+  .footer {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+  </style>
+  <style>
+/* Minimal article typography inspired by Typora SprIng */
+:root {
+  --text: #000;
+  --bg: #fafafa;
+  --primary: #2bbc8a;
+  --accent: #cc2a41;
+  --muted: #666;
+  --code-bg: #f6f8fa;
+  --border: #e5e7eb;
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--text);
+  max-width: 980px !important;
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Inter, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+}
+
+.header {
+  margin-left: 13rem;
+}
+
+main.article {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+main.article h1,
+main.article h2,
+main.article h3,
+main.article h4,
+main.article h5,
+main.article h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.6em 0 0.8em;
+}
+main.article h1 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+main.article h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+main.article h3 {
+  font-size: 1.25rem;
+}
+
+main.article p {
+  margin: 0.9em 0;
+}
+main.article a {
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.35);
+}
+main.article a:hover {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+}
+
+main.article ul,
+main.article ol {
+  padding-left: 1.25rem;
+  margin: 0.8em 0;
+}
+main.article li {
+  margin: 0.3em 0;
+}
+
+main.article blockquote {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  color: var(--muted);
+  border-left: 4px solid var(--primary);
+  background: #f9fbfa;
+  border-radius: 4px;
+}
+
+main.article pre code {
+  background: transparent;
+  padding: 0;
+}
+main.article code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+main.article pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+/* Wrap long lines in code to avoid horizontal scrolling */
+main.article pre,
+main.article code {
+  white-space: pre-wrap; /* wrap long lines */
+  word-break: break-word; /* break long tokens */
+  overflow-wrap: anywhere; /* allow breaking anywhere if needed */
+}
+main.article pre {
+  overflow-x: hidden;
+}
+
+/* token fallback colors (keep in sync with template inline) */
+.token.keyword {
+  color: #d73a49;
+  font-weight: 600;
+}
+.token.string {
+  color: #032f62;
+}
+.token.number {
+  color: #005cc5;
+}
+.token.comment {
+  color: #6a737d;
+  font-style: italic;
+}
+main.article pre .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: var(--text);
+}
+main.article pre .code-copy-btn:hover {
+  background: #f0f0f0;
+}
+
+main.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+main.article th,
+main.article td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+}
+main.article thead th {
+  background: #f7f7f9;
+}
+
+main.article img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main.article hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+main.article > p > small {
+  color: var(--muted);
+}
+
+/* layout with sidebar toc */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.doc-toc {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  overflow: auto;
+  padding-top: 2rem;
+}
+.toc-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.toc-list,
+.toc-sub {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.toc-item {
+  margin: 0.25rem 0;
+}
+.toc-sub {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.25rem;
+}
+.toc-list a {
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.2);
+}
+.toc-list a.active {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+  color: var(--accent);
+}
+
+/* TOC toggle button - hidden by default on desktop */
+.toc-fab {
+  display: none;
+}
+
+@media (max-width: 960px) {
+
+  body {
+    padding-left: 1rem !important;
+  }
+  /* tighten global paddings */
+  .doc-layout {
+    padding: 0 0.5rem;
+    gap: 16px;
+  }
+  .header {
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+  main.article {
+    padding-left: 0.25rem;
+    border-left: none;
+  }
+
+  /* article spacing */
+  main.article h1 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.6rem;
+  }
+  main.article h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  main.article h3 {
+    margin: 0.75rem 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  main.article p {
+    margin: 0.6rem 0;
+  }
+  main.article ul,
+  main.article ol {
+    padding-left: 1rem;
+    margin: 0.6rem 0;
+  }
+  main.article li {
+    margin: 0.25rem 0;
+  }
+  main.article blockquote {
+    margin: 0.6rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+  main.article pre {
+    padding: 0.75rem;
+  }
+  main.article table {
+    margin: 0.6rem 0;
+    font-size: 0.95em;
+  }
+  .h1 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* nav spacing */
+  .nav li {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+  }
+  .doc-toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
+    max-width: 80vw;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+    overflow: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  body.toc-open .doc-toc {
+    transform: translateX(0);
+  }
+  .toc-fab {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1100;
+    cursor: pointer;
+  }
+  .toc-fab::before {
+    content: "☰";
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text);
+  }
+}
+
+/* TOC overlay for mobile: click to close */
+.toc-overlay {
+  display: none;
+}
+@media (max-width: 960px) {
+  .toc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    display: none;
+  }
+  body.toc-open .toc-overlay {
+    display: block;
+  }
+}
+
+/* back-to-top floating button with progress ring */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: conic-gradient(var(--accent) var(--progress, 0%), #e9ecef 0%);
+  mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  -webkit-mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  z-index: 1100;
+}
+.back-to-top .arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--text);
+  transform: translateY(-2px);
+}
+
+/* Back-to-top button with progress ring */
+:root {
+  --back-to-top-c-bg: #fff;
+  --back-to-top-c-accent-bg: #2bbc8a;
+  --back-to-top-c-shadow: rgba(0, 0, 0, 0.08);
+  --back-to-top-c-accent-hover: #cc2a41;
+}
+.vp-back-to-top-button {
+  position: fixed !important;
+  inset-inline-end: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-width: 0;
+  border-radius: 50%;
+  background: var(--back-to-top-c-bg);
+  color: var(--back-to-top-c-accent-bg);
+  box-shadow: 2px 2px 10px 4px var(--back-to-top-c-shadow);
+  cursor: pointer;
+}
+@media (max-width: 959px) {
+  .vp-back-to-top-button {
+    transform: scale(0.8);
+    transform-origin: 100% 100%;
+  }
+}
+@media print {
+  .vp-back-to-top-button {
+    display: none;
+  }
+}
+.vp-back-to-top-button:hover {
+  color: var(--back-to-top-c-accent-hover);
+}
+.vp-back-to-top-button .back-to-top-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  position: relative;
+}
+.vp-back-to-top-button .back-to-top-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid currentColor;
+}
+.vp-scroll-progress {
+  position: absolute;
+  inset-inline-end: -2px;
+  bottom: -2px;
+  width: 52px;
+  height: 52px;
+}
+.vp-scroll-progress svg {
+  width: 100%;
+  height: 100%;
+}
+.vp-scroll-progress circle {
+  opacity: 0.9;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+  /* offline token styles */
+  .token.keyword{ color:#d73a49; font-weight:600; }
+  .token.string{ color:#032f62; }
+  .token.number{ color:#005cc5; }
+  .token.comment{ color:#6a737d; font-style: italic; }
+  </style>
+  <link rel="stylesheet" href="./highlight/github.min.css">
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(../pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#projects">程序</a></li>
+            <li><a href="../index.html#writes">文章</a></li>
+            <li><a href="../index.html#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <div class="toc-title"><a href="#article-top">骑行 成都-拉萨</a></div>
+        
+      </aside>
+      <main class="article">
+        <h1 id="article-top">骑行 成都-拉萨</h1>
+        <p><small>2016-03-12 · life</small></p>
+        <article>
+<p>川藏是个大地方，我是个小人物。<br>
+不必好奇从哪里来，皆是异乡过客，向着同一个日光明媚的高城；不要追问到哪里去，走到哪儿算哪儿，你永远也无法预计上天什么时候将你绊倒。金飞、金广、老秦、靖哥、小朱、强子、辉哥、bingo、雪辉、阿霏、梅婆婆、旺久、仓诀、大敏、龙门客栈······一个个称呼对你来说也许只是字符，对我而言，却蕴含着一张张可亲的笑脸；一圈圈骚气纵横的车轮滚动；一幕幕动人的回忆佳景。</p>
+<p>（1）</p>
+<p>刚出发，谁不是野心勃勃？一副老子一定会坚持到终点的意气飞扬。但后来严重高反送回了一些人，焦躁轻浮载走了一些人，意外诸如落石、摔车、疾病之类又遣返了一些人。十有八九，你在拉萨伤感旅途的终结，曾经和你共同驰骋过的人儿，已在家哀叹好多天了。</p>
+<p>“骚气的骑行队”这名字是靖哥取的，只有逗比才会说出如此逗比的名字。看看人家——狼程千里、京都桃园，中原侠道······一个个文雅大气、嚣张跋扈。</p>
+<p>但相信我，能在路上遇上一个逗比是你的福气，你的旅程将因此少一些顽固，多一些轻松；少一些虚荣，多一些欢乐；少一些做作，多一些货真价实的骚气。你要是遇上一群逗比？好吧，你无法否认你本身就是逗比，物以类聚、逗逗相吸啊！</p>
+<p>偏执如我，一开始当然是打算单飞的，欲以挑战自我的名义，超越一路的先行者。最好带点伤痛回去，以渲染旅途的艰辛，铺垫骑士的能耐。没错，我就是如此中二的青年一枚。</p>
+<p>但想象是丰满的，现实却很骨感。成都“阿里驿站”的客厅墙壁上挂着一面“川藏极限挑战”的黄旗帜，你千万别对它好奇，否则你会得知那上面最屌的骑士只花了不足八天就干完了你预计一个月的路程。啊！我仿佛看到那家伙站在布达拉宫门口。双手环抱胸前，不可一世地对你露出洁白的牙齿，“真不好意思，哥们！打击了你的妄想，践踏了你的虚荣心。”</p>
+<p>我一度想摘下那面黄旗帜，又怕打不过海哥、和平、松汕这三老板，人家可是有能耐搏击高山暴风雪，跨越鬼门关的牛人。我之前那点干瘪的骑行经历，岂止关公面前耍大刀？</p>
+<p>一次打击还不够，客栈里其他房客的志得满满、牛高马大、物资丰盛仿佛在暗示你，“小子，你还嫩着呢，路上走着瞧！”</p>
+<p>当时，我的心里是讨饶的。后来，在路上，志得满满的也可能会搭车而去，牛高马大的也不排除严重高反的可能性，物资丰盛的多数哭爹喊娘去资助贫困山区孩子以减轻负担了。</p>
+<p>（2）</p>
+<p>恕我愚钝，一下子无法完全想起所有的人和事。回忆里，还是金飞、金广和靖哥的身影比较深刻。我这么讲，也许其他朋友并不高兴。但老实说，我与三人待在一起的时间最久、说过的话最长，共同的经历最多。现实如此，何必矫情？</p>
+<p>靖哥作为“骚气的骑行队”里唯一的妹子，当然是一个集美丽、大方、别致、优雅于一身，智慧与贤淑并存，绝对善解人意、蕙质兰心，不幸降落凡尘的仙葩。好吧，以上故事可能虚构。靖哥其实是个时而强势逼人，时而楚楚可怜，始终欢乐逗比的······的······的······美女。</p>
+<p>事实上，她虽是个妹子，但实力强劲。第一天从成都到雅安的路上（唉！我真不想承认），我的速度是不如她的。在我之前的骑行生涯里，就输给过两个妹子。第一个骑着公路车、穿着美利达骑行服，我很想说不是我，而是我的坐骑“小屌丝”输给了她。第二个，穿着她母亲那过气的老土衣服，头上裹着面罩和帽子，还戴着酷酷的墨镜，这就是靖哥，活像巴基斯坦战场上神秘的女战士。</p>
+<p>女战士不愧是女战士，三两下甩掉了我。于是我打算跟在龟仙人身后，也不算孤单。</p>
+<p>我之所以唤强子为龟仙人，是因为他和龙珠里的龟仙人一般，夹着墨镜。他本人也是够猥琐，老是说，“晚上帮你盖被子。”</p>
+<p>龟仙人还是我们“骚气的骑行队”的导演，手持单反，不惜五体投地，用各种艰苦的体位（姿势），为我们定格了珍贵的骑士风采。我想，如此训练之下，他床上功夫铁定不差。</p>
+<p>而欢喜的是，还有两位同道中人——bingo 与辉哥，居然也从广东来，算是有缘。</p>
+<p>不可否认，除了女战士靖哥，另外两位印象深刻的金飞与金广更是生猛，犹如绝代双骄，一直保持在队伍的前头，与我相隔不下五公里。以至于我是有心勾搭，无力追赶啊。事实上我第一天就膝盖痛了。最后的最后实在“英雄气短”，阿霏问我要不要破风？我当然答应，可是俺追不上啊，只过了一会连他人影都见不着。</p>
+<p>但老金飞那天中了头彩。他的捷安特与一辆小轿车相撞了，手指擦破了皮。发生这种倒霉事，居然还起了争执。但我们这边有女战士靖哥的凌人气势，又有老爷子的圆滑通达。最后不了了之。我到最后也没弄懂谁对谁错。</p>
+<p>趁老金飞实力受损，我上前与他攀谈了几句。得知他居然是个研究生，学霸！作为学渣的我，隐约不敢冒失。</p>
+<p>后来，一个多星期了吧，我才知道老金飞、金广、靖哥、老秦还有小朱五人上同一个大学，组队来的。亏我原来还一直以为大家都是散兵游勇，偶然相聚。</p>
+<p>（3）<br>
+老秦与靖哥一起来，是人尽皆知的。老秦这家伙才是名正言顺的骑士。他有志气，想出来吃苦，作为靖哥的闺蜜，又担负着守护妹子的使命。他还经常担当队伍龙头破风领骑。真是要实力有实力，要身板有身板，带着主角光环上路啊！</p>
+<p>而作为一名骑着“小屌丝”的寂寞孤单冷，我是不是该曝光他那不为外人知的虚弱史、挫败史，来满足一下大众的某些屌丝心理？</p>
+<p>呵呵，我是个有节操的人。</p>
+<p>据我所知，老秦最大的丰功伟绩莫过于“骑了两趟二郎山！”二郎山是我们旅途中征服的第一座高山，海拔 2170 米。</p>
+<p>惭愧的是，那天我是推车上去的。高兴的是，我和妹子一同推车上去的。我虽然因此牺牲了一些尚未建立的名望，但却收获了与靖哥、老秦友情的开端，现在想想，赚大发了。</p>
+<p>靠，我绝不承认事情的真相是因为自己实在累得骑不动了。</p>
+<p>现如今听着窗外的雨水声，感受扑面而来的湿润凉风，我又怀念那二郎山上推车的日子了。当时举目四望也是烟雾蒙蒙，二郎山郁郁葱葱。我们前边还有好多人都在推车。除了路边卖水果的阿婆，我们也只能遇到推车的人，那些骑上去的混蛋们，像龟仙人、小朱、辉哥他们，早就云深不见影了。</p>
+<p>老秦正是在那时候点亮了主角光环，他先把车骑上山去，又快步下来把靖哥的车也骑了上去，以减轻妹子爬山的负担。</p>
+<p>哇哦！多么生猛而又柔情的汉子。难怪有人在我旁边感叹，“要嫁给像老秦这样的男人。”真让我被羡慕嫉妒恨啊。若老秦再加把劲，将妹子一并载上山去，只怕连有人连认爹的冲动都有了。</p>
+<p>在与靖哥推车的过程中，遇到了几次 bingo。但 bingo 也不追随我们，自顾自漫步着、烟抽着、水果吃着、相机拍着、风景享受着，落在后面，不急不躁。一副“我是要成为推车王的男人！”</p>
+<p>二郎山路边停靠着许多大卡车，听说得到晚上才行驶。这是真的，有次在接近新沟的那段路上，我和老金飞等着给婧哥、老秦以及阿霏带路，五人没赶得及天黑，骑了一段夜路。当时的大卡车一辆接一辆驶过，夜黑风高的可把人吓坏了。</p>
+<p>上二郎山苦，我和婧哥可是抱怨了不少。下二郎山，那真是风一般的感觉！山脚下是红色历史名城——泸定。</p>
+<p>第二次陪靖哥推车，是在康巴第一关，折多山，海拔 4298 米。看这海拔，有些人一定可以猜到我们会遇到什么。</p>
+<p>那天的天气可不赖，阳光明媚、天蓝云白。但那天的状况可并不好。婧哥说她第一天骑车过猛，元气大伤，如今轻易不能动用大气力，以免走火入魔。但这通往青藏高原的关口，注定是她走火入魔之地。</p>
+<p>上折多山的路上，她流鼻血了。这可把我给吓坏啦，手忙脚乱给她掏湿巾。当时我的心情真是焦急而又无可奈何，担忧而又毫无应对头绪。和女孩子第一次见大姨妈的时候像吗？</p>
+<p>问她头不头痛？她说还好，只是空气太干燥才流鼻血。我信以为真。“克服！克服！”我套用老秦的话给她打气，可惜我缺少主角光环的魔力，无法带给她幸运。婧哥上到垭口后，高原反应把她折磨哭了。</p>
+<p>风光优美，经幡招展，“康定情歌”这四个白色大字在草原上夺人眼球。我只不过抽空拍了几张照片，回头便发现巴基斯坦女战士卸下了所有坚硬的外壳，蹲在角落里抱头流泪，显得那么难受。一个比我还小的女孩子走到这里，可真不容易！我的内心是敬佩的。</p>
+<p>后来，我又压了几次后。老秦，老金飞和我正是压后三剑客。有次婧哥也是开玩笑说，“我要把这些照片一起发说说里去，老秦帮我推车！阿俊帮我推车！学长（金飞）帮我推车！哇哈哈哈哈！”</p>
+<p>“压后”成了我们三人私下里取代“陪婧哥推车”的名词。造成这种带负面色彩的局面，是因为大家或多或少都有着挑战者的情怀，都想全力骑车试试自己的能耐。所以，有时候体力充沛、精力旺盛时，让我们推车好像让我们憋尿一样。</p>
+<p>任性的我们自顾自把“压后”的任务推来推去，却忘了考虑妹子的感受。</p>
+<p>那天是第几天来着？我们即将要去征服第一座海拔五千米以上的高山——东达山。出发前妹子终于“不堪其辱”，说我们都嫌弃她，跑去路边拦车子了。老金飞果然是个纯情的汉子，毅然将婧哥拉了回来，担起了那天“压后”的使命。可我记得老金飞在昨晚还打算“离开队伍去遇见未知”来着，一见着队友受委屈，还是照顾起队友来。其实我想说，英雄难过美人关啊。</p>
+<p>至于头顶主角光环的老秦，那几天贵体不安，停在前一站休养了。</p>
+<p>（4）<br>
+如此描述，好像显得我特么真不是男人一样。君不见 bingo 还优哉游哉抽着烟宣扬自己推车王的称号咧！</p>
+<p>看来得讲些冒险的经历，让你们见识见识川藏骑士的真本色！</p>
+<p>去到相克宗村那天下午，我没有跟队友混在一起，独自慕名前往布珠民居了，想见识见识传说中美丽的“三公主”，并停留一天。</p>
+<p>第二天晚上，婧哥一帮人打着手电筒刻意找上门来，跟我说明天的路不好走，全在高海拔地区，而且天气很糟糕，搭车吧！</p>
+<p>我以为这只是开玩笑。推车是值得的，照应同伴。搭车？门都没有！他们也以为我是在开玩笑。</p>
+<p>第二天，十人队伍只有一半人选择骑车前往下一站，令我意外的是辉哥也在其中，他明明第一次骑行，居然也有如此执念。那天，海拔倒是没影响，但我们的确是与大自然搏斗，穿行风雨中。大家都没准备太好的防寒手套，而那雨水极冷，冻得双手生疼；雨里夹着冰雹打在头盔上啪啪作响，你敢抬头？大风逆着人刮来，以至于再陡的坡还得靠踩踏维持高速。到了平路，风阻更是明显到没人性，简直就像捏了刹车！</p>
+<p>但逢着没下雨的路段，我与高富帅（金广）依旧玩得很开心。见着大草原上的马儿不忘挑逗一番，争先合影。上到垭口，还得拍照留念，不然那些坡岂不是白爬？自驾游的先生女士们也赞赏我们，抢着合影。</p>
+<p>那天五人中最猛的居然是辉哥，他可牛逼了，在红龙乡挨冷等了好长时间。反观之前在路上等我和金广的老金飞似乎萎了，落在后面。</p>
+<p>气温绝对不超过 5 摄氏度，全身湿透的老秦、高富帅、辉哥还有我实在冷得受不了，不得不靠运动来克服寒冷，便没有再等待老金飞了。</p>
+<p>而红龙乡到理塘那段路的逆风与冰雨更甚，借用靖哥的话来说，“简直了！日了狗了！”</p>
+<p>我不得不在此感谢刚进理塘时遇到的那家店铺老板娘，不仅施舍热水、面包，更是帮我打了电话联系队友。那天中午，我只吃了馒头还有高富帅分享的香蕉与牦牛肉。</p>
+<p>在我到达理塘邂逅客栈的那一刻，看到强子与婧哥热情的呼唤，“阿俊你终于到了······”，而 bingo 也是热心帮我抬行李上楼······不说假话，当时可感动了。</p>
+<p>另外四人感觉如何我不知道。那一天，我的肉体几乎是崩溃的，但我的精神却无比实在。正如老秦所言，”克服！克服！“</p>
+<p>······</p>
+<p>（5）<br>
+大家都称金广为”高富帅“，但除开舍得花钱这点，他其实是个 24K 纯屌丝。</p>
+<p>刚上路那几天，看他那精良的装备，充足的干粮、水果，豪华的住宿，的确让人怀疑这山西小伙家里不会是卖煤矿的吧？</p>
+<p>“你猜？”高富帅会露出标志性的一口白牙跟你打趣。</p>
+<p>高富帅从来不和我们一起挤青年旅馆，无论标准单间价格多贵，他每晚都要享受。还敢在我面前自称“单间屌丝”，那我岂不是成了“青旅乞丐”？队友们戏称，高富帅只怕每天在单间里进行军演打飞机咧。</p>
+<p>别看高富帅生活如此奢华，却也有着朴实的人文情怀。每到一个新地方，他都会拉人抑或独自去逛街，美其名曰感受当地人们的生活风俗。但我们怀疑，他只是为了去购买一大堆干粮、水果以便路上享受罢了。</p>
+<p>高富帅就是高富帅，任性。他每天都比我们晚一两个小时出发，还总是能在最后追上。每当我压后，在半路肚子饿时，都期待他快点到来。</p>
+<p>“学长，我要吃水果······”婧哥抓住他的车头。<br>
+“高富帅，牦牛肉呢？”我抓住他的车位。</p>
+<p>结果总是收获不菲。屡试不爽。</p>
+<p>有好几次，我是和高富帅一起上路的。</p>
+<p>和高富帅骑车是最放纵的。我们老是挑衅对方来竞速，总是斗嘴贬低对方，把“走着瞧！”挂在嘴边。但看到好的风景，也会停下来帮对方拍照。但他的拍照技术和他的卡片机一个水平。</p>
+<p>“看我甩了你！”</p>
+<p>“你的耐力不如我！”</p>
+<p>“一上坡就萎的萎男！”</p>
+<p>“别走那么快，哎呦，刚吃饱骑不动，等我消化消化······”</p>
+<p>“一口气干上去！”</p>
+<p>“又拉了一车尸体。”</p>
+<p>“这烂车子！下次换挑战者 900 来！”</p>
+<p>“分分钟钟甩了那些娘炮！”</p>
+<p>“好想吃鱼香肉丝啊。”</p>
+<p>“牦牛肉干没了，最后几包我要留着上坡吃的！”</p>
+<p>“走，买酸奶去！”</p>
+<p>······</p>
+<p>上面的话，有些他说过，有些我说过，有些两个人都说过。</p>
+<p>每次他领先，我追上来时便会喊道，“高富帅，萎啦？单间屌丝！”</p>
+<p>“唉，小屌丝跑这么快啊······”他笑着露出一口白牙。</p>
+<p>“看到那个坡没有？那就是我甩你的地方。”</p>
+<p>“······”</p>
+<p>结果，我两算是各有胜负，但他的耐力的确比我更强。</p>
+<p>要说队伍里最享受这趟旅行的，莫过于推车王 bingo。第二便数这高富帅金广了。但他总是在我们面前吐槽没人关心他，都半个月没动态了也没人发条信息来问候一下，那些说说与朋友圈也没人评论点赞。但他也不看看自己发的照片，全是杂草乱石野树，毫无审美价值，活该啊。</p>
+<p>所以说，熟人才知道，他就好像自己的微信昵称一般——“没人搭理的老丧尸”。但在路上，他也是“骚气骑行队”的活宝一枚，共同欢笑。</p>
+<p>（6）<br>
+东南大学五位“凶神恶煞”，我已经提起过婧哥、老秦、老金飞、高富帅，我是不是把谁忘了？</p>
+<p>没错，真相只有一个！那家伙就是含蓄、矜持、内敛、低调的大闷骚——小朱。就连“小朱”这个称呼，我也是起码一个星期以后才确认的。特么能怨我吗？队里那么多逗比，你在我面前闷骚，不牺牲点自己的节操当然入不了俺的法眼。</p>
+<p>说起小朱，就勾起我关于毛垭大草原那片花海的回忆。粉红粉红的球状野花一直延伸到远处的雪山脚下，美丽极了！可惜，只有我和小朱惺惺相惜，很有默契地停下来拍照留念。我们站着拍、坐着拍、抱着拍、给自行车拍、躺着拍，还差点躺在了牛屎上面，晦气！</p>
+<p>有小朱的回忆，莫过于拍照。</p>
+<p>有一次我们在海子山垭口之后的草原上休息，看到远处一藏族姑娘单独蹲在那儿，是赏花吗？这画面多有意境，赶紧抓拍！直到之后，我才醒悟，人家当时说不定正在小便呢？这在荒郊野岭是很正常的。幸好拍照当时不远处的藏族爷们并没有注意到，不然还不被碎尸万段？</p>
+<p>也不知道小朱到底有没有想到这个问题，当时他先溜了，我却还无知地与下一位来人，老金飞，坐在草地上谈天说地，聊聊政治，展望未来。</p>
+<p>（7）</p>
+<p>几只秃鹫在北边的天空盘旋，继而俯冲到了草原上。老金飞像个孩子一般朝秃鹫的方向疾走而去。看着他渐远的身影，老金飞总给我一种他在追寻什么的感觉。他应该是抱着什么想法而来的。</p>
+<p>记忆里最深刻的是旅途刚开始那段，他总是给我们留下的背影。是的，一开始好几天，他总是走在最前头，总是首先到达目的地，订好旅馆等我们。因此，大家顺理成章称他为队长，而他亦勇于承担了相应职责。</p>
+<p>但后来，离开教授山庄那天，他的状态似乎很差，提不起劲来。那天晚上，他向我倾诉，这并不是他想要的旅行，他觉得与我们太熟悉了，找不到“遇见未知”的感觉。老金飞萌生了“离队”的念头。我劝他不成，便反过来支持他，欲以激将法把他留住，不见效果。但第二天的事情前面说过了，还是妹子的情绪管用。</p>
+<p>到了拉萨，有一天晚上跟老金飞出去逛。我们去了藏族人家开的茶馆喝甜茶、吃藏面，兴致极高。我们路过藏族服饰一条街，考虑要不要给婧哥买一套？我们随信徒转了大昭寺两圈，还同时去了小昭寺。最后趁华灯初上，买了超酸超骚的手工酸奶以及德克士鸡腿堡，我们两人坐在布达拉宫广场的路灯下缅怀历史的遗彩。我感觉，他心里藏着很多想法。</p>
+<p>在教授山庄时可见一斑。老金飞一个人跑到河谷下去发呆，搞得我和婧哥怕他想不开跳下去喂鱼，便守在河的上游用石头打了好久水花，直到雨开始下······</p>
+<p>（8）</p>
+<p>其他人来来去去，分分合合。大多数时候，在旅馆里聚首的人除了东大五人众，还有龟仙人强子，推车王 bingo 以及辉哥还有雪辉。我与这九位伙伴在一起度过了旅途中最悠长的时光。</p>
+<p>我们一起在路边开西瓜，因分享而快乐。我们一起下馆子，大快朵颐。我们睡一个房间，温暖安心。我们聊各自经历，感同身受。我们一起“掼蛋”，打发闲暇时间。我们欢呼雀跃、紧紧相依，要留住意气飞扬的日子。我们直上山巅，相互等待，要一起拍照留念·······</p>
+<p>那时，川藏线上有一个”骚气的骑行队”，很少有人知道，但我们却想忘都难。是什么让天南地北的人走在一起？每个人心中有自己的答案。</p>
+<p>（8）<br>
+你认为我们的旅程从此就是一帆风顺的了吗？太天真了！</p>
+<p>借用马基雅维利的一句名言，“追求梦想的人们啊，已经付出就要准备付出得更多。”</p>
+<p>雪辉在下海子山时被大卡车蹭倒下坡，靠自驾游的司机帮助重新爬了上来；航怀是一开始队里的朋友，冲得比我们快，却因严重高反无奈归去；婧哥在下怒江七十二拐时也出了事故，听老金飞说是眼里进了沙子，不慎摔车，膝盖重伤，抱憾而归；我自己在下东达山时，又遇到了冰雨，双手疼痛难耐捏不紧刹车，急转弯时差点冲到对面大卡车的轮胎底下去；老秦在那次风雨行进后也是大病，得暂停修养；高富帅在接近拉萨的前几站，收到家里的信息，也得回家，放弃了接下来的路程······</p>
+<p>留下“······”，是不敢保证自己了解所有人经历的所有困难。我只想说，愿上天眷顾所有意志坚定的人们。</p>
+<p>从左贡开始，我就比其他队员先走了一步，单飞了。那完全是另一种体验。</p>
+<p>（9）<br>
+单飞前一天是在东达山遇上冰雨那一天，我是和高富帅一起下山的。实在受不了那寒冷，我们钻进了路边小卖部，赖在火坑边不走了。等了好几个小时，雨才变小。烤火当时用热水冲了两杯香飘飘奶茶，那温热香甜的暖流，真是雪中遇火般美妙。</p>
+<p>但真正雪中遇火的是走在后边的老金飞和婧哥，两人在东达山垭口遇上下雪，又在某个桥洞遇上了用自带火炉烤火的骑友，后来还受到善良藏民的款待。吉人自有福缘。</p>
+<p>冲下东达山，趟过烂泥路，甩了高富帅，很狼狈地到了左贡。</p>
+<p>老规矩，先到达的龟仙人他们已经帮我订好了床位，而高富帅当然是找舒适的单间去了。</p>
+<p>吃一堑长一智。当天晚上去逛街买了防寒手套，但之后从没用过。路过银行，想起好久没查余额，查了以后却是晴天霹雳啊！这样下去，自己的积蓄到拉萨连回家的车票都买不起了。（我也不得不坦白，最后回家的车票的确是靠我哥买的，真是失败······）</p>
+<p>真羡慕某些掌上明珠，直接带着老爸的工资卡出来混。相比之下，人家是奉旨成婚的文成公主，而我像带小燕子私奔的落魄五阿哥······旅行真的是一种高消费行为啊，同志们！</p>
+<p>“你们慢慢来吧，我先走了。”当队伍打算在当地休整一天时，我和高富帅却继续上路前往下一站。</p>
+<p>一路上当然是习惯性地互相抱怨，互相贬低对方实力，互相追赶对方身影。其实并无芥蒂，也不在乎孰强孰弱，只是已习惯如此打闹，高兴就好。</p>
+<p>再后来，嫌攻略太婆妈，于是打算每天骑到天黑前，再找住宿，管它是城镇抑或山村。如此，三天走完两天的路，把高富帅给甩了。</p>
+<p>（10）<br>
+单飞，心态全变了。不再与人热情招呼，只想孤僻地前进、前进、再前进！潜意识里，“结交了骚气骑行队的朋友已经够了！”</p>
+<p>注意力更集中了，一心只想全力挑战路程，一意只欣赏寂静的风光。不用花心思照顾旁人感受，身边并无旁人。也很少想与其他骑士攀谈，有空就多看看雪山，多多感受那山上野风。无人同行，想一直骑多久就骑多久，再累也可以折磨自己。饿了就吃，吃什么都随便。想休息就休息，躺路边草地睡个午觉也无妨。下坡就冲，有多快冲多快。快天黑了就赶，赶到哪儿有床就住，不论条件·····</p>
+<p>骑行于国道 318 的时光，前一半欢乐温暖，接下来的一半，自由烂漫!</p>
+<p>下怒江七十二拐，经过农田，不忘捡一支青稞回去送人；过波密密林，遍地松子，也忍不住拾几颗回去作纪念；玩心忽起，便折一根野草吊在车位，有如尾巴摇曳，“小屌丝”更像一匹驰骋的骏马了；为了看“羞涩”的南加巴瓦峰全景，静静在海拔 4270 米的色季拉山垭口坐望七个小时也不觉烦躁；见人就超车，我虚荣，我快乐；被人超车也一笑带过，出来混总是要还的；任他人在房里叽叽喳喳、呼朋引伴，我静静看路上拍的照片照片；我可以在早上用八码的速度漫游，因为尼洋河的绿水迷人，河边的麦子黄了；也可以在黄昏时用三十码的速度朝着夕阳飞奔，再不赶路天就要黑啦！</p>
+<p>一群人，该怎样就怎样。一个人，想怎样就怎样。</p>
+<p>（11）<br>
+但这不代表我接下来就没有人缘了。说来说去，还是说回路上的人。因为大自然美丽的风光啊，已经被保存在手机相册中。但生活中可爱的人们，也应该留下一些难忘的故事。</p>
+<p>在此，我从来就无意分享一份旅行攻略，我更想记录一段唯恐遗忘的时光。</p>
+<p>那天，当我以 30 码的速度赶到 时，自我感觉真是超好！ 在任何攻略上占据过停宿的地位，也只有一家业余旅馆，还停电，也没热水洗澡，更不提供泡面、多种饼干以外的食物。但就在那家旅馆，我还是遇到了俩重庆哥们，也是从鲁朗骑过来的，比我快三个多小时。又有另一哥们，从青海省西宁市骑行至此，要沿着我来时的路回成都。如此，“你还有什么好骄傲的？”</p>
+<p>但我觉得人最幸运的也莫过于此，在沾沾自喜不久后认识了更厉害的人。既享受了虚荣带来的快感，又受到了山外有山、人外有人的教训。这样，我可以去攀登更高的山，超越更强的人······</p>
+<p>我发现了一个现象，我在一群人里快乐无忧，一个人时便多愁善感不少。</p>
+<p>出了 便是 ，在那吃炒饭。一位食客与我搭讪，聊着聊着，才知道他是当地官员，还很好心地帮我买了单，人生第一次受到了政府官员的款待。</p>
+<p>色季拉山山垭口，我正望着南加巴瓦峰出神，一位藏族大叔正在一旁牵着罕见的白牦牛做合影的生意。突然，一位自驾游大叔招呼我过去喝茶。他可真是享受，随车带着茶具与炊具，见到美丽的风景就招呼他人“坐而论道”。</p>
+<p>大叔还在路上捡了个义工妹子，那妹子去看鲁朗林海，错过了回拉萨的大巴。她此时见大叔优哉游哉的“仙人模式”，担心下午赶不回客栈。</p>
+<p>“你放心吧！别想那么多！”</p>
+<p>“我就最爱玩的了，你跟我比那些旅游团强多啦！是你运气好啊！”</p>
+<p>······</p>
+<p>大叔有一句每一句地安慰着妹子，同时跟我说话。“我就想遇到你们这些骑车的，过来一起喝喝茶，吃吃东西。你看这雪山多好啊！其他地方看不到！”</p>
+<p>这让我想起婧哥曾经在垭口上一个人站着，孤零零的样子，小姑娘不容易啊！于是自驾游的人过来作贴心鼓励，又往她怀里塞饮料作为支持。而之后我们毫不客气地分享着婧哥的东西，还一边取笑，“婧哥，你以后上到垭口就这样，别跟我们站一起，一个人在那边······”</p>
+<p>在海子山垭口上，老金飞也和一帮自驾游的大叔聊得热乎，那帮“壕”便搬下整箱特仑苏、整袋香肠、香蕉打赏我们。大家一起喊啊、笑啊、跳啊合影，我们都快喘不过气来。无比开心。</p>
+<p>在鲁朗，有著名的石锅鸡。本来我一个人当然吃不起，但居然在旅馆遇到一帮自驾游，其中一个叫东哥是和我一个镇上的，没有比这更有缘分了。我俩用久违的家乡话吹起水来，没有比这更亲切了。晚上一起搓了一顿石锅鸡。透过他，我还知道了一个叫做“山地志愿者”的组织。东哥作为一名救援志愿者，踏遍了广东的山山水水，去过尼泊尔抗争救灾，也进进出出了好几次西藏。我辈楷模。</p>
+<p>下怒江七十二拐前，我在拍照，回头发现行李上不知不觉多了两瓶红牛。放心，并没有过期。</p>
+<p>也难忘八一市的龙门客栈，住房打我 3 折不说，还请我吃了顿丰盛晚餐······</p>
+<p>类似这些感动，路上发生过不少。你的方式决定了你的待遇，真是“四海之内皆兄弟”的和谐路程啊！</p>
+<p>······</p>
+<p>（12）<br>
+梅婆婆今年七十岁，头发全白了。她一个人从广州飞来林芝旅游，还要去拉萨，去纳木错。她住不惯儿子给她订的酒店，跑来跟我挤房间。遇上她，是莫大的福气，陪她游玩了一天也是难能可贵的经历。全靠她，我才有份进了当地军营，感受了一把铁血之风。</p>
+<p>路上五、六十岁骑车的老人还真不比妹子少。一开始我们队伍里就有一位老爷子，早甩了我们好几天的路程了。业拉山上，我居然跟一队老人骑士团不相上下，也不知道一帮老骨头哪来的力气？实在佩服。所谓再不疯狂我们就要老了，只是某种人的无病呻吟罢了。老而疯狂，有何不可？哪来疯狂的正当年龄啊？只是缺乏勇气与决心！</p>
+<p>斯宾格勒说得好，“没人希望被关在笼子里，问题是——给你一片没有边际的天空，你是不是真的敢要？”</p>
+<p>······</p>
+<p>（13）<br>
+除了志同道合的旅人，我也结交了藏族朋友。</p>
+<pre><code>村，国道318路边仅有五个房子的小村庄，其中三个房子是旅馆老板的。我那晚睡在新起尚未装修完的小木屋里，对面是无名雪山，早上一睁眼便能欣赏日照金山。同时，也有一个摩托车队在此处投宿，其中一个同龄人居然开着小绵羊一路从成都过来了，使我又接触了一种新的旅行方式。
+</code></pre>
+<p>你以为国道周边藏族年轻人的生活还那么传统吗？老板的女儿上高三了，用的是 iPhone6，会主动加你微信，会跟你说她最喜欢的明星是黄晓明，还说他演的神雕侠侣很好看，她还会问你看不看快乐大本营······而那一口流利的普通话，虽有口音，却绝不影响交流。</p>
+<p>后来在米拉雪山脚下的 村，又认识到了一位藏族朋友，高中的时候和我们一样上网玩游戏，现在也打 lol。他叫旺久，他想学粤语。他在旅馆门口推车卖些小玩意。我看到他摆放的古朴首饰盒里居然绘有古代春宫图，从没见过，极为好奇。我和他一聊起来极为投机，还一起进了茶馆。</p>
+<p>他说，他觉得他们的信仰不是迷信。他说，他想去印度拜拜。他说，加个微信好友吧。他说，我给你写一句藏文的扎西德勒，有好几种格式的。他说，既然聊了那么久，我送你一个牛头吧。他说，一路顺风，朋友！</p>
+<p>我问他想不想去外面看看。他说迟早会的。</p>
+<p>······</p>
+<p>在拉萨，游览哲蚌寺时，由于不懂规矩，不知道怎么玩，便搭讪了一位藏族姑娘，求带。她叫仓诀，在天津上大学，她姐姐也是。她们姐妹跟爸妈一起来拜佛。</p>
+<p>那边拜佛的规矩是，转山转水转佛堂，供钱添油献哈达等等。而那些佛像边很多挂着真人照片，是为昔日活佛。仓诀的母亲握着一叠散钱，路上遇到需要的人，都毫不吝啬地施舍。</p>
+<p>一家人很好心地请我吃了美味的藏餐，又热心送我上公交车。当我客气起来时，大叔说，“我们有缘分！信佛的就讲究这些······”</p>
+<p>当然我遇过不止这些当地人，但大多数都不过擦肩而过抑或泛泛几句招呼，并无诉说价值。</p>
+<p>但是我看到这里很多人生活富足，一头牦牛值一万多人命币，还遑论那些野生的珍贵虫草。这里很多人见识丰富，使用和你一样的信息渠道与平台，你认为你知道的别人会不知道吗？这里更多的人心灵安定，匍匐佛前，任尔风雪。</p>
+<p>那些在我没来之前听到的东西，居然有不少谣言。抑或自以为他人是井底之蛙的家伙们，往往跳不出自己身边的那口井。</p>
+<p>······</p>
+<p>（14）<br>
+难免有人会问，“你为什么来骑川藏线？”我听过一些，不敢说是答案，只能算回应的话。</p>
+<p>抛开琐事，考验自己，证明自己可以坚持。婧哥。</p>
+<p>“跨越千山万水，只为了妹妹的······”龟仙人。</p>
+<p>“我只是觉得我该来。”雪辉。</p>
+<p>“我是来吃苦的。”老秦。</p>
+<p>“来喝酸奶。”高富帅。</p>
+<p>“很难回答啊，这个问题。”老金飞。</p>
+<p>······</p>
+<p>“为了看风景啊。”这是我的回答。</p>
+<p>但我去到风景中，又不觉得风景有多棒。</p>
+<p>摄影师天堂新都桥，看第一眼觉得好美好有草原风光，看第二眼咋都这样啊？看第三眼，好没劲啊······玉岭、贡嘎等众多雪山也留不住翻滚的车轮，至于最爱的南加巴瓦，看久了也不再是壮美，只是一份期待。怒江七十二拐，比起观赏还是下坡更爽！波密原始森林，和我家那边的老树林感觉不远。还有林芝风光、鲁朗林海、各大江大河、青山碧湖、冰川险崖、人文胜景、宗教古迹。</p>
+<p>身在其中，不过尔尔。</p>
+<p>那些风景之所以想想都迷人，实在是身边的事物太过糟糕了。不然，何必远方？</p>
+<p>如今看不到了，回首那天、山、雪、河、草、木、花、石、雾、云、庙、经、牛、马、风等等所有所有路上的存在，却魂牵梦萦，恨不得插翅飞去！</p>
+<p>······</p>
+<p>（15）<br>
+莫回首，太匆匆。无论我怎么写，都感觉不够，都有更多画面冲出脑海。久违的那些人儿仿佛幽灵出现在我身后，一边看着我下笔，一边提醒我，“阿俊，你忘了那天了吗？我们······”</p>
+<p>我听见婧哥在呼唤，“狗日秦！”。</p>
+<p>老秦叫来了老金飞。</p>
+<p>老金飞拉来了高富帅。</p>
+<p>高富帅不忘唤上小朱。</p>
+<p>小朱找到了龟仙人。</p>
+<p>龟仙人打电话问，“bingo 你到了没？”</p>
+<p>Bingo 却用粤语喊道，“辉哥，快滴行啦！”</p>
+<p>辉哥说，“又没人听你讲粤语，装什么大尾巴狼？让阿霏抽完这根烟！”</p>
+<p>阿霏表示怕雪辉出事啊，等等他。</p>
+<p>雪辉叫道，“小广东，搞什么飞机啊？”</p>
+<p>我只能说，“冤枉啊，婧哥骑不动了！”</p>
+<p>······</p>
+</article>
+      </main>
+    </div>
+    <button class="toc-fab" aria-label="目录"></button>
+    <div class="toc-overlay" aria-hidden="true"></div>
+    <button type="button" class="vp-back-to-top-button" aria-label="返回顶部">
+      <span class="vp-scroll-progress" role="progressbar" aria-labelledby="loadinglabel" aria-valuenow="0">
+        <svg><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="0 151"></circle></svg>
+      </span>
+      <div class="back-to-top-icon"></div>
+    </button>
+    <script>
+      (function(){
+        const links = Array.from(document.querySelectorAll('.toc-list a'));
+        const headings = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        function onScroll(){
+          let activeIndex = 0;
+          for (let i=0;i<headings.length;i++){
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= 100) activeIndex = i;
+          }
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[activeIndex]) links[activeIndex].classList.add('active');
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // copy buttons (offline)
+        document.querySelectorAll('pre > code').forEach(code => {
+          const pre = code.parentElement;
+          const raw = code.textContent || '';
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(raw); btn.textContent = '已复制'; setTimeout(()=>btn.textContent='复制', 1200); } catch(e) { btn.textContent='失败'; setTimeout(()=>btn.textContent='复制', 1200); }
+          });
+          pre.style.position = 'relative';
+          pre.appendChild(btn);
+        });
+
+        // ensure images use lazy loading
+        document.querySelectorAll('img').forEach(img=>{ if(!img.loading) img.loading = 'lazy'; });
+
+        // mobile TOC toggle (top-right hamburger)
+        const tocFab = document.querySelector('.toc-fab');
+        const tocOverlay = document.querySelector('.toc-overlay');
+        if (tocFab) {
+          const closeToc = () => document.body.classList.remove('toc-open');
+          tocFab.addEventListener('click', () => { document.body.classList.toggle('toc-open'); });
+          links.forEach(a => a.addEventListener('click', closeToc));
+          if (tocOverlay) tocOverlay.addEventListener('click', closeToc);
+        }
+
+        // back-to-top with progress ring
+        const backBtn = document.querySelector('.vp-back-to-top-button');
+        const circle = document.querySelector('.vp-scroll-progress circle');
+        const PROG_LEN = 2 * Math.PI * 24; // r=24
+        function updateProgress(){
+          const st = document.documentElement.scrollTop || document.body.scrollTop;
+          const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const p = Math.max(0, Math.min(100, h ? (st / h) * 100 : 0));
+          if (backBtn) backBtn.querySelector('.vp-scroll-progress').setAttribute('aria-valuenow', p.toFixed(2));
+          if (circle) circle.setAttribute('stroke-dasharray', ((p/100)*PROG_LEN) + ' ' + PROG_LEN);
+        }
+        updateProgress();
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        if (backBtn) backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
+  </body>
+</html>
+
+

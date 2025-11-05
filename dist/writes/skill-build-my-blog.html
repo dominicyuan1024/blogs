@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>从零搭建一个静态博客系统 - Dominic's blog</title>
+  <link rel="icon" type="image/x-icon" href="../pitaya.svg">
+  <style>
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --pitaya-pink: #cc2a41;
+  --pitaya-green: #2bbc8a;
+  --pitaya-white: #f8f8f8;
+  --pitaya-dark: #2c2c2c;
+  --pitaya-light-pink: #ffe6ef;
+  --pitaya-light-green: #e8f5e8;
+}
+
+.link {
+  cursor: pointer;
+  background-image: linear-gradient(transparent, transparent 5px, #22272a 5px, #22272a);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.link:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+}
+
+html {
+  border-top: 2px solid rgb(34, 39, 42);
+}
+body {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 48rem;
+  margin: auto;
+  color: rgb(34, 39, 42);
+  font-family: "Menlo", "Meslo LG", monospace;
+  text-rendering: geometricPrecision;
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-image: url(pitaya.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nick-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+  line-height: 1.2;
+}
+
+.best-flow-title {
+  background: linear-gradient(135deg, var(--pitaya-pink), var(--pitaya-green), var(--pitaya-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: gradientFlow 2s linear forwards;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 250% 0;
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background-position: 0% 0;
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+.nav ul {
+  display: flex;
+}
+.nav li {
+  border-right: 1px dotted;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.nav a:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.nav li:first-child {
+  padding-left: 0;
+}
+.nav li:last-child {
+  border-right: none;
+}
+.h1 {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--pitaya-pink);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+.projects li,
+.writes li {
+  margin-bottom: 1rem;
+}
+.projects li:last-child,
+.writes li:last-child {
+  margin-bottom: 0;
+}
+.writes time {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.writes a {
+  margin-right: 1rem;
+}
+.writes .category {
+  background-color: var(--pitaya-dark);
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-transform: capitalize;
+  opacity: 0.2;
+  font-size: 0.4rem;
+  display: none;
+}
+
+.category.life {
+  background-color: var(--pitaya-pink);
+}
+.category.skill {
+  background-color: var(--pitaya-dark);
+}
+.category.english {
+  background-color: var(--pitaya-green);
+}
+.writes .summary {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.footer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+@media (max-width: 960px) {
+  .footer {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+  </style>
+  <style>
+/* Minimal article typography inspired by Typora SprIng */
+:root {
+  --text: #000;
+  --bg: #fafafa;
+  --primary: #2bbc8a;
+  --accent: #cc2a41;
+  --muted: #666;
+  --code-bg: #f6f8fa;
+  --border: #e5e7eb;
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--text);
+  max-width: 980px !important;
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Inter, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+}
+
+.header {
+  margin-left: 13rem;
+}
+
+main.article {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+main.article h1,
+main.article h2,
+main.article h3,
+main.article h4,
+main.article h5,
+main.article h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.6em 0 0.8em;
+}
+main.article h1 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+main.article h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+main.article h3 {
+  font-size: 1.25rem;
+}
+
+main.article p {
+  margin: 0.9em 0;
+}
+main.article a {
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.35);
+}
+main.article a:hover {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+}
+
+main.article ul,
+main.article ol {
+  padding-left: 1.25rem;
+  margin: 0.8em 0;
+}
+main.article li {
+  margin: 0.3em 0;
+}
+
+main.article blockquote {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  color: var(--muted);
+  border-left: 4px solid var(--primary);
+  background: #f9fbfa;
+  border-radius: 4px;
+}
+
+main.article pre code {
+  background: transparent;
+  padding: 0;
+}
+main.article code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+main.article pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+/* Wrap long lines in code to avoid horizontal scrolling */
+main.article pre,
+main.article code {
+  white-space: pre-wrap; /* wrap long lines */
+  word-break: break-word; /* break long tokens */
+  overflow-wrap: anywhere; /* allow breaking anywhere if needed */
+}
+main.article pre {
+  overflow-x: hidden;
+}
+
+/* token fallback colors (keep in sync with template inline) */
+.token.keyword {
+  color: #d73a49;
+  font-weight: 600;
+}
+.token.string {
+  color: #032f62;
+}
+.token.number {
+  color: #005cc5;
+}
+.token.comment {
+  color: #6a737d;
+  font-style: italic;
+}
+main.article pre .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: var(--text);
+}
+main.article pre .code-copy-btn:hover {
+  background: #f0f0f0;
+}
+
+main.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+main.article th,
+main.article td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+}
+main.article thead th {
+  background: #f7f7f9;
+}
+
+main.article img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main.article hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+main.article > p > small {
+  color: var(--muted);
+}
+
+/* layout with sidebar toc */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.doc-toc {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  overflow: auto;
+  padding-top: 2rem;
+}
+.toc-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.toc-list,
+.toc-sub {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.toc-item {
+  margin: 0.25rem 0;
+}
+.toc-sub {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.25rem;
+}
+.toc-list a {
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.2);
+}
+.toc-list a.active {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+  color: var(--accent);
+}
+
+/* TOC toggle button - hidden by default on desktop */
+.toc-fab {
+  display: none;
+}
+
+@media (max-width: 960px) {
+
+  body {
+    padding-left: 1rem !important;
+  }
+  /* tighten global paddings */
+  .doc-layout {
+    padding: 0 0.5rem;
+    gap: 16px;
+  }
+  .header {
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+  main.article {
+    padding-left: 0.25rem;
+    border-left: none;
+  }
+
+  /* article spacing */
+  main.article h1 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.6rem;
+  }
+  main.article h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  main.article h3 {
+    margin: 0.75rem 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  main.article p {
+    margin: 0.6rem 0;
+  }
+  main.article ul,
+  main.article ol {
+    padding-left: 1rem;
+    margin: 0.6rem 0;
+  }
+  main.article li {
+    margin: 0.25rem 0;
+  }
+  main.article blockquote {
+    margin: 0.6rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+  main.article pre {
+    padding: 0.75rem;
+  }
+  main.article table {
+    margin: 0.6rem 0;
+    font-size: 0.95em;
+  }
+  .h1 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* nav spacing */
+  .nav li {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+  }
+  .doc-toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
+    max-width: 80vw;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+    overflow: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  body.toc-open .doc-toc {
+    transform: translateX(0);
+  }
+  .toc-fab {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1100;
+    cursor: pointer;
+  }
+  .toc-fab::before {
+    content: "☰";
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text);
+  }
+}
+
+/* TOC overlay for mobile: click to close */
+.toc-overlay {
+  display: none;
+}
+@media (max-width: 960px) {
+  .toc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    display: none;
+  }
+  body.toc-open .toc-overlay {
+    display: block;
+  }
+}
+
+/* back-to-top floating button with progress ring */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: conic-gradient(var(--accent) var(--progress, 0%), #e9ecef 0%);
+  mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  -webkit-mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  z-index: 1100;
+}
+.back-to-top .arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--text);
+  transform: translateY(-2px);
+}
+
+/* Back-to-top button with progress ring */
+:root {
+  --back-to-top-c-bg: #fff;
+  --back-to-top-c-accent-bg: #2bbc8a;
+  --back-to-top-c-shadow: rgba(0, 0, 0, 0.08);
+  --back-to-top-c-accent-hover: #cc2a41;
+}
+.vp-back-to-top-button {
+  position: fixed !important;
+  inset-inline-end: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-width: 0;
+  border-radius: 50%;
+  background: var(--back-to-top-c-bg);
+  color: var(--back-to-top-c-accent-bg);
+  box-shadow: 2px 2px 10px 4px var(--back-to-top-c-shadow);
+  cursor: pointer;
+}
+@media (max-width: 959px) {
+  .vp-back-to-top-button {
+    transform: scale(0.8);
+    transform-origin: 100% 100%;
+  }
+}
+@media print {
+  .vp-back-to-top-button {
+    display: none;
+  }
+}
+.vp-back-to-top-button:hover {
+  color: var(--back-to-top-c-accent-hover);
+}
+.vp-back-to-top-button .back-to-top-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  position: relative;
+}
+.vp-back-to-top-button .back-to-top-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid currentColor;
+}
+.vp-scroll-progress {
+  position: absolute;
+  inset-inline-end: -2px;
+  bottom: -2px;
+  width: 52px;
+  height: 52px;
+}
+.vp-scroll-progress svg {
+  width: 100%;
+  height: 100%;
+}
+.vp-scroll-progress circle {
+  opacity: 0.9;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+  /* offline token styles */
+  .token.keyword{ color:#d73a49; font-weight:600; }
+  .token.string{ color:#032f62; }
+  .token.number{ color:#005cc5; }
+  .token.comment{ color:#6a737d; font-style: italic; }
+  </style>
+  <link rel="stylesheet" href="./highlight/github.min.css">
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(../pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#projects">程序</a></li>
+            <li><a href="../index.html#writes">文章</a></li>
+            <li><a href="../index.html#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <div class="toc-title"><a href="#article-top">从零搭建一个静态博客系统</a></div>
+        <ul class="toc-list">
+<li class="toc-item level-2"><a href="#为什么选择静态博客">为什么选择静态博客？</a></li><li class="toc-item level-2"><a href="#技术栈选择">技术栈选择</a></li><li class="toc-item level-2"><a href="#项目架构设计">项目架构设计</a></li><ul class="toc-sub"><li class="toc-item level-3"><a href="#目录结构">目录结构</a></li><li class="toc-item level-3"><a href="#核心设计理念">核心设计理念</a></li></ul><li class="toc-item level-2"><a href="#核心功能实现">核心功能实现</a></li><ul class="toc-sub"><li class="toc-item level-3"><a href="#1-markdown-元数据解析">1. Markdown 元数据解析</a></li><li class="toc-item level-3"><a href="#2-模板系统">2. 模板系统</a></li><li class="toc-item level-3"><a href="#3-目录生成与锚点定位">3. 目录生成与锚点定位</a></li><li class="toc-item level-3"><a href="#4-代码高亮">4. 代码高亮</a></li><li class="toc-item level-3"><a href="#5-移动端适配">5. 移动端适配</a></li><li class="toc-item level-3"><a href="#6-图片懒加载">6. 图片懒加载</a></li><li class="toc-item level-3"><a href="#7-代码复制功能">7. 代码复制功能</a></li></ul><li class="toc-item level-2"><a href="#构建流程">构建流程</a></li><li class="toc-item level-2"><a href="#本地开发服务器">本地开发服务器</a></li><li class="toc-item level-2"><a href="#特色功能">特色功能</a></li><ul class="toc-sub"><li class="toc-item level-3"><a href="#私有文章">私有文章</a></li><li class="toc-item level-3"><a href="#扁平化文件命名">扁平化文件命名</a></li><li class="toc-item level-3"><a href="#自动摘要提取">自动摘要提取</a></li></ul><li class="toc-item level-2"><a href="#部署">部署</a></li><li class="toc-item level-2"><a href="#总结">总结</a></li>
+</ul>
+      </aside>
+      <main class="article">
+        <h1 id="article-top">从零搭建一个静态博客系统</h1>
+        <p><small>2025-01-15 · skill</small></p>
+        <article>
+<h2 id="为什么选择静态博客">为什么选择静态博客？</h2>
+<p>在这个 JAMstack（JavaScript、API、Markdown）时代，静态博客有很多优势：速度快、成本低、SEO 友好、易于部署。相比于动态博客，静态博客生成后就是纯 HTML 文件，可以直接部署到 GitHub Pages、Netlify 等免费托管服务上。</p>
+<p>我选择自己搭建而不是使用现成的框架（如 Hexo、Jekyll），主要原因是希望完全掌控博客的样式和功能，同时学习构建系统的设计思路。</p>
+<h2 id="技术栈选择">技术栈选择</h2>
+<p>核心依赖只有三个：</p>
+<ul>
+<li><strong>markdown-it</strong>：将 Markdown 转换为 HTML</li>
+<li><strong>highlight.js</strong>：代码语法高亮</li>
+<li><strong>Node.js 原生模块</strong>：文件系统操作和 HTTP 服务器</li>
+</ul>
+<p>不使用构建工具（如 Webpack、Vite），所有功能都用原生 Node.js 实现，保持项目的轻量级和可维护性。</p>
+<h2 id="项目架构设计">项目架构设计</h2>
+<h3 id="目录结构">目录结构</h3>
+<pre><code class="hljs">blogs/
+├── writes/          <span class="hljs-meta"># Markdown 源文件</span>
+│   ├── life/       <span class="hljs-meta"># 生活类文章</span>
+│   ├── skill/      <span class="hljs-meta"># 技术类文章</span>
+│   └── english/    <span class="hljs-meta"># 英语学习</span>
+├── src/            <span class="hljs-meta"># 源代码和模板</span>
+│   ├── <span class="hljs-keyword">index</span>.template.html  <span class="hljs-meta"># 首页模板</span>
+│   ├── articles.template.html <span class="hljs-meta"># 文章页模板</span>
+│   ├── <span class="hljs-keyword">index</span>.css   <span class="hljs-meta"># 首页样式</span>
+│   └── article.css <span class="hljs-meta"># 文章页样式</span>
+└── dist/           <span class="hljs-meta"># 构建输出</span>
+    ├── <span class="hljs-keyword">index</span>.html  <span class="hljs-meta"># 生成的首页</span>
+    └── writes/     <span class="hljs-meta"># 生成的文章 HTML</span>
+</code></pre>
+<h3 id="核心设计理念">核心设计理念</h3>
+<ol>
+<li><strong>约定优于配置</strong>：文章按文件夹分类，文件名即 URL 路径</li>
+<li><strong>模板驱动</strong>：使用 HTML 模板 + 占位符替换，而非字符串拼接</li>
+<li><strong>构建时生成</strong>：所有内容在构建阶段生成静态 HTML，运行时零依赖</li>
+</ol>
+<h2 id="核心功能实现">核心功能实现</h2>
+<h3 id="1-markdown-元数据解析">1. Markdown 元数据解析</h3>
+<p>文章元数据支持两种格式：HTML 注释和 YAML Frontmatter。HTML 注释格式更直观，便于在 Markdown 编辑器中直接编辑：</p>
+<pre><code class="hljs language-markdown">&lt;!-- title: 文章标题 --&gt;
+&lt;!-- summary: 文章摘要 --&gt;
+&lt;!-- date: 2025.01.15 --&gt;
+&lt;!-- category: skill --&gt;
+&lt;!-- private: true --&gt;
+</code></pre>
+<p>解析器会逐行读取文件开头，匹配 <code>&lt;!-- key: value --&gt;</code> 格式的注释，提取元数据。如果某个字段缺失，会使用默认值：</p>
+<ul>
+<li>标题：优先使用元数据，否则提取第一个 H1 标题，最后使用文件名</li>
+<li>分类：优先使用元数据，否则使用父文件夹名</li>
+<li>日期：优先使用元数据，否则使用文件修改时间</li>
+</ul>
+<h3 id="2-模板系统">2. 模板系统</h3>
+<p>采用模板占位符的方式，将通用结构抽离到 <code>articles.template.html</code> 中，占位符包括：</p>
+<ul>
+<li><code>{{TITLE}}</code>：文章标题</li>
+<li><code>{{DATE}}</code>：发布日期</li>
+<li><code>{{CATEGORY_SUFFIX}}</code>：分类标签</li>
+<li><code>{{TOC}}</code>：目录 HTML</li>
+<li><code>{{CONTENT}}</code>：文章内容</li>
+<li><code>{{INDEX_CSS}}</code> 和 <code>{{ARTICLE_CSS}}</code>：分别注入首页样式和文章样式</li>
+</ul>
+<p>这样的设计让页面结构更清晰，修改样式时只需要编辑模板文件，所有文章页会自动更新。</p>
+<h3 id="3-目录生成与锚点定位">3. 目录生成与锚点定位</h3>
+<p>目录（TOC）的生成分为两步：</p>
+<ol>
+<li><strong>解析标题</strong>：使用正则表达式匹配 HTML 中的 H1-H3 标签，提取标题文本</li>
+<li><strong>生成锚点</strong>：将标题文本转换为 URL 友好的 slug（如&quot;从零搭建&quot; → “cong-ling-da-jian”），并作为 id 添加到标题标签上</li>
+</ol>
+<p>目录 HTML 采用嵌套的 <code>&lt;ul&gt;</code> 结构，根据标题层级（H1、H2、H3）自动缩进。同时实现了滚动监听（scrollspy），当前浏览位置对应的目录项会高亮显示。</p>
+<h3 id="4-代码高亮">4. 代码高亮</h3>
+<p>使用 <code>highlight.js</code> 进行服务端渲染（SSR），在构建阶段就完成代码高亮，而不是在浏览器中执行。这样做的好处是：</p>
+<ul>
+<li>首屏加载更快，无需等待 JavaScript 执行</li>
+<li>SEO 友好，搜索引擎可以直接看到高亮后的代码</li>
+<li>离线可用，不依赖 CDN</li>
+</ul>
+<p>高亮样式文件会被复制到 <code>dist/writes/highlight/</code> 目录，文章页通过相对路径引用。</p>
+<h3 id="5-移动端适配">5. 移动端适配</h3>
+<p>移动端的适配主要体现在两个方面：</p>
+<p><strong>目录导航</strong>：桌面端显示固定侧边栏，移动端转换为右上角的&quot;汉堡&quot;图标。点击图标时，目录从左侧滑入，点击外部区域或目录项时自动收起。使用 CSS 的 <code>transform: translateX()</code> 实现平滑的滑动动画。</p>
+<p><strong>返回顶部按钮</strong>：在右下角显示一个圆形按钮，包含一个进度环，显示当前滚动进度。进度环使用 SVG 的 <code>stroke-dasharray</code> 实现，通过计算滚动百分比动态更新。</p>
+<h3 id="6-图片懒加载">6. 图片懒加载</h3>
+<p>自动为所有图片添加 <code>loading=&quot;lazy&quot;</code> 属性。使用正则表达式匹配所有 <code>&lt;img&gt;</code> 标签，如果标签中没有 <code>loading</code> 属性，就自动添加。这样可以提升页面加载性能，特别是文章包含多张图片时。</p>
+<h3 id="7-代码复制功能">7. 代码复制功能</h3>
+<p>为每个代码块添加一个&quot;复制&quot;按钮，点击后使用 <code>navigator.clipboard</code> API 将代码复制到剪贴板。按钮使用绝对定位，位于代码块的右上角，点击后显示&quot;已复制&quot;反馈。</p>
+<h2 id="构建流程">构建流程</h2>
+<p>构建脚本 <code>build.mjs</code> 的执行流程：</p>
+<ol>
+<li><strong>清理输出目录</strong>：删除之前的构建产物</li>
+<li><strong>读取样式和模板</strong>：一次性读取 CSS 文件和 HTML 模板，避免重复 I/O</li>
+<li><strong>处理高亮样式</strong>：复制 highlight.js 的 CSS 文件到输出目录</li>
+<li><strong>遍历 Markdown 文件</strong>：
+<ul>
+<li>解析元数据</li>
+<li>检查 <code>private</code> 标记（如果为 true 则跳过）</li>
+<li>转换 Markdown 为 HTML</li>
+<li>生成目录和锚点</li>
+<li>应用模板生成最终 HTML</li>
+</ul>
+</li>
+<li><strong>生成文章索引</strong>：创建 <code>writes.json</code>，包含所有文章的元数据，供首页使用</li>
+<li><strong>生成首页</strong>：读取 <code>index.template.html</code> 和 <code>programs.json</code>，注入文章列表和项目列表</li>
+</ol>
+<h2 id="本地开发服务器">本地开发服务器</h2>
+<p><code>serve.mjs</code> 实现了一个简单的静态文件服务器：</p>
+<ul>
+<li>随机端口：避免端口冲突</li>
+<li>自动检测局域网 IP：方便在手机上预览</li>
+<li>SPA 路由支持：未找到的文件自动回退到 <code>index.html</code></li>
+</ul>
+<h2 id="特色功能">特色功能</h2>
+<h3 id="私有文章">私有文章</h3>
+<p>通过在 Markdown 文件开头添加 <code>&lt;!-- private: true --&gt;</code>，可以将文章标记为私有。构建时会跳过这些文件，不会生成 HTML，也不会出现在文章列表中。这对于草稿或未完成的文章很有用。</p>
+<h3 id="扁平化文件命名">扁平化文件命名</h3>
+<p>文章文件按目录组织，但生成的 HTML 文件名是扁平的。例如 <code>writes/life/bike-to-tibet.md</code> 会生成 <code>life-bike-to-tibet.html</code>。这样既保持了源文件的组织结构，又避免了输出目录的嵌套，URL 更简洁。</p>
+<h3 id="自动摘要提取">自动摘要提取</h3>
+<p>如果文章没有提供 <code>summary</code> 元数据，会自动从正文的第一段提取摘要。提取时会跳过代码块和 Frontmatter，只保留纯文本，并限制长度为 140 个字符。</p>
+<h2 id="部署">部署</h2>
+<p>使用 <code>gh-pages</code> 将 <code>dist</code> 目录部署到 GitHub Pages。一条命令即可完成构建和部署：</p>
+<pre><code class="hljs language-bash">npm run deploy
+</code></pre>
+<h2 id="总结">总结</h2>
+<p>这个静态博客系统的核心价值在于<strong>简单而强大</strong>。没有复杂的概念，没有臃肿的依赖，所有的功能都是通过原生 Node.js 和简单的字符串处理实现的。对于想要学习构建系统原理的开发者来说，这是一个很好的起点。</p>
+<p>未来可能的改进方向：</p>
+<ul>
+<li>支持 RSS 订阅</li>
+<li>添加搜索功能</li>
+<li>支持文章标签系统</li>
+<li>集成评论系统（如 Giscus）</li>
+</ul>
+<p>但在当前阶段，这个系统已经足够满足个人博客的需求了。</p>
+</article>
+      </main>
+    </div>
+    <button class="toc-fab" aria-label="目录"></button>
+    <div class="toc-overlay" aria-hidden="true"></div>
+    <button type="button" class="vp-back-to-top-button" aria-label="返回顶部">
+      <span class="vp-scroll-progress" role="progressbar" aria-labelledby="loadinglabel" aria-valuenow="0">
+        <svg><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="0 151"></circle></svg>
+      </span>
+      <div class="back-to-top-icon"></div>
+    </button>
+    <script>
+      (function(){
+        const links = Array.from(document.querySelectorAll('.toc-list a'));
+        const headings = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        function onScroll(){
+          let activeIndex = 0;
+          for (let i=0;i<headings.length;i++){
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= 100) activeIndex = i;
+          }
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[activeIndex]) links[activeIndex].classList.add('active');
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // copy buttons (offline)
+        document.querySelectorAll('pre > code').forEach(code => {
+          const pre = code.parentElement;
+          const raw = code.textContent || '';
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(raw); btn.textContent = '已复制'; setTimeout(()=>btn.textContent='复制', 1200); } catch(e) { btn.textContent='失败'; setTimeout(()=>btn.textContent='复制', 1200); }
+          });
+          pre.style.position = 'relative';
+          pre.appendChild(btn);
+        });
+
+        // ensure images use lazy loading
+        document.querySelectorAll('img').forEach(img=>{ if(!img.loading) img.loading = 'lazy'; });
+
+        // mobile TOC toggle (top-right hamburger)
+        const tocFab = document.querySelector('.toc-fab');
+        const tocOverlay = document.querySelector('.toc-overlay');
+        if (tocFab) {
+          const closeToc = () => document.body.classList.remove('toc-open');
+          tocFab.addEventListener('click', () => { document.body.classList.toggle('toc-open'); });
+          links.forEach(a => a.addEventListener('click', closeToc));
+          if (tocOverlay) tocOverlay.addEventListener('click', closeToc);
+        }
+
+        // back-to-top with progress ring
+        const backBtn = document.querySelector('.vp-back-to-top-button');
+        const circle = document.querySelector('.vp-scroll-progress circle');
+        const PROG_LEN = 2 * Math.PI * 24; // r=24
+        function updateProgress(){
+          const st = document.documentElement.scrollTop || document.body.scrollTop;
+          const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const p = Math.max(0, Math.min(100, h ? (st / h) * 100 : 0));
+          if (backBtn) backBtn.querySelector('.vp-scroll-progress').setAttribute('aria-valuenow', p.toFixed(2));
+          if (circle) circle.setAttribute('stroke-dasharray', ((p/100)*PROG_LEN) + ' ' + PROG_LEN);
+        }
+        updateProgress();
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        if (backBtn) backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
+  </body>
+</html>
+
+

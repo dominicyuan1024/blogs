@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>骑行 广州-大陆最南端 - Dominic's blog</title>
+  <link rel="icon" type="image/x-icon" href="../pitaya.svg">
+  <style>
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --pitaya-pink: #cc2a41;
+  --pitaya-green: #2bbc8a;
+  --pitaya-white: #f8f8f8;
+  --pitaya-dark: #2c2c2c;
+  --pitaya-light-pink: #ffe6ef;
+  --pitaya-light-green: #e8f5e8;
+}
+
+.link {
+  cursor: pointer;
+  background-image: linear-gradient(transparent, transparent 5px, #22272a 5px, #22272a);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.link:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+}
+
+html {
+  border-top: 2px solid rgb(34, 39, 42);
+}
+body {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 48rem;
+  margin: auto;
+  color: rgb(34, 39, 42);
+  font-family: "Menlo", "Meslo LG", monospace;
+  text-rendering: geometricPrecision;
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-image: url(pitaya.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nick-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+  line-height: 1.2;
+}
+
+.best-flow-title {
+  background: linear-gradient(135deg, var(--pitaya-pink), var(--pitaya-green), var(--pitaya-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: gradientFlow 2s linear forwards;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 250% 0;
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background-position: 0% 0;
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+.nav ul {
+  display: flex;
+}
+.nav li {
+  border-right: 1px dotted;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.nav a:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.nav li:first-child {
+  padding-left: 0;
+}
+.nav li:last-child {
+  border-right: none;
+}
+.h1 {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--pitaya-pink);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+.projects li,
+.writes li {
+  margin-bottom: 1rem;
+}
+.projects li:last-child,
+.writes li:last-child {
+  margin-bottom: 0;
+}
+.writes time {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.writes a {
+  margin-right: 1rem;
+}
+.writes .category {
+  background-color: var(--pitaya-dark);
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-transform: capitalize;
+  opacity: 0.2;
+  font-size: 0.4rem;
+  display: none;
+}
+
+.category.life {
+  background-color: var(--pitaya-pink);
+}
+.category.skill {
+  background-color: var(--pitaya-dark);
+}
+.category.english {
+  background-color: var(--pitaya-green);
+}
+.writes .summary {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.footer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+@media (max-width: 960px) {
+  .footer {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+  </style>
+  <style>
+/* Minimal article typography inspired by Typora SprIng */
+:root {
+  --text: #000;
+  --bg: #fafafa;
+  --primary: #2bbc8a;
+  --accent: #cc2a41;
+  --muted: #666;
+  --code-bg: #f6f8fa;
+  --border: #e5e7eb;
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--text);
+  max-width: 980px !important;
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Inter, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+}
+
+.header {
+  margin-left: 13rem;
+}
+
+main.article {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+main.article h1,
+main.article h2,
+main.article h3,
+main.article h4,
+main.article h5,
+main.article h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.6em 0 0.8em;
+}
+main.article h1 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+main.article h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+main.article h3 {
+  font-size: 1.25rem;
+}
+
+main.article p {
+  margin: 0.9em 0;
+}
+main.article a {
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.35);
+}
+main.article a:hover {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+}
+
+main.article ul,
+main.article ol {
+  padding-left: 1.25rem;
+  margin: 0.8em 0;
+}
+main.article li {
+  margin: 0.3em 0;
+}
+
+main.article blockquote {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  color: var(--muted);
+  border-left: 4px solid var(--primary);
+  background: #f9fbfa;
+  border-radius: 4px;
+}
+
+main.article pre code {
+  background: transparent;
+  padding: 0;
+}
+main.article code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+main.article pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+/* Wrap long lines in code to avoid horizontal scrolling */
+main.article pre,
+main.article code {
+  white-space: pre-wrap; /* wrap long lines */
+  word-break: break-word; /* break long tokens */
+  overflow-wrap: anywhere; /* allow breaking anywhere if needed */
+}
+main.article pre {
+  overflow-x: hidden;
+}
+
+/* token fallback colors (keep in sync with template inline) */
+.token.keyword {
+  color: #d73a49;
+  font-weight: 600;
+}
+.token.string {
+  color: #032f62;
+}
+.token.number {
+  color: #005cc5;
+}
+.token.comment {
+  color: #6a737d;
+  font-style: italic;
+}
+main.article pre .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: var(--text);
+}
+main.article pre .code-copy-btn:hover {
+  background: #f0f0f0;
+}
+
+main.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+main.article th,
+main.article td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+}
+main.article thead th {
+  background: #f7f7f9;
+}
+
+main.article img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main.article hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+main.article > p > small {
+  color: var(--muted);
+}
+
+/* layout with sidebar toc */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.doc-toc {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  overflow: auto;
+  padding-top: 2rem;
+}
+.toc-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.toc-list,
+.toc-sub {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.toc-item {
+  margin: 0.25rem 0;
+}
+.toc-sub {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.25rem;
+}
+.toc-list a {
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.2);
+}
+.toc-list a.active {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+  color: var(--accent);
+}
+
+/* TOC toggle button - hidden by default on desktop */
+.toc-fab {
+  display: none;
+}
+
+@media (max-width: 960px) {
+
+  body {
+    padding-left: 1rem !important;
+  }
+  /* tighten global paddings */
+  .doc-layout {
+    padding: 0 0.5rem;
+    gap: 16px;
+  }
+  .header {
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+  main.article {
+    padding-left: 0.25rem;
+    border-left: none;
+  }
+
+  /* article spacing */
+  main.article h1 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.6rem;
+  }
+  main.article h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  main.article h3 {
+    margin: 0.75rem 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  main.article p {
+    margin: 0.6rem 0;
+  }
+  main.article ul,
+  main.article ol {
+    padding-left: 1rem;
+    margin: 0.6rem 0;
+  }
+  main.article li {
+    margin: 0.25rem 0;
+  }
+  main.article blockquote {
+    margin: 0.6rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+  main.article pre {
+    padding: 0.75rem;
+  }
+  main.article table {
+    margin: 0.6rem 0;
+    font-size: 0.95em;
+  }
+  .h1 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* nav spacing */
+  .nav li {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+  }
+  .doc-toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
+    max-width: 80vw;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+    overflow: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  body.toc-open .doc-toc {
+    transform: translateX(0);
+  }
+  .toc-fab {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1100;
+    cursor: pointer;
+  }
+  .toc-fab::before {
+    content: "☰";
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text);
+  }
+}
+
+/* TOC overlay for mobile: click to close */
+.toc-overlay {
+  display: none;
+}
+@media (max-width: 960px) {
+  .toc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    display: none;
+  }
+  body.toc-open .toc-overlay {
+    display: block;
+  }
+}
+
+/* back-to-top floating button with progress ring */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: conic-gradient(var(--accent) var(--progress, 0%), #e9ecef 0%);
+  mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  -webkit-mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  z-index: 1100;
+}
+.back-to-top .arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--text);
+  transform: translateY(-2px);
+}
+
+/* Back-to-top button with progress ring */
+:root {
+  --back-to-top-c-bg: #fff;
+  --back-to-top-c-accent-bg: #2bbc8a;
+  --back-to-top-c-shadow: rgba(0, 0, 0, 0.08);
+  --back-to-top-c-accent-hover: #cc2a41;
+}
+.vp-back-to-top-button {
+  position: fixed !important;
+  inset-inline-end: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-width: 0;
+  border-radius: 50%;
+  background: var(--back-to-top-c-bg);
+  color: var(--back-to-top-c-accent-bg);
+  box-shadow: 2px 2px 10px 4px var(--back-to-top-c-shadow);
+  cursor: pointer;
+}
+@media (max-width: 959px) {
+  .vp-back-to-top-button {
+    transform: scale(0.8);
+    transform-origin: 100% 100%;
+  }
+}
+@media print {
+  .vp-back-to-top-button {
+    display: none;
+  }
+}
+.vp-back-to-top-button:hover {
+  color: var(--back-to-top-c-accent-hover);
+}
+.vp-back-to-top-button .back-to-top-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  position: relative;
+}
+.vp-back-to-top-button .back-to-top-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid currentColor;
+}
+.vp-scroll-progress {
+  position: absolute;
+  inset-inline-end: -2px;
+  bottom: -2px;
+  width: 52px;
+  height: 52px;
+}
+.vp-scroll-progress svg {
+  width: 100%;
+  height: 100%;
+}
+.vp-scroll-progress circle {
+  opacity: 0.9;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+  /* offline token styles */
+  .token.keyword{ color:#d73a49; font-weight:600; }
+  .token.string{ color:#032f62; }
+  .token.number{ color:#005cc5; }
+  .token.comment{ color:#6a737d; font-style: italic; }
+  </style>
+  <link rel="stylesheet" href="./highlight/github.min.css">
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(../pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#projects">程序</a></li>
+            <li><a href="../index.html#writes">文章</a></li>
+            <li><a href="../index.html#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <div class="toc-title"><a href="#article-top">骑行 广州-大陆最南端</a></div>
+        
+      </aside>
+      <main class="article">
+        <h1 id="article-top">骑行 广州-大陆最南端</h1>
+        <p><small>2016-03-12 · life</small></p>
+        <article>
+<p>此刻，嘴里嚼着南五路的“陶阿姨酱香饼”，味道还是那么好。我面对的显示器是我前几个月才买的，我敲打的键盘表面早就有了我汗水的结晶。三位宿友各安其位，互不打扰。</p>
+<p>前九个小时，我刚下火车就感受到了这片土地的热情欢迎，热得简直就是一个蒸笼，连风都像巨人哈出的口气。一如从前，我坐上了回学校的公交车。车里的人再不似前段时间路上的朋友那般惺惺相惜。在车上，谁也猜不出谁从哪里归来，谁也没兴趣知道谁要去干嘛。我融为了群众的一部分，再不鲜明。</p>
+<p>从广中医广药开始徒步回广州大学。现在正是暑假，路上的大学生少了，但依旧有三三两两相约而行。看这些人也无甚变化，还是那种清爽的装束，女生都要露出腿来；依旧是那种含蓄的表情，局部青春染上了对未来的忧虑。我走过中心湖，晚霞倒映在水中很美。我走过康陵，青草如旧淹没了往日的足迹。我在高速路底下闯红灯，毫不怕生。我翻看宿舍楼前的信堆，没找到上个星期从拉萨寄回来的明信片，不禁腹诽邮政的效率真差。</p>
+<p>回到宿舍也只是和宿友一阵普通的寒暄，便各自娱乐，世事并无变迁。</p>
+<p>但我明明在外晃荡了一个多月，我明明不久前还享受着青藏高原的暖阳，我明明穿越了迥然不同的时空。此刻，回到起点，竟能好像什么也没发生过一样按部就班。</p>
+<p>我想人之所以会有“某次旅行就像一场梦”的感触，都是由于当他回到原来的地方时，发现一切的一切都没有太大的变化，他重新回到了熟悉的舞台，找到了熟悉的安全感、生存感，熟悉的剧本便塞满了他的灵肉，按部就班。</p>
+<p>而我能做的，不过是记下曾经做过的梦。</p>
+<p>一个宅男的骚动之举，从广州到大陆最南端。<br>
+图片</p>
+<p>我是很不喜欢在出发前为旅行找一个理由的人，因为你要寻找理由就得想很多东西，很多东西会分散注意力，注意力不集中就无法全身心投入某件事情，特别是旅行。我喜欢事后追忆，你也可当是马后炮。第一次骑行的原因，很简单，一个宅男积累了太多的负面情绪，需要发泄。简称骚动。</p>
+<p>朋友都爱取笑我的坐骑是“小屌丝”，但它的真名为“喜德盛逐日 600”。说出它的全名是为了表示对它的尊敬。有些人称自己的坐骑为爱车，我却没有这个资格。因为我很懒，懒得从未给它任何关爱，每次都是骑完就将它冷落一旁，既不检修也不清洁。但它却从未背叛过我，一路坚固、灵动。这常常使我感到自己无比幸运。</p>
+<p>我是去年国庆节的时候开始骑行的，用道上的话来讲，那是一次说走就走的旅行。出发前三天我还感冒并发烧，哪有心情计划什么路线？但我早已有了旅行的决心，证据就是在发烧感冒前三天便决定了以分期付款的方式从宿友手里将它买下了。我那位宿友一开始是想骑它去西藏的，后来却没有了兴致。</p>
+<p>我见它摆在阳台上生锈还真是可怜，又想到自己闷在宿舍里一样可怜，真是物以类聚啊。我偷偷告诉它，我要实现你存在的价值，我会让你的车轮尽情转动，咱们去中国大陆最南端吧！有个“最”字，怎么也不会丢人了！</p>
+<p>出发前一天晚上收拾东西，由于毫无经验，所以准备了许多可有可无的生活用品，硬是把驮包给撑到了极限，导致第三天的时候绑带断裂了，真笨。那天我用电脑打开百度地图，直接搜索从广州大学到中国大陆最南端“灯楼角”的不走高速路线，接着学习老祖宗，用纸笔抄下一份作为保险，自己也是大概将经过的城镇背诵了下来。</p>
+<p>我自以为万事俱备只欠东风。我心里想着要是明天早上不流鼻涕就出发吧！果然我的感冒症状就在第二天乖乖地蛰伏了。早上起来精神饱满的我拍下了临行前的坐骑，傻乎乎地发了个朋友圈，乐呵呵地朝“灯楼角”骑去了。</p>
+<p>当时我也想过类似以下的诘问，一个常年不锻炼的宅男哪来长途骑行的自信？一个顶多搭车去过福建省的广东仔哪来独自远行的勇气？但我只要一想到若自己的国庆假期依旧闷在宿舍里，日复一日、年复一年，那是多么的腐烂。接着我又坚信，这是一个商业化的世界，有钱就能生存！</p>
+<p>一开始，谁都是兴奋的，骑行速度超出了自己的预料，觉得自己有用不完的体力；谁都认为凭这速度下去可以比预期的要早很多时间到达目的地；谁都看到一点奇特的东西就停下来拍照；谁都在心里美滋滋地黄婆卖瓜——这小伙子体力真不错！</p>
+<p>我上午穿越了纷扰的广州市，跨过了九江大桥。中午就在顺德立交桥附近的加油站旁的肯德基饱餐了一顿。</p>
+<p>下午是怎样的经过？我已经忘了。我那时没想过未来要写一些东西，也就懒得记下什么，而且记性也不好，所以很多东西都随风而去了。只是看看现在户外的高温和热辣的太阳，我想我当时应该就是在不停地吐槽这两样东西吧。</p>
+<p>很多人说，一个人骑车未免无聊。那是因为他们从未骑行过。骑行的时候，人的注意力是很分散、又很自闭的，就是想着骑啊骑啊骑啊骑，我现在速度如何？我离终点还有多远？眼前的事物更是在不断变化，走马观花。或者脑海里浮想联翩，想过去、想未来、想亲朋好友、想自己，哪有心情聊天啊？还有路上车急风大的，大家为了安全都是前后骑行，你说的话只有呼喊才能让人听清。请问你能连续呼喊一个小时吗？不信你就去试试好了。</p>
+<p>但说实话，当你停了下来，在路边举起水壶的时候、坐在饭馆里端着饭碗的时候抑或聆听着旅馆里的静谧时，的确发现自己身边少了一些角色。有，会更开心。</p>
+<p>不像后来骑行川藏线，每个住宿点都有明确的计划。第一次骑行，我是任性的。当天黄昏的时候我才碰上了一段山路，这里植物占陆地覆盖物的大多数，而不再是钢筋水泥。根据地图的记载那是在鹤山市的某处，附近有个酒厂。当时体力已经快消耗完了，坐在坡道旁补了一罐红牛。看着一辆辆非人力交通工具嗖的一声冲上坡道，拐个弯消失不见，反观自己累得半死不活而又蜗牛漫步般的囧样，我的内心是痛苦的。</p>
+<p>我有了一种觉悟，其实不是人在骑车，而是车在骑人啊！不是车带你转世界，而是你带着它去奔袭。下次干脆徒步算了！</p>
+<p>直到天完全黑了，又是打雷又是下雨的，我才停在了一个村镇。冲进里面的小卖部吃了碗泡面，然后在老板的推荐下住在隔壁的农民工出租屋里。我记得很清楚，一个晚上三十块钱。当时觉得好便宜，后来住多了旅馆才发现被坑了。一个没有热水、风扇、软床并且就在吵闹的国道旁边的住宿顶多值十五块钱。</p>
+<p>幸好房间里还有一部黑白电视机可以打发时间，当时电视上播的是湖南卫视的快乐大本营，看到何炅的那一刻，我回到了熟悉的世界，毫无在外旅行的陌生感。我想起以前在家里也是经常和大哥一起看快乐大本营，现在，他大概也在看吧。在睡前，心底的虚荣心不断搅动，便抽空更新了一下说说。</p>
+<p>就是这么无聊的一天。但当时并不烦躁，反而享受到了自由的舒爽。</p>
+<p>这一天是第一天，十月三号。下一站，阳江市。</p>
+<p>······</p>
+<p>第二天，我是带着萎靡的精神状态出发的。你可以搜索一下国道 325 每天晚上有多少大货车经过，然后你就能猜到我昨天晚上的睡眠质量有多差。感觉就是躺在喧闹的车轮边上，非常提神。</p>
+<p>今天经过了开平市，有个景区叫开平碉楼。我对此没什么兴趣，只是经过的时候草草望了几眼。反而是在那段路上遇到一个装备很像样的骑行队伍，追着他们跑了二十公里。直接导致自己在一个上坡处体力不支，犯低血糖，头晕目眩、坐立不安。主要是那火辣辣的太阳，简直要人命啊！</p>
+<p>赶紧下车掏出包里的巧克力，发现全融化了，不想吃。那时候就是这么蠢，连随身携带葡萄糖的常识都没有。最后还是挣扎着推车到了一个路边的小村子里，吃了大碗的猪脚饭才复活过来。那店里的电视上当时重播着中国好声音，张碧晨在唱 destiny。</p>
+<p>老板很好心，免费赠送了一碗青菜汤，更是允许我在他店里的躺椅上睡了个午觉，真有久旱逢甘露他乡遇故知的感觉。</p>
+<p>我不知道我下午是怎么撑到阳江市的地盘的，只是当我看到 “阳江市”三个大字的时候有了丝丝解脱的快感。但这是一种天真的想法，我只是到了阳江市的地界，离阳江市区还远着咧！</p>
+<p>从黄昏开始，我的右腿膝盖外侧就越来越痛，最后痛到无法用正常姿势踩踏。我试过走路，但是太慢了。我只能咬牙坚持骑车，但速度还是很慢，顶多十公里每小时。</p>
+<p>“这样下去不会把腿给废了吧？”我很担心。停下车来刻意用手机搜索了一下膝盖的情况，发现网上的家伙们众说纷纭，不好下决定。</p>
+<p>“要放弃吗？”我开始退缩。</p>
+<p>但也得找到住的地方、找到车站才行啊！后来膝盖真的痛到无法发力了，只好推车前行。这么一走天很快就黑了，而我还行走在荒山野岭，但是来来往往的车辆多得很。</p>
+<p>我很庆幸那时的自己见识少，不懂得竖起大拇指向开车的人求助，我当时认定没人会帮忙的。我更感谢老天爷的照顾，没有汽车过来亲吻一个黑夜里彷徨的游子。缺少这两点，一切就变得没有意义，我就无法独立完成那次骑行。</p>
+<p>我说过我那时对骑行毫无经验，毫无经验到连自行车尾灯以及夜行灯都没有装配，我只带了一把家用的电筒，那光线只够在蚊帐里拍蚊子，对于骑行是毫无用处的。在夜里，这是一件很危险的事情，等开车的人注意到你的身影，已经来不及刹车了。</p>
+<p>当时唯一让我高兴的是后头疾驰而来的车辆，我可以借它们明亮的车灯看清路面。令我讨厌的是对面射来的强光，使我不能直视，头都抬不起来。我根本没有胆子逾越马路边上那条白线，只敢在坑坑洼洼的人行道上一点一点朝着想象中的灯火辉煌踩去。只要我不在汽车的地盘行动，大家就井水不犯河水，除非我运气太好了，遇上那些个酒鬼。</p>
+<p>我的精神很集中，我恐惧车轮在我身旁划破静谧黑夜的那一瞬间，但我喜欢自己的影子被拉长的样子。</p>
+<p>我真真切切感受到了一种叫做“自由、独立”的状态。我试着用摄影机广阔的角度观察自己，有一个人借着来来往往的车灯以及大自然微弱的光沿着国道独自骑向那个他决定要去的城市。多么迷人的感受。</p>
+<p>那天晚上，我遇到的第一盏安定的灯光是某个农家乐的招牌灯，可惜没有住处。我之后遇到的第一个人类聚居地只有一排十几座房子，在一个监狱脚下，可惜还是没有住处。但小卖部老板告诉我一个好消息，往前几公里就有一个镇子，那里不缺旅馆。</p>
+<p>我本来说好要去到阳江市区，但我败给了膝盖的疼痛以及对黑夜的忌讳。就停在了那个叫做合山镇的地方，那里灯火通明很有安全感。</p>
+<p>我至今记得那家旅馆的名字，叫做河堤旅业。标准间一晚 80，那是我所有旅途中住过的最贵的房间。但服务却是糟糕透了。老板态度极差，一幅你爱住不住的样子。房间里的设施也老旧了，我洗澡的时候，花洒不小心掉了下来砸中了水龙头，居然把水龙头给砸掉了！那水便喷薄而出，使人心烦，而且我怎么也堵不住它。本就烦躁的人被水一喷更是心乱如麻，说起话来也就语气重了，结果和老板口角了一段时间，他才叫人帮我弄好。好在他也不是刁钻的人，不然要我赔钱的话我真可能忍不住就发飙了。</p>
+<p>躺在床上，看看手机已经十一点了。身体的疲惫、膝盖的疼痛、住宿的不顺心使我感到无助，让我萌生了强烈的退意。我甚至在网络里跟朋友感叹明天可能搭车回去了。</p>
+<p>坚持与放弃像狗尾巴草一样在我脑海摇摆。</p>
+<p>这一天是第二天，十月四号。</p>
+<p>······</p>
+<p>好在我这人有个优点，那就是从小受到电影、动漫、小说的熏陶，有着小小的英雄情结。难道半途而废是男人该有的行为？难道一件事情背后的艰苦不正衬托出它的意义？这么一想，心里那根狗尾巴草就安静了下来，我又有了上路的决心。下一站，茂名市。</p>
+<p>今天也是早早出发，一路上依旧没有什么壮丽的风景，只有夕阳算美。</p>
+<p>说起来那膝盖的疼痛也真是奇怪，早上的时候稍有减轻，接着越来越痛，痛到中午它又慢慢消失了。趁此机会我可是卯足了劲地踩，总算没有耽误行程，于夕阳西下的时候到达了茂名市地盘。我在天黑时才进了电白县，闻着路边大排档的酒肉味，找到了熟悉的感觉。</p>
+<p>当天投宿东方旅社，一切安好。这一天是第三天，十月五号。</p>
+<p>除了灯楼角，我是不知道这一路都有什么旅游景点的。但我不是闷葫芦，一般会和旅馆的老板唠嗑几下。东方旅社的老板娘告诉我，“中国第一滩”离这里很近。听这名字好像很有盼头，于是第二天早上我便骑车直往“中国第一滩”奔去。</p>
+<p>不怕人笑话，我虽然生活在广东，但长这么大了还从未去海边玩过。那一天上午，阳光、沙滩以及凉凉的海水使我的旅程丰满了不少，我很喜欢沙滩的舒服脚感，从一端走到另一端，来来回回三四次，沙子很细很软。我像是孩子一样捡起几个贝壳，打算带回去当做纪念。我看着其他人玩水，自己也忍不住脱掉外衣投入了大海的怀抱。我还买了椰子喝，喝完当凳子坐······</p>
+<p>我很享受。我拍了很多照片。我已经不再对这次旅行抱有一丝后悔。</p>
+<p>但中午的时候，我还是出发了，因为我要考虑自己的经费问题。</p>
+<p>我在出发前信心满满，发了一条朋友圈说“今晚看湛江海湾大桥的夜景”。没错，我的下一站就是湛江。</p>
+<p>依旧是黄昏的时候到了湛江的地界，在那里遇到了一个骑车的哥们。好在有他，我才知道湛江海湾大桥并不允许自行车通过，他好心地让我跟在他后面去码头搭船。问题是对我来说，他骑得有点快，二十八公里的时速，我追得好辛苦，膝盖又开始痛了。</p>
+<p>幸好到码头的距离不算很远，我咬牙坚持跟上了他。在船上，他把我介绍给他那帮队友认识。他们对于我从广州骑过来的事迹表示赞扬，我当然是很开心咯，但也不敢自吹自擂，万一遇上大神岂不是贻笑大方？</p>
+<p>队伍里有个老爷子发现我没有配置尾灯，对我接下来的旅程表示担忧，很严肃地带我去买了一个，真是太感谢了。从那一刻起我才知道，原来还有“青蛙灯”这种东西存在，我真是够笨的。但从此我再也不担心走夜路了。</p>
+<p>进入湛江市区时，路过摩天轮挺漂亮的，可惜当时正跟着老爷子，不好意思停下来拍照。同时我也在考虑住宿的问题，最后跑去投靠了海洋大学的一位老同窗。</p>
+<p>去到海洋大学校门口，天依旧黑了。想想我每一次到达驻点都是天黑的时候，这很明显是因为经验的不足。</p>
+<p>这一天是第四天，十月六号。</p>
+<p>我依旧不知道这附近有什么好玩的，幸好朋友有心，带我去了湖光岩，听说是世界罕见的玛珥湖。</p>
+<p>那时晴空万里，眼前湖光潋滟，漫步于茂盛的树林间，体会到路上难得的悠闲自在。直感觉整个人好像湖边的寺庙一般，不想动了。旅程的疲劳仿佛也全随着湖波一浪一浪隐去。而看到那些湖边游船的工作人员，更是心生羡慕。羡慕他们可以守着如此美丽的湖泊，过着不用奔波的日子。</p>
+<p>我喜欢这个湖，但我又急着赶路。我上午还在感叹安闲的生活真是享受，中午便已经收拾好行囊开始奔波。一方水土养一方人，一处风景写一处诗。我只是个过客，我不上路就得回家。我已经沉迷了一个上午的湖光，我觉得够了。</p>
+<p>我估计还有两天的路程就能到达目的地——中国大陆最南端。</p>
+<p>我不记得当天晚上自己停靠的地点叫什么，只记得那是国道 207 旁边的一家情人旅馆，生意萧条。所以老板开了间带电脑的双人房给我，只收了 40 元。真是踩了狗屎走了运了。</p>
+<p>那天晚上出去闲逛，走到广场看到一堆人坐在那里听粤剧，老人居多。这也是我第一次在现实生活中看到粤剧，想不到小小的乡镇还如此重视传统文化的坚守，新奇又佩服。</p>
+<p>睡前我想起那些给予过我帮助的人，打心底里表示感谢。的确没有他们我也能完成这次旅程，但却不可能收获那些独特的温暖，我可不希望自己的旅程只是一条冷冰冰的国道。我敢说，在外遇到的还是好人多。</p>
+<p>这一天是第五天，十月七号。</p>
+<p>第六天，十月八号，我睡得很晚。一方面是觉得剩下路程不长，不必担心天黑前赶不到，另一方面我也的确是累了，想想去年一整年的运动量都没这几天的多，我的身体还没完全适应过来。</p>
+<p>今天的风景可是与以往迥然不同，雷州半岛是个平原，很平很平，只有缓缓上升的土坡，绝难见到凸起的山丘。</p>
+<p>而且路边是一眼望不尽的甘蔗田，蓝天之下青波碧浪，很是养眼。说实话我还特意停下来偷了一根甘蔗咧！可是那味道实在不咋滴。</p>
+<p>由于登楼角是在乡下，于是后面的道路就偏离了繁华的城市，拐进了幽静的乡村。有些路道穿过农田、森林，完全是泥巴路，我可喜欢了！</p>
+<p>那里的村口都立着一块大石头，上面刻画自个的村名，各有千秋。村里还有古老的牛车，你给赶牛的老人家拍照他会笑得很不好意思。一不小心撞进了这些安静的乡村，我却丝毫不感到陌生、紧张。我就从小就生活在一个四面环山的粤东乡村，除了语言，人情的差别并不大。</p>
+<p>在接近灯楼角的某处海湾，好几个年轻人在打鱼，他们居然可以划着泡沫安然游荡于水面，真是好生佩服。我和他们一样都从婴儿成长过来，在外星人眼里恐怕长得也没啥差别，却拥有完全不同的经历，拥有迥然不同的思想。我们此刻谈笑风生，相处极欢，但若我不来骑行，也许大家一辈子也不可能碰见，也许碰见了也只是擦肩而过。有时候想想，这真是挺微妙的一件事情。</p>
+<p>当我看到一个牌子指示着大陆最南端的去路时，说明目的地真的很近了，满腔热血哪还按捺得住？当我的影子从一列高高的风车底下穿过，当大海离我越来越近，我实在忍不住动了情，那种付出有了回报心底酸爽的感觉。</p>
+<p>我平素是一名深居简出的宅男，以往跟我谈起骑车远行这件事我会笑你吃饱了撑着，但是阴差阳错的我竟然骑了一趟。</p>
+<p>过程中你可以说很多话，但到了终点你就该沉默。因为行动是最好的语言。</p>
+<p>所以那天我并没有打电话给谁，我就安安静静地看了一会月亮。那天的月亮是红的。</p>
+<p>灯楼角虽然占着中国大陆最南端的美名，但并没有被开发，海滩上散落着老树根，空气里弥漫着腥臭味。那边只住着管理员夫妇，还有两名外地农民工。没床铺给我睡，我就在屋檐下的躺椅上将就了一晚。别看白天那么热，晚上的海风可是冷得难受！</p>
+<p>条件虽然恶劣，但我却睡得很香，直到第二天凌晨被一泡尿给憋醒。看看手机也有五点多了，不打算再睡，爬到沙滩上去等待日出。</p>
+<p>此时，月亮还挂在西边的夜空，那个写着“中国大陆最南端”的灯塔明亮着，伴月同鸣。挑逗我衣服的海风也撩弄过东南亚以及海南岛的人，不同的是他们是一群而我独自。此时此刻，方圆几公里，享受这海风的，唯我一个。此时此刻，整个地球，从广州骑行至此，等待日出的，唯我一个。</p>
+<p>（未完待续）</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+<p>图片</p>
+</article>
+      </main>
+    </div>
+    <button class="toc-fab" aria-label="目录"></button>
+    <div class="toc-overlay" aria-hidden="true"></div>
+    <button type="button" class="vp-back-to-top-button" aria-label="返回顶部">
+      <span class="vp-scroll-progress" role="progressbar" aria-labelledby="loadinglabel" aria-valuenow="0">
+        <svg><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="0 151"></circle></svg>
+      </span>
+      <div class="back-to-top-icon"></div>
+    </button>
+    <script>
+      (function(){
+        const links = Array.from(document.querySelectorAll('.toc-list a'));
+        const headings = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        function onScroll(){
+          let activeIndex = 0;
+          for (let i=0;i<headings.length;i++){
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= 100) activeIndex = i;
+          }
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[activeIndex]) links[activeIndex].classList.add('active');
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // copy buttons (offline)
+        document.querySelectorAll('pre > code').forEach(code => {
+          const pre = code.parentElement;
+          const raw = code.textContent || '';
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(raw); btn.textContent = '已复制'; setTimeout(()=>btn.textContent='复制', 1200); } catch(e) { btn.textContent='失败'; setTimeout(()=>btn.textContent='复制', 1200); }
+          });
+          pre.style.position = 'relative';
+          pre.appendChild(btn);
+        });
+
+        // ensure images use lazy loading
+        document.querySelectorAll('img').forEach(img=>{ if(!img.loading) img.loading = 'lazy'; });
+
+        // mobile TOC toggle (top-right hamburger)
+        const tocFab = document.querySelector('.toc-fab');
+        const tocOverlay = document.querySelector('.toc-overlay');
+        if (tocFab) {
+          const closeToc = () => document.body.classList.remove('toc-open');
+          tocFab.addEventListener('click', () => { document.body.classList.toggle('toc-open'); });
+          links.forEach(a => a.addEventListener('click', closeToc));
+          if (tocOverlay) tocOverlay.addEventListener('click', closeToc);
+        }
+
+        // back-to-top with progress ring
+        const backBtn = document.querySelector('.vp-back-to-top-button');
+        const circle = document.querySelector('.vp-scroll-progress circle');
+        const PROG_LEN = 2 * Math.PI * 24; // r=24
+        function updateProgress(){
+          const st = document.documentElement.scrollTop || document.body.scrollTop;
+          const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const p = Math.max(0, Math.min(100, h ? (st / h) * 100 : 0));
+          if (backBtn) backBtn.querySelector('.vp-scroll-progress').setAttribute('aria-valuenow', p.toFixed(2));
+          if (circle) circle.setAttribute('stroke-dasharray', ((p/100)*PROG_LEN) + ' ' + PROG_LEN);
+        }
+        updateProgress();
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        if (backBtn) backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
+  </body>
+</html>
+
+

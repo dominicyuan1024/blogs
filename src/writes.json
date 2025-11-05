@@ -8,6 +8,14 @@
     "originPath": "writes/english/englis-experients.md"
   },
   {
+    "title": "从零搭建一个静态博客系统",
+    "summary": "分享如何使用 Node.js 和 Markdown 构建一个功能完整的静态博客，包括自动生成、代码高亮、移动端适配等特性",
+    "date": "2025-01-15",
+    "category": "skill",
+    "path": "writes/skill-build-my-blog.html",
+    "originPath": "writes/skill/build-my-blog.md"
+  },
+  {
     "title": "骑行 厦门-梅州-广州",
     "summary": "我的第三次长途骑行",
     "date": "2016-03-12",
