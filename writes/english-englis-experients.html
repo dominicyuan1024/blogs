@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的英文学习经历 - Dominic's blog</title>
+  <link rel="icon" type="image/x-icon" href="../pitaya.svg">
+  <style>
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --pitaya-pink: #cc2a41;
+  --pitaya-green: #2bbc8a;
+  --pitaya-white: #f8f8f8;
+  --pitaya-dark: #2c2c2c;
+  --pitaya-light-pink: #ffe6ef;
+  --pitaya-light-green: #e8f5e8;
+}
+
+.link {
+  cursor: pointer;
+  background-image: linear-gradient(transparent, transparent 5px, #22272a 5px, #22272a);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.link:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+}
+
+html {
+  border-top: 2px solid rgb(34, 39, 42);
+}
+body {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 48rem;
+  margin: auto;
+  color: rgb(34, 39, 42);
+  font-family: "Menlo", "Meslo LG", monospace;
+  text-rendering: geometricPrecision;
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-image: url(pitaya.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nick-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+  line-height: 1.2;
+}
+
+.best-flow-title {
+  background: linear-gradient(135deg, var(--pitaya-pink), var(--pitaya-green), var(--pitaya-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: gradientFlow 2s linear forwards;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 250% 0;
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background-position: 0% 0;
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+.nav ul {
+  display: flex;
+}
+.nav li {
+  border-right: 1px dotted;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.nav a:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.nav li:first-child {
+  padding-left: 0;
+}
+.nav li:last-child {
+  border-right: none;
+}
+.h1 {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--pitaya-pink);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+.projects li,
+.writes li {
+  margin-bottom: 1rem;
+}
+.projects li:last-child,
+.writes li:last-child {
+  margin-bottom: 0;
+}
+.writes time {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.writes a {
+  margin-right: 1rem;
+}
+.writes .category {
+  background-color: var(--pitaya-dark);
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-transform: capitalize;
+  opacity: 0.2;
+  font-size: 0.4rem;
+  display: none;
+}
+
+.category.life {
+  background-color: var(--pitaya-pink);
+}
+.category.skill {
+  background-color: var(--pitaya-dark);
+}
+.category.english {
+  background-color: var(--pitaya-green);
+}
+.writes .summary {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.footer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+@media (max-width: 960px) {
+  .footer {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+  </style>
+  <style>
+/* Minimal article typography inspired by Typora SprIng */
+:root {
+  --text: #000;
+  --bg: #fafafa;
+  --primary: #2bbc8a;
+  --accent: #cc2a41;
+  --muted: #666;
+  --code-bg: #f6f8fa;
+  --border: #e5e7eb;
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--text);
+  max-width: 980px !important;
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Inter, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+}
+
+.header {
+  margin-left: 13rem;
+}
+
+main.article {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+main.article h1,
+main.article h2,
+main.article h3,
+main.article h4,
+main.article h5,
+main.article h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.6em 0 0.8em;
+}
+main.article h1 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+main.article h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+main.article h3 {
+  font-size: 1.25rem;
+}
+
+main.article p {
+  margin: 0.9em 0;
+}
+main.article a {
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.35);
+}
+main.article a:hover {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+}
+
+main.article ul,
+main.article ol {
+  padding-left: 1.25rem;
+  margin: 0.8em 0;
+}
+main.article li {
+  margin: 0.3em 0;
+}
+
+main.article blockquote {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  color: var(--muted);
+  border-left: 4px solid var(--primary);
+  background: #f9fbfa;
+  border-radius: 4px;
+}
+
+main.article pre code {
+  background: transparent;
+  padding: 0;
+}
+main.article code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+main.article pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+/* Wrap long lines in code to avoid horizontal scrolling */
+main.article pre,
+main.article code {
+  white-space: pre-wrap; /* wrap long lines */
+  word-break: break-word; /* break long tokens */
+  overflow-wrap: anywhere; /* allow breaking anywhere if needed */
+}
+main.article pre {
+  overflow-x: hidden;
+}
+
+/* token fallback colors (keep in sync with template inline) */
+.token.keyword {
+  color: #d73a49;
+  font-weight: 600;
+}
+.token.string {
+  color: #032f62;
+}
+.token.number {
+  color: #005cc5;
+}
+.token.comment {
+  color: #6a737d;
+  font-style: italic;
+}
+main.article pre .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: var(--text);
+}
+main.article pre .code-copy-btn:hover {
+  background: #f0f0f0;
+}
+
+main.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+main.article th,
+main.article td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+}
+main.article thead th {
+  background: #f7f7f9;
+}
+
+main.article img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main.article hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+main.article > p > small {
+  color: var(--muted);
+}
+
+/* layout with sidebar toc */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.doc-toc {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  overflow: auto;
+  padding-top: 2rem;
+}
+.toc-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.toc-list,
+.toc-sub {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.toc-item {
+  margin: 0.25rem 0;
+}
+.toc-sub {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.25rem;
+}
+.toc-list a {
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.2);
+}
+.toc-list a.active {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+  color: var(--accent);
+}
+
+/* TOC toggle button - hidden by default on desktop */
+.toc-fab {
+  display: none;
+}
+
+@media (max-width: 960px) {
+
+  body {
+    padding-left: 1rem !important;
+  }
+  /* tighten global paddings */
+  .doc-layout {
+    padding: 0 0.5rem;
+    gap: 16px;
+  }
+  .header {
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+  main.article {
+    padding-left: 0.25rem;
+    border-left: none;
+  }
+
+  /* article spacing */
+  main.article h1 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.6rem;
+  }
+  main.article h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  main.article h3 {
+    margin: 0.75rem 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  main.article p {
+    margin: 0.6rem 0;
+  }
+  main.article ul,
+  main.article ol {
+    padding-left: 1rem;
+    margin: 0.6rem 0;
+  }
+  main.article li {
+    margin: 0.25rem 0;
+  }
+  main.article blockquote {
+    margin: 0.6rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+  main.article pre {
+    padding: 0.75rem;
+  }
+  main.article table {
+    margin: 0.6rem 0;
+    font-size: 0.95em;
+  }
+  .h1 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* nav spacing */
+  .nav li {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+  }
+  .doc-toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
+    max-width: 80vw;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+    overflow: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  body.toc-open .doc-toc {
+    transform: translateX(0);
+  }
+  .toc-fab {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1100;
+    cursor: pointer;
+  }
+  .toc-fab::before {
+    content: "☰";
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text);
+  }
+}
+
+/* TOC overlay for mobile: click to close */
+.toc-overlay {
+  display: none;
+}
+@media (max-width: 960px) {
+  .toc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    display: none;
+  }
+  body.toc-open .toc-overlay {
+    display: block;
+  }
+}
+
+/* back-to-top floating button with progress ring */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: conic-gradient(var(--accent) var(--progress, 0%), #e9ecef 0%);
+  mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  -webkit-mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  z-index: 1100;
+}
+.back-to-top .arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--text);
+  transform: translateY(-2px);
+}
+
+/* Back-to-top button with progress ring */
+:root {
+  --back-to-top-c-bg: #fff;
+  --back-to-top-c-accent-bg: #2bbc8a;
+  --back-to-top-c-shadow: rgba(0, 0, 0, 0.08);
+  --back-to-top-c-accent-hover: #cc2a41;
+}
+.vp-back-to-top-button {
+  position: fixed !important;
+  inset-inline-end: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-width: 0;
+  border-radius: 50%;
+  background: var(--back-to-top-c-bg);
+  color: var(--back-to-top-c-accent-bg);
+  box-shadow: 2px 2px 10px 4px var(--back-to-top-c-shadow);
+  cursor: pointer;
+}
+@media (max-width: 959px) {
+  .vp-back-to-top-button {
+    transform: scale(0.8);
+    transform-origin: 100% 100%;
+  }
+}
+@media print {
+  .vp-back-to-top-button {
+    display: none;
+  }
+}
+.vp-back-to-top-button:hover {
+  color: var(--back-to-top-c-accent-hover);
+}
+.vp-back-to-top-button .back-to-top-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  position: relative;
+}
+.vp-back-to-top-button .back-to-top-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid currentColor;
+}
+.vp-scroll-progress {
+  position: absolute;
+  inset-inline-end: -2px;
+  bottom: -2px;
+  width: 52px;
+  height: 52px;
+}
+.vp-scroll-progress svg {
+  width: 100%;
+  height: 100%;
+}
+.vp-scroll-progress circle {
+  opacity: 0.9;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+  /* offline token styles */
+  .token.keyword{ color:#d73a49; font-weight:600; }
+  .token.string{ color:#032f62; }
+  .token.number{ color:#005cc5; }
+  .token.comment{ color:#6a737d; font-style: italic; }
+  </style>
+  <link rel="stylesheet" href="./highlight/github.min.css">
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(../pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#projects">程序</a></li>
+            <li><a href="../index.html#writes">文章</a></li>
+            <li><a href="../index.html#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <div class="toc-title"><a href="#article-top">我的英文学习经历</a></div>
+        <ul class="toc-list">
+<li class="toc-item level-2"><a href="#学生时代">学生时代</a></li><li class="toc-item level-2"><a href="#工作年头">工作年头</a></li><li class="toc-item level-2"><a href="#2025年">2025年</a></li><ul class="toc-sub"><li class="toc-item level-3"><a href="#2-5月-原著阅读">2-5月 原著阅读</a></li><li class="toc-item level-3"><a href="#5-8月-搁置">5-8月 搁置</a></li><li class="toc-item level-3"><a href="#8-10月-转学为玩">8-10月 转学为玩</a></li></ul>
+</ul>
+      </aside>
+      <main class="article">
+        <h1 id="article-top">我的英文学习经历</h1>
+        <p><small>2025-11-03 · english</small></p>
+        <article>
+<h2 id="学生时代">学生时代</h2>
+<p>在学校时，我对英语的态度与其他学科一样，都是不感兴趣，应付考试罢了。<br>
+为了考试，真是虚度了不少光阴。<br>
+我从未在英语上下过任何苦功，但是靠着茁壮的记忆力，每次考试还是能考个一百分上下的(总分 150),算是不好也不差。<br>
+这都的感谢爸妈给的基因，与个人努力毫无关系。<br>
+我在学校里面学习英文的方式与多数人相同，靠老师的灌输与考前的背诵。<br>
+还有最重要的一点就是，做题做多了，自然便会一点了。<br>
+现在想想那真是学习语言的最好年代，很多内容看一遍便有印像了。<br>
+譬如有个知识点 “too … to …”。<br>
+意思是太如何如何了以至于不能如何如何了。<br>
+举例来说，I’m too tired to run，我太累了以至于跑不动。<br>
+这个语法只是我在学校里有一日浑浑噩噩累了，认真地听讲过某节课的前十分钟，便牢牢刻在脑子里。<br>
+现如今我对英语的第一印象竟还是这个句子。<br>
+这便是年轻的魔力。<br>
+哪像现在啊，刚看过的东西第二天就忘了。<br>
+可惜，资本主义将人异化为劳动机器，考试将知识异化为缓存。<br>
+这里的缓存，我的意思是浏览器中的那种，考完试就没啥卵用的东西。<br>
+我一直觉得，学校在课堂上强调&quot;学以致用&quot;是对学习最大的讽刺。<br>
+这四个字本是学习的真理，却被扭曲得不成样子。<br>
+考试之用是最无用的用。<br>
+总之，在学生时代，英语对我而言就跟政治这门科目一样，学校要求学，凑分数的罢了。<br>
+该说结论了，大学四级裸考多出及格线 10 分飘过，从未开口说过英语，从未看过英文教材以外的英文书籍。</p>
+<h2 id="工作年头">工作年头</h2>
+<p>大学毕业后的工作七年里，英语这个东西依旧没有走入我的生活。<br>
+不是说我接触不到英语，而是我认为我没有学习它的必要。<br>
+学习英文的好处，在我的认知以外。<br>
+你懂的，看电影、电视剧都靠字幕，听歌就听个旋律，诸如此类。<br>
+很多时候你真不明白，学英语有啥用啊？<br>
+也正是如此吧，大数据从未给我推荐过英文学习相关的媒体内容。<br>
+偶尔听闻新东方之类的新闻，也完全没法理解这里面暗藏的一些狂热，付之一笑。<br>
+最主要还是常年待在象牙塔，而我又出身于一个物质匮乏的农村，没见过什么世面，因此出来工作后我觉得中国仍有探索不完、享受不完的有趣事物。<br>
+虽然这几年里有几天我开口说过英语，主要是出国旅游过一次，遇上过一些老外，有过简单的沟通。<br>
+但中国的月亮我都还没看够，国外的月亮太过遥远了。<br>
+因此这七年里，我的英语学习大概率是不进反退的。</p>
+<h2 id="2025年">2025年</h2>
+<p>这一年是我英语学习欲望爆发的一年。<br>
+表面的原因是，我的工作无法使我快乐。<br>
+并且我觉得不快乐的原因跟我无关，于是我想，会不会是环境的问题，要不要换个环境试试呢？<br>
+而深层原因，我现在觉得，是个人的性格使然。<br>
+在我工作的前七年里，我没有房贷，没有车贷，我还是个月光族，有一万我就花一万，两万花两万，三万花三万。有一年为了出国旅游，甚至倒欠京东五万。<br>
+由此可见，我是个爱体验新鲜事物的人。<br>
+这七年来，我换了四份工作，去了许多地方旅游消费，疫情封控，恋爱、结婚、生子。<br>
+我花了几乎所有钱，我体验了很多, 很多事物不再新鲜神秘，散发着腐臭。<br>
+我看到了一些好的东西，但也有很多不好的东西。<br>
+国内的月亮看了好多年，也就那样，不知道国外的月亮咋样呢？<br>
+总在网上道听途说、只言片语怎么能行呢？<br>
+现年头人们常诟病大数据给人编织了信息茧房，约束了人的视野。<br>
+但事情总有好坏两面，信息茧房的对立面是会给人持续激励。<br>
+如果你把互联网当作生活，大数据确实约束了你的生活；<br>
+但如果你把互联网当作工具，那么它就能提供很好的持续激励；<br>
+随着大数据给我每天推送国外的月亮，我就像闻到腥味的猫，蠢蠢欲动了。<br>
+出国在当今社会不是一件难事，旅游也行，留学也行，但对我而言最好是出去就能工作。<br>
+毕竟在体验异国风情的同时，我不能忘记我作为家长的责任，我要养活我的家人。<br>
+无论什么途径，都离不开英语，而且是实用英语。<br>
+我恨透了考试，什么雅思托福之类的东西，是无比抗拒的。<br>
+于是今年一月份开始，我便开始主动学习英语。<br>
+但没想到短短一年，我的学习心路就发生了几番变化。</p>
+<h4>1月 背单词</h4>
+<p>刚开始，我没有目标，我只是心里有一种激情，我要学好英语。<br>
+至于怎样是好，需要投入多少时间，我没有一个清晰的认知。<br>
+我喜欢说干就干。<br>
+作为一个多年应试教育培养出来的人，我下意识还是按照应试教育的方式去学习，毕竟在英语学习这方面，实在没啥积累，也只知道这种办法了。<br>
+于是我想找份教材，偶然知道了有一种东西叫做 coca 词汇，正中下怀，因此立马下载了欧路词典开始加载单词本就背诵起来。<br>
+起初一个星期，很勤快，地铁上背，午睡时候背，哪怕上班滑水的时候，也去楼梯间背。<br>
+自我感觉无比良好，想着一天 30 个单词，一个月九百个，一年下来就 coca 10000 了吧，按照网上的说法，“能理解现实生活中 90% 的词汇了”。<br>
+但后来我才知道，这话里面是有陷阱的。<br>
+90% 的&quot;词汇&quot;而不是 90% 的&quot;内容&quot;。<br>
+认识词汇与理解内容之间，隔着巨大的鸿沟。<br>
+激情蒙蔽了我的独立思考能力。<br>
+但好在我多年的程序开发经验，让我有一定程度的测试意识。<br>
+我背单词之前刻意找了几个软件和网站测试我的词汇量水平，大致在 3000-4000 之间。<br>
+那理论上，一个月后，我的词汇量水平应该会稳定在 4000 多吧？<br>
+我便以这个为测试目标，在奋战一个月好再次测试我的单词量水平。<br>
+一个月后，测试结果没有变化。<br>
+我开始怀疑这种学习方法真的有效果吗？<br>
+我开始搜索,有没有其他更好的英语学习方法呢？<br>
+但现在回想起来，其实是我累了。<br>
+这种学习方法太枯燥无味。<br>
+纸上谈兵，不符合实际的英语使用场景。<br>
+反人性， 时常需要强迫自己努力。<br>
+对我而言，放弃是必然的，失败也是必然的。</p>
+<p>实际上，第一个月背单词的时候，我也时常能刷到一些英文博主的视频，这便是大数据的优点之一，无形中在同一领域中不停地激励你。<br>
+我当时最喜欢逛的就是 B 站，误打误撞，我个人认为 B 站有最好的英文学习资源。<br>
+我当时经常刷到一种视频，就是围绕一小段国外的英语视频进行教学；<br>
+先盲听一遍。<br>
+然后带字幕听，同时博主解析里面的连读等口语知识点，可谓之精听。<br>
+最后再盲听一遍。<br>
+我偶尔会在去上班的地铁上刷到了便听一段，觉得还不错。<br>
+事实上，这是我人生第一次有意识地训练自己的英语听力。<br>
+但我并没有投入太多时间来通过这种方式学习英文。<br>
+这个月我还是坚持背单词。<br>
+我是个理科生，我喜欢量化的学习方式，一天背多少个单词，一年之后就怎么怎么滴，这是当时更容易被我接受的广告。<br>
+如果我就坚持这样下去，我想，我的结局就是因为枯燥和沮丧而放弃继续学习吧。<br>
+但幸运的是，我并不固执。</p>
+<h3 id="2-5月-原著阅读">2-5月 原著阅读</h3>
+<p>努力背诵一个月单词后，我发现自己的词汇量测试并没有提升，而且我第一个星期背诵的单词已经忘记许多。<br>
+这意味着我要去复习。<br>
+但是我讨厌陈旧的东西。<br>
+背诵单词已是乏味，还要反复乏味。<br>
+想想就很折磨。<br>
+再加上去 B 站看那些口语视频，似乎越来越有趣了。<br>
+主要也是那些英语博主实在审美在线，总能找到一些俊男靓女的视频。<br>
+如此对比之下，我对背单词这件事情越来越乏力了。<br>
+出于应试教育的惯性思维，我会将英语拆分为 听说读写 四种能力。<br>
+我总在网上听到这种言论。<br>
+听读不会是瞎子。<br>
+说写不会是哑巴。<br>
+我当时是认可这个观念的，觉得做哑巴还是比做瞎子好。<br>
+而这么多年应试教育下来，我的读能力远超其他能力。<br>
+我喜欢从自己相对熟悉的角度切入,那样更有信心。<br>
+因此我还是坚持先提高自己读的能力。<br>
+我还是带着量化的思维，觉得只要自己投入多少时间去读，就能提高自己多少能力水平。<br>
+等我读的能力大成了，再去提升其他能力就简单了。<br>
+一项一项来，就跟程序里的模块，工作里的 okr 一样。</p>
+<p>单词已经背不下去了，实践证明没啥进步。<br>
+于是我又想到能不能通过看小说背单词呢？毕竟看网络小说是我的一大爱好，上学那会为了一口气看完小说，我可以连续通宵两天。<br>
+我先是下载了起点中文网的海外 app – WebNovel 看起了英文网络小说，遇到不认识的单词便复制出来用翻译软件翻译。<br>
+但是小说实在太好看了，渐渐的我开始没有耐心，直接到起点上找原版的小说看去了。<br>
+一看就停不下来，学英语的事情自然抛到云霞海外去了。<br>
+直到把那本小说看完，我才空闲下来又想起来学英文，只是这一次我不敢碰网络小说这个领域了。<br>
+一个是生词还是太多，阅读体验不好；其次是网络小说太容易沉迷，总忍不住快点看完。<br>
+于是我到网上去搜&quot;入门英文原著&quot;，想找些出版书看。<br>
+为了方便下载，我先是找了个 web3 图书下载网站叫做 liber3.eth.limo<br>
+后来又认识了 z-lib 这个平台。<br>
+为了寻找适合自己的书籍，认识了蓝思值这个东西。<br>
+于是综合一些豆瓣上的入门英文原著推荐帖子，我先是看完了下面这些英文原著：<br>
+《Born a Crime》<br>
+脱口秀演员崔娃·诺亚回忆他作为南非种族隔离制度下一名“生而有罪”（混血儿）的孩子的成长经历</p>
+<p>《I am Malala》<br>
+诺贝尔和平奖得主马拉拉·尤萨夫扎伊的自传，讲述了她因勇敢为巴基斯坦女童争取受教育权而遭塔利班枪击幸存后，成为全球教育平等象征的非凡历程</p>
+<p>《The Daydreamer》<br>
+一个爱做白日梦的男孩，在现实与充满奇妙想象的内心世界之间穿梭</p>
+<p>《The House on Mango Street》<br>
+一个生活在芝加哥拉丁裔社区的少女，通过一系列诗意的短章，记录下她在芒果街破旧小屋中的成长经历与对远方的渴望。</p>
+<p>《The Last Storytellers》<br>
+作者记录了在摩洛哥马拉喀什广场收集的最后一代传统说书人所讲述的故事，这些故事是延续了千年的阿拉伯民间智慧与文化的<br>
+结晶。</p>
+<p>《Wonder》<br>
+一个因先天面部畸形而备受瞩目的男孩，在五年级时首次进入普通学校，他必须用内心的善良与勇气教会大家如何接纳“不同”的<br>
+人。</p>
+<p>《Animal Farm》<br>
+一群动物推翻人类农场主，试图建立一个平等的动物社会，最终却目睹革命成果被聪明的猪篡夺，建立起一个比人类统治时更具<br>
+压迫性的极权政权。</p>
+<p>《They Both Die At The End》<br>
+在一个人们会提前得知自己死期到来的世界里，两个本无交集的男孩在“死亡预告”发布后相遇，他们决定在最后一刻，共同度过<br>
+生命中最伟大的一个日夜。</p>
+<p>《Fahrenheit 451》<br>
+在一个禁止书籍、消防员负责焚书的未来极权社会里，一名消防员开始质疑自己的使命，并不惜一切代价投身于保护知识的危险<br>
+事业中。</p>
+<p>其中我体验最好的就是第一本 《Born a Crime》, 一开始看得磕磕绊绊，为了理解内容，每页要查六七个生词，后面越看越通顺，基本看三四页才查一个单词。<br>
+它让我切实感受到了英文阅读能力的进步。<br>
+我实在太感谢它了，因为它让我对自己的英文有了自信。<br>
+我只要成功一次，就能相信自己成功更多次。</p>
+<p>还有一本 《Wonder》，简单易懂但是又好看，让我切实感受到了阅读的乐趣。</p>
+<p>其余基本都带着点勉强看完的，要么是内容并不那么合口味，但你说无聊嘛也不会。<br>
+要么就是太难了，要大量查单词才能看懂，很影响阅读体验，譬如 《Animal Farm》《Fahrenheit 451》。<br>
+但无论如何，我算是体验了一把新鲜的英语学习方法，并且每读完一本书就充满了自豪感。<br>
+我当时甚至感觉，我能沿着这条道路一直走下去，可能一年后，我就能读懂任意我想读的书了。</p>
+<p>但这个过程不是一帆风顺的，我也尝试过阅读下面这些英文原著，但都没有读完，一两本是读了大半才放弃，大部分是浅尝辄止。<br>
+至于原因嘛，无外乎两种，要么是对我而言难度太高，要么是觉得内容没意思。<br>
+《Dady Long Legs》<br>
+《The Moves Make The Man》<br>
+《The Joy Club》<br>
+《The Water Babys》<br>
+《The Book Thief》<br>
+《Norton Juster》<br>
+《Looking for Alaska》<br>
+《The Thief》<br>
+《Hillbilly Elegy》</p>
+<p>因此选择书籍成了关键，一本适合我的书，胜过一切。<br>
+但这不是一件容易的事情，在找书、试书的过程中，你可能会消耗许多时间和耐心。<br>
+总体上来说，这个阶段我都是按照自己的口味找故事类型的书，并且按照难度找一下 young adult book 。<br>
+譬如去这类推荐上面找点感兴趣的：<br>
+<a href="https://reedsy.com/discovery/blog/young-adult-books">115 Best Young Adult Books of All Time</a><br>
+我也犯了很多人会犯的毛病，看到想看的书，不管有没有时间去看，先下载保存起来。<br>
+当时我的书架里塞了一百多本英文原著，但看完的就只有 18 本，其余的至今都吃灰了，也不知道哪天会不会拾起来。</p>
+<p>当时，我基本上是一星期看完一本英文原著，在我看了两个月之后，我在小红书刷到一个书单推荐的帖子，下面有一条评论提到了 B 站罗肖尼，带着好奇，我搜索并看完了他的视频，主要讲述一种英文学习方法叫做 “可理解性输入”。<br>
+<a href="https://www.bilibili.com/video/BV1aD4y127GE/?spm_id_from=333.337.search-card.all.click&amp;vd_source=aed8637126da9ab1ecbde9e8e32e8ad6">阅读篇</a><br>
+<a href="https://www.bilibili.com/video/BV1tf4y1s7NN/?spm_id_from=333.337.search-card.all.click">听说篇</a></p>
+<p>老实说，刚看完他的视频我是很支持他的。<br>
+但并不是完全理性的支持。<br>
+因为我自己尚未实践过这种学习方法，没有实践就没有发言权。<br>
+但是他所讲述的学习方法非常推崇我正在进行的英文原著阅读。<br>
+所谓酒逢知己千杯少，我自然像是找到了一个懂我、认可我、鼓励我的前辈般（何况他英文还那么好），欢呼雀跃并且决定践行可理解性输入之道,有朝一日我的英语水平必能与母语并肩。<br>
+对比他的视频内容，我发现我看的书有点儿杂，既不是同一个系列也不是同一个作者。<br>
+因此我就放弃了自己那五十多本书，转而去 z-lib 下载了 18 本他看过的 Sydney Sheldon 系列小说。<br>
+并且在后面两个月，我一边上班，一边看完了下面这几本书：</p>
+<p>《If Tomorrow Comes》<br>
+主角被陷害入狱，出狱后利用她的智慧和美丽向仇人复仇</p>
+<p>《Master of the Game》<br>
+主角如何将自己的遗产发展成一个国际商业帝国，以及她操纵、统治和热爱的家族故事。</p>
+<p>《The Doomsday Conspiracy》<br>
+海军情报官中校被派遣调查一个神秘事件，从而卷入了一场世界末日的阴谋之中</p>
+<p>《Range of Angles》<br>
+初出茅庐的女律师，在纽约法律界挣扎奋斗，并周旋于野心勃勃的黑帮老大与风度翩翩的联邦参议员之间。</p>
+<p>《Bloodline》<br>
+跨国制药公司总裁离奇丧生，其女在继任后接连遭遇谋杀，并面临公司的一系列机密泄露和变故。</p>
+<p>《A Stranger in the Mirrow》<br>
+Toby 从流浪汉成长为好莱坞超级明星，以及他与女演员 Jill 之间复杂关系的故事。</p>
+<p>《The Naked Face》<br>
+讲述一位心理精神分析医生的病人和接待员相继遭遇不测，他被迫为自己洗刷谋杀罪名的故事。</p>
+<p>《The Stars Shine Down》<br>
+小镇少女凭借聪明才智和魄力，涉足男性主导的房地产业，并在商场上屡经风险、化险为夷的故事。</p>
+<p>《The Other Side of Me》<br>
+作者 Sydney Sheldon 的自传</p>
+<p>基本上都是一周一本书的节奏，而且看这些书确实比较通俗易懂，每一页最多查两三个单词就能看懂意思了。<br>
+我比较喜欢 《Master of the Game》《The Doomsday Conspiracy》 这两本。<br>
+其余的虽然也不至于无聊，但也没多吸引我，站在阅读乐趣的角度来说属于鸡肋，只是冲着学习英文，耐着性子读完罢了。</p>
+<p>这段时间，为了省钱以及更好的阅读体验，我还自己开发了一款网页版的英文原著阅读器。<br>
+<a href="https://github.com/dominicyuan1024/enreader">伊恩阅读器（enreader）</a><br>
+但只在工作之余使用，工作时间，我都是直接用 vscode 的 epub 插件来抽空看书。</p>
+<p>我也无法说明这段时间自己到底掌握了多少词汇和多少语法，只是有明显的感觉，自己对于英文内容的整体熟悉度提高了许多。<br>
+以前看到英文的技术文档，都是下意识点开翻译，现在有耐心去慢慢看了。<br>
+阅读英文原著的时候，感觉明显流畅了许多，虽然依旧有卡顿感，但是已经告别了逐字逐字阅读的阶段，开始按照意群去阅读了。<br>
+还有就是浏览 X、reddit 等外网时，意外发现许多帖子内容已经能看懂，下面的评论也能看懂很多。<br>
+无论是技术文档，还是外网博客，这些都是实际生活的英文使用，并非纸上谈兵。<br>
+而它们给我的正反馈让我对这种学习方法倍感自信。</p>
+<p>当然这四个月里，我并不是只阅读，我还看美剧。</p>
+<p>《绝望主妇》<br>
+只看了一二季就看不下去了。</p>
+<p>《查理成长日记》<br>
+只看了一二季，挺搞笑的，但是后面没有继续看。</p>
+<p>《Kind of The Hill》<br>
+看了一二季，一开始看也觉得挺搞笑的。</p>
+<p>《超感猎杀》<br>
+看完了全部，非常喜欢，特别是那首插曲 What’s going on 单曲循环了半个月。</p>
+<p>《怪奇物语》<br>
+看完了全部，非常喜欢，Running up that hill 这首插曲也单曲循环了半个月。</p>
+<p>看美剧的初衷都是为了锻炼听力，因此我每天贴身携带我老婆的头绳，看的时候绑在手机字幕的位置，刚好把中文挡住了。<br>
+想法是好的，一开始都是在锻炼听力，看着看着都忍不住把发绳拆掉，看起了中文字幕，譬如超感猎杀和怪奇物语。<br>
+结论就是，好看的忍不住看字幕，不好看的看不下去。<br>
+跟我看 webNovels 时一模一样。<br>
+大概这些剧对我的英文听力是没什么有效帮助的。</p>
+<p>如此，我便已学习英文半年了。<br>
+整体来说当时很自信，觉得这是一条正确的道路。<br>
+体验上来说，一半是娱乐，因为看的都是我喜欢的故事类书籍；一半是学习，因为并不是所有故事都合口味。<br>
+学习效果上来说，由于我很懒，不喜欢复习生词，若有五分之一的时间化为学习的效果便不错了。<br>
+四个月下来，词汇量估计才增长几百。<br>
+但提升比较明显的还是对于英文整体的那种熟悉、流畅的感觉，或许这是一种对已知单词的深化理解？<br>
+我也搞不清楚。</p>
+<p>这时候，我的学习观念还是局限于单词，仿佛只要我把阅读过程中看不懂的单词都搞懂了，便能快速提高自己的阅读能力了。<br>
+但这段时间最重要的成果便是我在应试教育方法之外又掌握了一条英语学习之路，并且是一条我有信心坚持下去的路。<br>
+路虽远，行则将至，不是吗？</p>
+<h3 id="5-8月-搁置">5-8月 搁置</h3>
+<p>恰逢孩子出生，每天都很忙。<br>
+这三个月里，基本没有完整的连续一个小时空闲时间来阅读，时间被割得很碎。<br>
+阅读是一件需要连续时间来沉浸的行为，无法在碎片中享受。<br>
+于是英语学习便搁置了三个月。</p>
+<h3 id="8-10月-转学为玩">8-10月 转学为玩</h3>
+<p>三个月后，转机出现了。<br>
+先是去了一趟国外旅游，跟老外用英文做了许多沟通，自我感觉还不错，回家后便再次重启英文学习。<br>
+但这一次，结合时间碎片化的现状，我再次调整自己的学习方法。<br>
+由于我失业了，没有了一个小时的通勤时间，没有了工作的滑水时间。<br>
+看书是不可能看书了，时不时就要哄娃、换纸尿裤等其他事情，最多看个半小时就会被打断专注力。<br>
+我试过了，我放弃了。</p>
+<p>但是我没放弃英语，只是还在寻找合适的方式。<br>
+我之前断断续续的就看过一些英文学习相关的帖子，推荐使用 youtube、看 tictok 和听 podcast 来练习听力。<br>
+youtube 我使用过一段时间，总是避免不了老是刷新出一些中文视频，而且多数是键政的，导致我本来学英文的时间都被诱拐去了解政治了，pass!<br>
+tictok 使用麻烦，而且也是一样的问题，要养号，要训练大数据才能给你合适的素材，不然都是一些小姐姐在跳舞，这样只能学会肢体语言，学不会英语。</p>
+<p>podcast 最终满足了我的要求，但是也不顺利，因为一开始我找到都比较难，导致听着听着就走神，把它当背景音了。<br>
+跟原著阅读一样，我一开始找的 podcast 也是在网上搜索来的。<br>
+那些推荐的人说的天花乱坠，但一个听不进去的东西，再好又有什么用呢？空中楼阁罢了。<br>
+甚至我一度开始怀疑自己的英文水平是不是还需磨练再来使用这种素材。<br>
+但就在我濒临放弃之际，我知道了一个叫做 “but why” 的 podcast, 一听入魂。<br>
+它是一档由美国公共广播公司制作的英语播客节目，每集都回答孩子们提出的关于动物、历史、科学等领域的问题。<br>
+它是给孩子录制的，通俗易懂，难度适合我，大部分话我都能听懂。<br>
+它还挺有意思，它的知识范围特别广，简直就是十万个为什么，然后每一期都请不同的领域专家来协助回答问题，有些还会去实地考察，这让我能听到不同的口音，大饱耳福。<br>
+特别是我很喜欢听那些小孩提问的声音，也许是我刚有了孩子，爱屋及乌吧。<br>
+我经常在听的时候暗自决心，等我的孩子会说话了，我一定帮他投稿。<br>
+这个 podcast 我连续听了一个月，每天一集，都是利用碎片时间打开就听的。<br>
+它挤占了我所有平时听歌的时间。<br>
+为了方便听这个博客，我还下载了软件 spotify 。</p>
+<p>这期间还有一件事情，那就是我开始学唱英文歌了。<br>
+虽然我五音不全，是肯定不好意思出去唱的，但没关系，我有一个忠实的听众，那就是我襁褓里的孩子。<br>
+刚出生的婴儿总免不了要抱睡，有时候一抱就是半个多小时。<br>
+摇他睡觉时，下意识就会给他哼一些曲子。<br>
+刚开始是 两只老虎、小兔子乖乖、送别 这种简单的中文歌。<br>
+后来有一次想着，反正都是唱，为啥不唱唱英文歌呢？还能顺带学习英文呢！<br>
+于是我背诵并学习了以下歌曲：<br>
+Fireworks - First Aid Kit<br>
+Kids - Sasha Alex Sloan<br>
+Older - Sasha Alex Sloan<br>
+The End of the World<br>
+We Are Young<br>
+Seasons in the Sun<br>
+Lemon Tree<br>
+Last Christmas<br>
+Five Hundred Miles<br>
+Yestoday Once More<br>
+Somthing Just Like This<br>
+Zombie<br>
+What’s going on<br>
+Running up that hill<br>
+Hey,Jude<br>
+Monster<br>
+Dancing With Your Ghost<br>
+Once Upon a Time</p>
+<p>听 but why 的时候，至少有一半的心态是刻意学习英文的。<br>
+但听歌唱歌的时候我很享受，单纯的娱乐，一点也没有在学英文的刻意感。<br>
+我太幸运了，有一个忠实的听众。<br>
+虽然他根本听不懂好坏，但是他就当白噪音了，一脸享受。<br>
+经常在我唱了五六遍之后就会安然入睡，这让我很有自豪感，仿佛我的五音不全已成了天籁。</p>
+<p>在听了一个月的 but why 之后，老实说我是有点腻了。<br>
+以往我在睡觉前听它会听完了才睡觉，现在是听着听着就睡着了，成了催眠的东西了。<br>
+不然我不会又去搜索有什么 podcast 推荐。<br>
+由于经常逛外网，这时候其实我的互联网界限已经开始变得有点模糊了，我忘记是外网还是中文互联网上，偶然间看到有人推荐一个 audio drama 叫做 《The Horror of Dolores Roach》。<br>
+audio drama 是个什么东西？<br>
+又一次见识到一个新事物，赶紧去尝尝鲜。<br>
+这一听就停不下来了。<br>
+这音效怎么像电视剧！<br>
+这对话好日常啊！<br>
+我居然能听懂 90% 的内容！<br>
+这故事还很有意思！<br>
+最后听了个通宵，根本没法睡觉，就跟很多年前我第一次拿起那本叫做《诛仙》的网络小说一般。</p>
+<p>之后我便放弃了 but why，开始搜索其他 audio drama 来听。<br>
+因为我觉得 audio drama 太适合我了，像是为我量身打造的 “可理解性输入”，还是我最爱的故事类内容！<br>
+听这个东西跟听歌唱歌的感受一样，完全没有刻意学习的心态，纯娱乐的享受。<br>
+下面是我目前听过的 drama：</p>
+<p>《The Horror of Dolores Roach》<br>
+出狱后的按摩师为生存而杀人，而她的房东则将尸体做成了馅饼。</p>
+<p>《We’re Alive》<br>
+一部讲述幸存者在末日洛杉矶的军事化僵尸围攻下，于废墟中建立社群、挣扎求生的史诗级广播剧。</p>
+<p>《The Call of the Void》<br>
+讲述了在新奥尔良发生的神秘现象，导致人们失去视力、听力和理智。</p>
+<p>《Haunted》讲述了隐居的酗酒作家、充满活力的热情播客主持人以及警官在调查奇怪且看似无法解释的现象时的故事。</p>
+<p>随着我对 audio drama 的接纳，我对 Youtube 视频的接纳度也提高了。<br>
+以前大部分英文 YouTube 视频我听不懂就会走神。<br>
+现在也能放松愉悦地去看了，反正我能看懂大概意思就行啦。<br>
+我模仿得多了，好像感受到了一些中文英文发音的区别，我第一次注意到自己说话时，嘴唇、喉咙、胸腔、腹部在发力。<br>
+说中文跟说英文，动的位置跟力度都不太一样。</p>
+<p>我发现了我这个人的毛病，在人们的口里，应该叫做 “贪玩不爱学习”。<br>
+凡是带着学习目的学习心态的行为，我都坚持不久。<br>
+就好似有一次我刷 Youtube 视频，看到有位博主分享说国外有个女孩靠着每天写日记、翻译成英文、背诵，把自己的英文锻炼得很强。<br>
+理性上，我觉得这真是一个很好的学习方法。<br>
+因此也刻意去模仿着做了。<br>
+但是没坚持几天就放弃了。<br>
+但是我最近却萌生出了写英文博客的想法，兴致很强。<br>
+写英文博客跟写日记有什么区别呢？可能一个是冲着学习，一个是冲着好玩，心态不同吧。</p>
+<p>为了锻炼口语，有段时间也每周参加英语角。<br>
+但是遇到纯聊天的活动，我就觉得没意思，因为不好玩啊，我表达不清楚我的想法，有些老外说话我也听不清，没有话题硬找话题，就为了锻炼而熬时间一样。<br>
+但是遇到玩游戏的活动，哪怕我的英语再蹩脚，我都能凭借三脚猫功夫跟他们玩得很开心,这样回家后就会有一种幻觉，我的英文还不赖嘛！<br>
+但这比较考验运气，因此我也后面也比较少参加英语角了。</p>
+<p>学如逆水行舟，而玩如顺流直下，若都能到达目的地，何不选择后者呢？</p>
+<p>现如今，我在娱乐的过程中，听到一些英文句子觉得酷的，有时也会忍不住脱口模仿两句。<br>
+就跟小时候看动画片一样,“出来吧！皮卡丘！”，类似这种，你懂的。<br>
+我没有复习过单词。<br>
+我没有收藏过句子。<br>
+我除了背歌词，没有去背诵过任何英文内容。<br>
+我遇到不懂的单词大部分都不了了之，反正也不影响我知道它们大部分在讲啥啊。<br>
+我已彻底不在乎自己今天学到了什么，要在多久时候达到什么水平。<br>
+我还是那么厌恶雅思托福相关英语的考试，听到就反感，我可能得了应试教育 ptsd。<br>
+总而言之，我的英文学习仪式感、目的性已经基本淡化， 变成玩了。</p>
+<p>以前，我的手机首屏放的娱乐 app 是 Bilibili 网易云音乐 小红书 起点读书<br>
+如今，我的手机首屏放的娱乐 app 潜移默化变成了 X Reddit Youtube Spotiy<br>
+也不知什么时候开始，我已几乎不使用中文得娱乐软件了。<br>
+我已彻底沉迷于英文内容的娱乐中。<br>
+这算不算是在学习？我也不知道了。<br>
+这样下去英文会不会提升？我也不确定。<br>
+我希望能开开心心地玩下去。</p>
+<p>我在春天种下一粒种子<br>
+接下来的每一天都给它浇水<br>
+总有一天它会结出芳香的果实<br>
+具体哪一天 我好像不在乎了<br>
+我知晓的是 每天浇水也挺快乐的</p>
+</article>
+      </main>
+    </div>
+    <button class="toc-fab" aria-label="目录"></button>
+    <div class="toc-overlay" aria-hidden="true"></div>
+    <button type="button" class="vp-back-to-top-button" aria-label="返回顶部">
+      <span class="vp-scroll-progress" role="progressbar" aria-labelledby="loadinglabel" aria-valuenow="0">
+        <svg><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="0 151"></circle></svg>
+      </span>
+      <div class="back-to-top-icon"></div>
+    </button>
+    <script>
+      (function(){
+        const links = Array.from(document.querySelectorAll('.toc-list a'));
+        const headings = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        function onScroll(){
+          let activeIndex = 0;
+          for (let i=0;i<headings.length;i++){
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= 100) activeIndex = i;
+          }
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[activeIndex]) links[activeIndex].classList.add('active');
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // copy buttons (offline)
+        document.querySelectorAll('pre > code').forEach(code => {
+          const pre = code.parentElement;
+          const raw = code.textContent || '';
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(raw); btn.textContent = '已复制'; setTimeout(()=>btn.textContent='复制', 1200); } catch(e) { btn.textContent='失败'; setTimeout(()=>btn.textContent='复制', 1200); }
+          });
+          pre.style.position = 'relative';
+          pre.appendChild(btn);
+        });
+
+        // ensure images use lazy loading
+        document.querySelectorAll('img').forEach(img=>{ if(!img.loading) img.loading = 'lazy'; });
+
+        // mobile TOC toggle (top-right hamburger)
+        const tocFab = document.querySelector('.toc-fab');
+        const tocOverlay = document.querySelector('.toc-overlay');
+        if (tocFab) {
+          const closeToc = () => document.body.classList.remove('toc-open');
+          tocFab.addEventListener('click', () => { document.body.classList.toggle('toc-open'); });
+          links.forEach(a => a.addEventListener('click', closeToc));
+          if (tocOverlay) tocOverlay.addEventListener('click', closeToc);
+        }
+
+        // back-to-top with progress ring
+        const backBtn = document.querySelector('.vp-back-to-top-button');
+        const circle = document.querySelector('.vp-scroll-progress circle');
+        const PROG_LEN = 2 * Math.PI * 24; // r=24
+        function updateProgress(){
+          const st = document.documentElement.scrollTop || document.body.scrollTop;
+          const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const p = Math.max(0, Math.min(100, h ? (st / h) * 100 : 0));
+          if (backBtn) backBtn.querySelector('.vp-scroll-progress').setAttribute('aria-valuenow', p.toFixed(2));
+          if (circle) circle.setAttribute('stroke-dasharray', ((p/100)*PROG_LEN) + ' ' + PROG_LEN);
+        }
+        updateProgress();
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        if (backBtn) backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
+  </body>
+</html>
+
+

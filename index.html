@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dominic's blog</title>
+    <link rel="icon" type="image/x-icon" href="pitaya.svg">
+    <style>
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --pitaya-pink: #cc2a41;
+  --pitaya-green: #2bbc8a;
+  --pitaya-white: #f8f8f8;
+  --pitaya-dark: #2c2c2c;
+  --pitaya-light-pink: #ffe6ef;
+  --pitaya-light-green: #e8f5e8;
+}
+
+.link {
+  cursor: pointer;
+  background-image: linear-gradient(transparent, transparent 5px, #22272a 5px, #22272a);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.link:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+}
+
+html {
+  border-top: 2px solid rgb(34, 39, 42);
+}
+body {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 48rem;
+  margin: auto;
+  color: rgb(34, 39, 42);
+  font-family: "Menlo", "Meslo LG", monospace;
+  text-rendering: geometricPrecision;
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-image: url(pitaya.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nick-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+  line-height: 1.2;
+}
+
+.best-flow-title {
+  background: linear-gradient(135deg, var(--pitaya-pink), var(--pitaya-green), var(--pitaya-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: gradientFlow 2s linear forwards;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 250% 0;
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background-position: 0% 0;
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+.nav ul {
+  display: flex;
+}
+.nav li {
+  border-right: 1px dotted;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.nav a:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.nav li:first-child {
+  padding-left: 0;
+}
+.nav li:last-child {
+  border-right: none;
+}
+.h1 {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--pitaya-pink);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+.projects li,
+.writes li {
+  margin-bottom: 1rem;
+}
+.projects li:last-child,
+.writes li:last-child {
+  margin-bottom: 0;
+}
+.writes time {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.writes a {
+  margin-right: 1rem;
+}
+.writes .category {
+  background-color: var(--pitaya-dark);
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-transform: capitalize;
+  opacity: 0.2;
+  font-size: 0.4rem;
+  display: none;
+}
+
+.category.life {
+  background-color: var(--pitaya-pink);
+}
+.category.skill {
+  background-color: var(--pitaya-dark);
+}
+.category.english {
+  background-color: var(--pitaya-green);
+}
+.writes .summary {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.footer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+@media (max-width: 960px) {
+  .footer {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+</style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="/">主页</a></li>
+            <li><a href="#projects">程序</a></li>
+            <li><a href="#writes">文章</a></li>
+            <li><a href="#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+        程序员
+        英语学习者
+        户外爱好者
+    </section>
+    <section class="projects" id="projects">
+      <h1 class="h1"><a>程序</a></h1>
+            <ul class="list">
+        <li>
+          <a class="link" target="_blank" href="https://github.com/dominicyuan1024/databox">山海市交通建设项目跟踪问效管理平台 （databox）</a>: 
+          <small>一个 gis 数据可视化示例项目,使用 vue2 + arcgis 地图 + echarts 图表的炫酷展示页面,该类项目常见于中国智慧城市相关应用</small>
+        </li>
+        <li>
+          <a class="link" target="_blank" href="https://github.com/dominicyuan1024/enreader">伊恩阅读器（enreader）</a>: 
+          <small>一款英文原著阅读器，支持阅读 epub 书籍，便于在阅读时翻译与记录生词单句</small>
+        </li>
+        <li>
+          <a class="link" target="_blank" href="https://github.com/dominicyuan1024/flipmatch">翻转消消乐（flipmatch）</a>: 
+          <small>使用 react 制作的一款益智小游戏，适合大人陪同小孩一起玩，考验记忆力，帮助记忆词汇</small>
+        </li>
+      </ul>
+       <!-- <ul>
+        <li>
+          <a class="link" target="_blank" href="https://github.com/dominicyuan1024/databox">databox 山海市交通建设项目跟踪问效管理平台</a>: 
+          <span>一个 gis 数据可视化示例项目,使用 arcgis 地图 + echarts 图表的炫酷展示页面,该类项目常见于中国智慧城市相关应用</span>
+        </li>
+       </ul> -->
+    </section>
+    <section class="writes" id="writes">
+      <h1 class="h1"><a>文章</a></h1> 
+            <ul id="posts-list">
+        <li><span class="category english">english</span><time>2025-11-03</time><a class="link" target="_blank" href="writes/english-englis-experients.html" class="title"><span>我的英文学习经历</span></a><small class="summary">我为什么要学英文？我是如何学英文的？</small></li>
+        <li><span class="category skill">skill</span><time>2025-01-15</time><a class="link" target="_blank" href="writes/skill-build-my-blog.html" class="title"><span>从零搭建一个静态博客系统</span></a><small class="summary">分享如何使用 Node.js 和 Markdown 构建一个功能完整的静态博客，包括自动生成、代码高亮、移动端适配等特性</small></li>
+        <li><span class="category life">life</span><time>2016-03-12</time><a class="link" target="_blank" href="writes/life-bike-to-home.html" class="title"><span>骑行 厦门-梅州-广州</span></a><small class="summary">我的第三次长途骑行</small></li>
+        <li><span class="category life">life</span><time>2016-03-12</time><a class="link" target="_blank" href="writes/life-bike-to-southest.html" class="title"><span>骑行 广州-大陆最南端</span></a><small class="summary">我的第一次长途骑行</small></li>
+        <li><span class="category life">life</span><time>2016-03-12</time><a class="link" target="_blank" href="writes/life-bike-to-tibet.html" class="title"><span>骑行 成都-拉萨</span></a><small class="summary">我的第四次长途骑行，国道 318 游记</small></li>
+        <li><span class="category life">life</span><time>2016-03-12</time><a class="link" target="_blank" href="writes/life-bike-to-xiamen.html" class="title"><span>骑行 汕头-厦门</span></a><small class="summary">我的第二次长途骑行</small></li>
+        <li><span class="category life">life</span><time>2015-05-30</time><a class="link" target="_blank" href="writes/life-novel-iland.html" class="title"><span>他从未离开过赤道</span></a><small class="summary">大学时写的无病呻吟文学作品</small></li>
+        <li><span class="category life">life</span><time>2015-05-30</time><a class="link" target="_blank" href="writes/life-novel-kala1.html" class="title"><span>等一个电话</span></a><small class="summary">大学时写的无病呻吟文学作品</small></li>
+        <li><span class="category life">life</span><time>2015-05-30</time><a class="link" target="_blank" href="writes/life-novel-kala2.html" class="title"><span>等一出雨停</span></a><small class="summary">大学时写的无病呻吟文学作品</small></li>
+      </ul>
+      <!-- <ul >
+        <li><span class="category life">life</span><time>2025-11-03</time><a class="link" target="_blank" href="writes/lifes/whoami.html" class="title"><span>我是谁</span></a><small class="summary">简单介绍博主</small></li>
+      </ul> -->
+    <section>
+      <h1 class="h1" id="tech"><a>技术</a></h1>
+      <ul>
+        <li> English </li>
+        <li> Javascript Css Html</li>
+        <li> Vue React NodeJS</li>
+        <li> Cesium.js Arcgis.js</li>
+        <li> Go Kubernetes </li>
+      </ul>
+    </section>
+    <footer class="footer">
+      <p>Copyright © 2025 DominicYuan1024</p>
+    </footer>
+  </body>
+</html>

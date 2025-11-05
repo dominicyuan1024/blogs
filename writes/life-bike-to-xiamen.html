@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>骑行 汕头-厦门 - Dominic's blog</title>
+  <link rel="icon" type="image/x-icon" href="../pitaya.svg">
+  <style>
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --pitaya-pink: #cc2a41;
+  --pitaya-green: #2bbc8a;
+  --pitaya-white: #f8f8f8;
+  --pitaya-dark: #2c2c2c;
+  --pitaya-light-pink: #ffe6ef;
+  --pitaya-light-green: #e8f5e8;
+}
+
+.link {
+  cursor: pointer;
+  background-image: linear-gradient(transparent, transparent 5px, #22272a 5px, #22272a);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.link:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+}
+
+html {
+  border-top: 2px solid rgb(34, 39, 42);
+}
+body {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 48rem;
+  margin: auto;
+  color: rgb(34, 39, 42);
+  font-family: "Menlo", "Meslo LG", monospace;
+  text-rendering: geometricPrecision;
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-image: url(pitaya.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nick-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+  line-height: 1.2;
+}
+
+.best-flow-title {
+  background: linear-gradient(135deg, var(--pitaya-pink), var(--pitaya-green), var(--pitaya-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: gradientFlow 2s linear forwards;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 250% 0;
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background-position: 0% 0;
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+.nav ul {
+  display: flex;
+}
+.nav li {
+  border-right: 1px dotted;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.nav a:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.nav li:first-child {
+  padding-left: 0;
+}
+.nav li:last-child {
+  border-right: none;
+}
+.h1 {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--pitaya-pink);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+.projects li,
+.writes li {
+  margin-bottom: 1rem;
+}
+.projects li:last-child,
+.writes li:last-child {
+  margin-bottom: 0;
+}
+.writes time {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.writes a {
+  margin-right: 1rem;
+}
+.writes .category {
+  background-color: var(--pitaya-dark);
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-transform: capitalize;
+  opacity: 0.2;
+  font-size: 0.4rem;
+  display: none;
+}
+
+.category.life {
+  background-color: var(--pitaya-pink);
+}
+.category.skill {
+  background-color: var(--pitaya-dark);
+}
+.category.english {
+  background-color: var(--pitaya-green);
+}
+.writes .summary {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.footer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+@media (max-width: 960px) {
+  .footer {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+  </style>
+  <style>
+/* Minimal article typography inspired by Typora SprIng */
+:root {
+  --text: #000;
+  --bg: #fafafa;
+  --primary: #2bbc8a;
+  --accent: #cc2a41;
+  --muted: #666;
+  --code-bg: #f6f8fa;
+  --border: #e5e7eb;
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--text);
+  max-width: 980px !important;
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Inter, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+}
+
+.header {
+  margin-left: 13rem;
+}
+
+main.article {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+main.article h1,
+main.article h2,
+main.article h3,
+main.article h4,
+main.article h5,
+main.article h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.6em 0 0.8em;
+}
+main.article h1 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+main.article h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+main.article h3 {
+  font-size: 1.25rem;
+}
+
+main.article p {
+  margin: 0.9em 0;
+}
+main.article a {
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.35);
+}
+main.article a:hover {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+}
+
+main.article ul,
+main.article ol {
+  padding-left: 1.25rem;
+  margin: 0.8em 0;
+}
+main.article li {
+  margin: 0.3em 0;
+}
+
+main.article blockquote {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  color: var(--muted);
+  border-left: 4px solid var(--primary);
+  background: #f9fbfa;
+  border-radius: 4px;
+}
+
+main.article pre code {
+  background: transparent;
+  padding: 0;
+}
+main.article code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+main.article pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+/* Wrap long lines in code to avoid horizontal scrolling */
+main.article pre,
+main.article code {
+  white-space: pre-wrap; /* wrap long lines */
+  word-break: break-word; /* break long tokens */
+  overflow-wrap: anywhere; /* allow breaking anywhere if needed */
+}
+main.article pre {
+  overflow-x: hidden;
+}
+
+/* token fallback colors (keep in sync with template inline) */
+.token.keyword {
+  color: #d73a49;
+  font-weight: 600;
+}
+.token.string {
+  color: #032f62;
+}
+.token.number {
+  color: #005cc5;
+}
+.token.comment {
+  color: #6a737d;
+  font-style: italic;
+}
+main.article pre .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: var(--text);
+}
+main.article pre .code-copy-btn:hover {
+  background: #f0f0f0;
+}
+
+main.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+main.article th,
+main.article td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+}
+main.article thead th {
+  background: #f7f7f9;
+}
+
+main.article img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main.article hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+main.article > p > small {
+  color: var(--muted);
+}
+
+/* layout with sidebar toc */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.doc-toc {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  overflow: auto;
+  padding-top: 2rem;
+}
+.toc-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.toc-list,
+.toc-sub {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.toc-item {
+  margin: 0.25rem 0;
+}
+.toc-sub {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.25rem;
+}
+.toc-list a {
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.2);
+}
+.toc-list a.active {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+  color: var(--accent);
+}
+
+/* TOC toggle button - hidden by default on desktop */
+.toc-fab {
+  display: none;
+}
+
+@media (max-width: 960px) {
+
+  body {
+    padding-left: 1rem !important;
+  }
+  /* tighten global paddings */
+  .doc-layout {
+    padding: 0 0.5rem;
+    gap: 16px;
+  }
+  .header {
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+  main.article {
+    padding-left: 0.25rem;
+    border-left: none;
+  }
+
+  /* article spacing */
+  main.article h1 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.6rem;
+  }
+  main.article h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  main.article h3 {
+    margin: 0.75rem 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  main.article p {
+    margin: 0.6rem 0;
+  }
+  main.article ul,
+  main.article ol {
+    padding-left: 1rem;
+    margin: 0.6rem 0;
+  }
+  main.article li {
+    margin: 0.25rem 0;
+  }
+  main.article blockquote {
+    margin: 0.6rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+  main.article pre {
+    padding: 0.75rem;
+  }
+  main.article table {
+    margin: 0.6rem 0;
+    font-size: 0.95em;
+  }
+  .h1 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* nav spacing */
+  .nav li {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+  }
+  .doc-toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
+    max-width: 80vw;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+    overflow: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  body.toc-open .doc-toc {
+    transform: translateX(0);
+  }
+  .toc-fab {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1100;
+    cursor: pointer;
+  }
+  .toc-fab::before {
+    content: "☰";
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text);
+  }
+}
+
+/* TOC overlay for mobile: click to close */
+.toc-overlay {
+  display: none;
+}
+@media (max-width: 960px) {
+  .toc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    display: none;
+  }
+  body.toc-open .toc-overlay {
+    display: block;
+  }
+}
+
+/* back-to-top floating button with progress ring */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: conic-gradient(var(--accent) var(--progress, 0%), #e9ecef 0%);
+  mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  -webkit-mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  z-index: 1100;
+}
+.back-to-top .arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--text);
+  transform: translateY(-2px);
+}
+
+/* Back-to-top button with progress ring */
+:root {
+  --back-to-top-c-bg: #fff;
+  --back-to-top-c-accent-bg: #2bbc8a;
+  --back-to-top-c-shadow: rgba(0, 0, 0, 0.08);
+  --back-to-top-c-accent-hover: #cc2a41;
+}
+.vp-back-to-top-button {
+  position: fixed !important;
+  inset-inline-end: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-width: 0;
+  border-radius: 50%;
+  background: var(--back-to-top-c-bg);
+  color: var(--back-to-top-c-accent-bg);
+  box-shadow: 2px 2px 10px 4px var(--back-to-top-c-shadow);
+  cursor: pointer;
+}
+@media (max-width: 959px) {
+  .vp-back-to-top-button {
+    transform: scale(0.8);
+    transform-origin: 100% 100%;
+  }
+}
+@media print {
+  .vp-back-to-top-button {
+    display: none;
+  }
+}
+.vp-back-to-top-button:hover {
+  color: var(--back-to-top-c-accent-hover);
+}
+.vp-back-to-top-button .back-to-top-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  position: relative;
+}
+.vp-back-to-top-button .back-to-top-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid currentColor;
+}
+.vp-scroll-progress {
+  position: absolute;
+  inset-inline-end: -2px;
+  bottom: -2px;
+  width: 52px;
+  height: 52px;
+}
+.vp-scroll-progress svg {
+  width: 100%;
+  height: 100%;
+}
+.vp-scroll-progress circle {
+  opacity: 0.9;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+  /* offline token styles */
+  .token.keyword{ color:#d73a49; font-weight:600; }
+  .token.string{ color:#032f62; }
+  .token.number{ color:#005cc5; }
+  .token.comment{ color:#6a737d; font-style: italic; }
+  </style>
+  <link rel="stylesheet" href="./highlight/github.min.css">
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(../pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#projects">程序</a></li>
+            <li><a href="../index.html#writes">文章</a></li>
+            <li><a href="../index.html#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <div class="toc-title"><a href="#article-top">骑行 汕头-厦门</a></div>
+        
+      </aside>
+      <main class="article">
+        <h1 id="article-top">骑行 汕头-厦门</h1>
+        <p><small>2016-03-12 · life</small></p>
+        <article>
+<p>一个大学生的高中遗梦，从汕头大学到厦门大学。</p>
+<p>记得两年前在梅高文化培训中心，同桌问过我，“想考什么大学？”</p>
+<p>“目标是汕头大学。”同时我还表达了自己的梦想是厦门大学。我当时很清楚目标和梦想这两个概念之间的区别。</p>
+<p>结果我离梦想十万八千里，离目标也差那么两三分，搁浅在了广州大学。不过我现在很庆幸，要不是来了这间学校，我就不是现在的样子，我就遇不上现在的人，那是我难以割舍的。</p>
+<p>从汕头大学骑行到厦门大学这个计划在寒假之前就萌芽了，当时也是怀旧，想到自己曾经的高中生活，一时冲动结了果。</p>
+<p>首先我是先想办法筹集路费的，而且选择了最费力的那种方式——去了深圳工厂打工。在打工期间还发生了一些挺有意思的事情，关于一帮学生工与中介公司之间的恩怨情仇，由于离题太远就不详谈了。</p>
+<p>时间是 2015 年 2 月 9 号——离除夕夜还有十天。</p>
+<p>我搭上了去汕头的班车，自行车随车托运。去到汕头时天已经黑了，但在百度地图的指引下我轻轻松松到达了汕头大学。一开始还怕门卫查身阻挡，结果他们根本不理我。</p>
+<p>那时的温度是这样的，不运动的时候得穿件外套，一骑车就大汗淋漓只适合穿件长袖。</p>
+<p>对比大学城，汕大更像传统的学校，建在山脚下，教学楼排放在带湖泊的园林中。只是我跟它真的没啥感情，过去的那种念想早就灰飞烟灭了。现如今它只是我骑行计划的一一个地理标志，仅此而已。</p>
+<p>这次骑行与上次不同的是我准备了帐篷，有露营的打算。</p>
+<p>那天晚上我选择了在一个湖泊边上扎帐篷。一开始还是挺担忧的，譬如会不会被管理人员发现并赶出去啊，会不会有留校的学生多管闲事啊之类。而且第一次独自露营，有种淡淡的兴奋。</p>
+<p>那晚很安静，但是我睡得不好。因为我小看了广东的冬天，只带了一张薄薄的被单，一开始很好入睡，半夜冷死了。特别是右手，出奇的冷。无论如何我还是熬到了天亮，收拾东西时偶然发现自己的右手手腕上绑着一根橡皮筋，都勒出一圈紫痕来了！难怪昨晚右手冷得怪！不过没留下什么后患就好。</p>
+<p>早晨的时候匆匆告别了汕头大学，正如我当年心急着奔向了广州大学。</p>
+<p>很开心的是联系了班上的一个同学——肥仔，去他家蹭吃蹭喝。肥仔家很热情，伯母准备的饭菜很可口，同时还想塞干粮给我，并且嘱托我要是遇到坏人不要跟对方硬拼。因此，这趟骑行从一开始就有了好心人的祝福。</p>
+<p>吃完午饭休息了好一会儿我才告别肥仔，开始赶路。三天后——离除夕夜还有 2015 年 2 月 12 号——离除夕夜还有六天，我坐上了漳州港客运站的渡船，到达了厦门。这一路上都发生了什么？我已经在朋友圈里分享过，懒得再说，直接 zhan tie fu zhi——</p>
+<p>“既然到了终点就分享一下路上发生的事情吧，留个纪念也好。九号晚上搭车到汕头，很快就骑到了汕头大学，这所曾经想考的大学。却没想到连买瓶水都要去老远的加油站，差评。本来打算找间旅馆的，却是受到了湖泊的召唤，睡了一晚帐篷，特别快入睡，或许我天生适合户外。</p>
+<p>难以想象的是早晨天没亮居然听到公鸡叫晨，恍惚间还以为回到老家了。糟糕的是凌晨好冷，抖了两个小时终于熬到天亮。汕大建筑不咋地，环境确实不错，依山傍水，鸟儿特多。中午受到煜新家热情招待，其父母亲切热诚，真好。他那什么表哥我就不吐槽了。</p>
+<p>第二天的艰辛不再赘述。只是不得不提在早上的某个山坡遇到一个脚夫，使用的是老式凤凰单车，看那生锈程度有一段岁月了。车上载着两箩筐本地桔子。我俩一起推车上坡，很聊的来，在坡顶处大树下休息，他说两块钱任吃，我笑他没人情。但还是给了两块钱，一边吹水一边剥桔，他指着对面山上的寺庙，那是他要去摆摊的地方。他说那里起码有两面墙壁是他年轻时候砌的，还讲许多本地的灵异故事。时间过得很快，吃了七八个桔子，肚子都撑了，整理装备出发，临走前突然一个问题涌上心头，我问，你去过最远的地方是哪里？他回答说漳州市区。这就好像我活了五十多年只去过梅州市区一样，无言离去。</p>
+<p>一路下来有近二十座寺庙，那名字一个比一个高大上，我都不好意思进入哦。顺便一提，我还经过了一个地方写着天地会发源地，也不知是真是假。这条路适合秋夏之际来玩，因为路边有许多果林。诏安的芭乐、桔子、橘子、荔枝，云霄的枇杷，漳浦的李子，李子花开得雪白，和家里的一模一样。可惜这个季节只有新鲜橘子吃，很甜很便宜。</p>
+<p>后半段多山，一座又一座，山下多农场，清寂安宁。一路多车，尘埃漫天，并且难免出事，下图那辆小轿车是在下坡处撞上了一辆横穿马路的电瓶车，损坏成这样，那被撞的人的下场请自行想象。</p>
+<p>第三天，是铁定要到达目的地的，也没必要保存体力了，但是到了海边或者平地我总算明白了大风对骑行的影响，那叫一个苦逼，人是斗不过大自然的。又闯进了某个山区，和元潘一样偏僻，连个吃饭的地方都没有，早就饿扁了才找到一家小卖部煮了个粉丝。老板的儿子挺好玩的，居然不认识手机，好奇心极浓。我教他唱平凡之路，却怎么也教不会。我再放数码宝贝的进化曲，他迅速学我胡乱点头唞脚，笑死我了。一路进过那些个城乡市镇，都有很强的既视感，一一类似元潘村、罗岗镇、兴宁、梅县、广州。日光之下并无新城。</p>
+<p>在海港处，目睹一只鹰飞上蓝天，才发现早有数只苍鹰在天空盘旋，对我来说真是少见。总的来说，这条路不适合旅行，没什么风景，有的只是修行。下了船便是厦门，蓝天纵横几道飞机云，海水淀青，鼓浪屿上的那个人物雕像不知道怎么称呼。打工为了什么？抽筋为了什么？忍饥挨饿为了什么？欢呼吧，雀跃吧，享受快感享受生活…… ”</p>
+<p>在厦门的经历也直接 zhan tie fu zhi——</p>
+<p>“应某华的呼吁把后天早上要说的提前说了，刚到厦门那晚上转了三个景点，首先是厦门大学，刚想着怎么拍张与校门的合影，一个新疆帅小伙过来和我搭讪，问我从哪里来，我说汕头，他不知道。问我哪里人，我说梅州，他说那是哪个省的？最后得知我踩车过来的，他表示佩服，有人夸奖当然高兴。重点是在他利用本校学生身份的帮助下我才将自行车开进了学校，直到今天中午我再去厦大才知道外来人是不许骑车进去的，真后悔没留下联系方式表示感谢，当时不知道受人恩情啊。</p>
+<p>去了厦大思源谷，晚霞很美，空气清新，环境幽静。坐在湖边发呆了一个多小时，渐渐地天黑了，有星辰闪亮，不多却真的很亮。</p>
+<p>在不认识路的情况下七拐八拐来到了沙滩上，名字好听叫白城。沿着江边人行道慢骑，对自行车禁止通行的标牌视而不见。一路人不多，几个和我一样孤单的在跑步，几对恩恩爱爱的忙着卿卿我我。海对面的夜景是我至今见过的最美。却也不过良辰美景虚设，全托付给了一波一波的潮水声。</p>
+<p>逛着逛着就来到了曾厝垵，目光所见灯火明亮、美食飘香、月音绕耳，所以你知道的，这里有挑不完的纪念品，够品尝一个月的特色食物，还有万众期待的艳遇酒吧。然而万花丛中过片叶不沾身啊，我只喝了一杯奶茶就离去了，在路边的麻辣烫应付一餐。不要问我为什么这么变态，去咨询我瘦弱的钱包。</p>
+<p>吃饱喝足，已是午夜十二点半左右，该找个地方洗舒服澡睡安眠觉了。这种事情我一向依赖百度地图，百试百灵。但今晚注定是奔波的一夜，坑爹的百度地图不懂更新，一连找了六家青年旅馆都早就倒闭换成便利店之类的了！这个答案正是其中一家小卖部的老板娘告诉我的。附近不是没有住的地方，到处是如家、7 天、某某宾馆，只不过最便宜都要 130，遇到这种情况请去咨询我瘦弱的钱包。</p>
+<p>最后的最后，男孩已经处于堕落的边缘，突然看到了一个陪伴了他整个青春岁月的场所，那就是网吧。过去的记忆涌上心头，他心想曾经一起通宵的人现在一定都睡得很香吧。男孩就这么在网吧里睡了一宿，每隔两小时自觉清醒一次，看看行李是否还在。早上七点半，是他最后一次处于恍惚的状态，手脚麻利地点开了酷狗音乐，在罪恶王冠拔剑神曲的洗摧醒下去网上找了间靠谱的青年旅社，迫不及待地收拾行李出发，男孩只想好好洗个热水澡舒服舒服。</p>
+<p>可是走到半路，他想起这是他遇过的最整洁的网吧，里面连吸烟都不可以，会被管理员赶到吸烟区去。昨晚也是充满着回忆的一夜，见识了没见识的，一定要留个纪念啊！于是又掉头折返，拍下了下面的第一张照片，其余风景自行对应内容。谢谢～”</p>
+<p>那是我第一次住青旅，叫做百家国际青年旅舍。挺不错的经历。关键是在那认识了好几位外国青年，无比新鲜。</p>
+<p>再粘贴复制一段——</p>
+<p>“猜猜小小一间男女混住上下铺八人房聚集了什么人？</p>
+<p>南航大学大四学生南京人士一个，上海大学大四学生福建人士一个，英语专业三次考研不过的新疆女士，家里有房有车并从新东方毕业了四年的因逃婚离家出走的大厨，会英语，德语，波兰语，中文的香港金发白人帅哥，在中国当英语老师曾经遇过中国同性恋貌似不会中文的外国自来熟胖妞，还有一名神秘大师，一直被其他三个华人调侃是大师，我不了解情况。最后登场的是广州大学袁某某。</p>
+<p>啊，英语只能听插不上嘴，中文聊的是些高大上的经济问题或者人生阅历，居然完全没有存在感，居然感到了自卑难受。两个老外说出曾经去过的国家，超出了我的词汇积累。喜欢那句对话——<br>
+女：‘Why China?’<br>
+男：‘Why not?’<br>
+然后两个人都笑了。 ”</p>
+<p>第二天早上我带着波兰帅哥去厦门大学，一路说个不停。但我得强调，我们一直在用中文交流，以我的脸皮那是毫无压力。从他口中我得知，欧洲的大学生也没老师说的那么刻苦学习，他是这么说的，“很认真的是有，但没那么多，很多选择去旅游，还有和这里一样，经常上网、玩游戏。”</p>
+<p>想想，还得日后自己去看了才知道。</p>
+<p>重要的话要说三遍——去了才知道。去了才知道。去了才知道。</p>
+</article>
+      </main>
+    </div>
+    <button class="toc-fab" aria-label="目录"></button>
+    <div class="toc-overlay" aria-hidden="true"></div>
+    <button type="button" class="vp-back-to-top-button" aria-label="返回顶部">
+      <span class="vp-scroll-progress" role="progressbar" aria-labelledby="loadinglabel" aria-valuenow="0">
+        <svg><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="0 151"></circle></svg>
+      </span>
+      <div class="back-to-top-icon"></div>
+    </button>
+    <script>
+      (function(){
+        const links = Array.from(document.querySelectorAll('.toc-list a'));
+        const headings = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        function onScroll(){
+          let activeIndex = 0;
+          for (let i=0;i<headings.length;i++){
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= 100) activeIndex = i;
+          }
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[activeIndex]) links[activeIndex].classList.add('active');
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // copy buttons (offline)
+        document.querySelectorAll('pre > code').forEach(code => {
+          const pre = code.parentElement;
+          const raw = code.textContent || '';
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(raw); btn.textContent = '已复制'; setTimeout(()=>btn.textContent='复制', 1200); } catch(e) { btn.textContent='失败'; setTimeout(()=>btn.textContent='复制', 1200); }
+          });
+          pre.style.position = 'relative';
+          pre.appendChild(btn);
+        });
+
+        // ensure images use lazy loading
+        document.querySelectorAll('img').forEach(img=>{ if(!img.loading) img.loading = 'lazy'; });
+
+        // mobile TOC toggle (top-right hamburger)
+        const tocFab = document.querySelector('.toc-fab');
+        const tocOverlay = document.querySelector('.toc-overlay');
+        if (tocFab) {
+          const closeToc = () => document.body.classList.remove('toc-open');
+          tocFab.addEventListener('click', () => { document.body.classList.toggle('toc-open'); });
+          links.forEach(a => a.addEventListener('click', closeToc));
+          if (tocOverlay) tocOverlay.addEventListener('click', closeToc);
+        }
+
+        // back-to-top with progress ring
+        const backBtn = document.querySelector('.vp-back-to-top-button');
+        const circle = document.querySelector('.vp-scroll-progress circle');
+        const PROG_LEN = 2 * Math.PI * 24; // r=24
+        function updateProgress(){
+          const st = document.documentElement.scrollTop || document.body.scrollTop;
+          const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const p = Math.max(0, Math.min(100, h ? (st / h) * 100 : 0));
+          if (backBtn) backBtn.querySelector('.vp-scroll-progress').setAttribute('aria-valuenow', p.toFixed(2));
+          if (circle) circle.setAttribute('stroke-dasharray', ((p/100)*PROG_LEN) + ' ' + PROG_LEN);
+        }
+        updateProgress();
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        if (backBtn) backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
+  </body>
+</html>
+
+

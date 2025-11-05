@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>骑行 厦门-梅州-广州 - Dominic's blog</title>
+  <link rel="icon" type="image/x-icon" href="../pitaya.svg">
+  <style>
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --pitaya-pink: #cc2a41;
+  --pitaya-green: #2bbc8a;
+  --pitaya-white: #f8f8f8;
+  --pitaya-dark: #2c2c2c;
+  --pitaya-light-pink: #ffe6ef;
+  --pitaya-light-green: #e8f5e8;
+}
+
+.link {
+  cursor: pointer;
+  background-image: linear-gradient(transparent, transparent 5px, #22272a 5px, #22272a);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.link:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+}
+
+html {
+  border-top: 2px solid rgb(34, 39, 42);
+}
+body {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 48rem;
+  margin: auto;
+  color: rgb(34, 39, 42);
+  font-family: "Menlo", "Meslo LG", monospace;
+  text-rendering: geometricPrecision;
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-image: url(pitaya.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nick-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+  line-height: 1.2;
+}
+
+.best-flow-title {
+  background: linear-gradient(135deg, var(--pitaya-pink), var(--pitaya-green), var(--pitaya-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: gradientFlow 2s linear forwards;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 250% 0;
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background-position: 0% 0;
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+.nav ul {
+  display: flex;
+}
+.nav li {
+  border-right: 1px dotted;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.nav a:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.nav li:first-child {
+  padding-left: 0;
+}
+.nav li:last-child {
+  border-right: none;
+}
+.h1 {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--pitaya-pink);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+.projects li,
+.writes li {
+  margin-bottom: 1rem;
+}
+.projects li:last-child,
+.writes li:last-child {
+  margin-bottom: 0;
+}
+.writes time {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.writes a {
+  margin-right: 1rem;
+}
+.writes .category {
+  background-color: var(--pitaya-dark);
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-transform: capitalize;
+  opacity: 0.2;
+  font-size: 0.4rem;
+  display: none;
+}
+
+.category.life {
+  background-color: var(--pitaya-pink);
+}
+.category.skill {
+  background-color: var(--pitaya-dark);
+}
+.category.english {
+  background-color: var(--pitaya-green);
+}
+.writes .summary {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.footer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+@media (max-width: 960px) {
+  .footer {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+  </style>
+  <style>
+/* Minimal article typography inspired by Typora SprIng */
+:root {
+  --text: #000;
+  --bg: #fafafa;
+  --primary: #2bbc8a;
+  --accent: #cc2a41;
+  --muted: #666;
+  --code-bg: #f6f8fa;
+  --border: #e5e7eb;
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--text);
+  max-width: 980px !important;
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Inter, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+}
+
+.header {
+  margin-left: 13rem;
+}
+
+main.article {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+main.article h1,
+main.article h2,
+main.article h3,
+main.article h4,
+main.article h5,
+main.article h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.6em 0 0.8em;
+}
+main.article h1 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+main.article h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+main.article h3 {
+  font-size: 1.25rem;
+}
+
+main.article p {
+  margin: 0.9em 0;
+}
+main.article a {
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.35);
+}
+main.article a:hover {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+}
+
+main.article ul,
+main.article ol {
+  padding-left: 1.25rem;
+  margin: 0.8em 0;
+}
+main.article li {
+  margin: 0.3em 0;
+}
+
+main.article blockquote {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  color: var(--muted);
+  border-left: 4px solid var(--primary);
+  background: #f9fbfa;
+  border-radius: 4px;
+}
+
+main.article pre code {
+  background: transparent;
+  padding: 0;
+}
+main.article code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+main.article pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+/* Wrap long lines in code to avoid horizontal scrolling */
+main.article pre,
+main.article code {
+  white-space: pre-wrap; /* wrap long lines */
+  word-break: break-word; /* break long tokens */
+  overflow-wrap: anywhere; /* allow breaking anywhere if needed */
+}
+main.article pre {
+  overflow-x: hidden;
+}
+
+/* token fallback colors (keep in sync with template inline) */
+.token.keyword {
+  color: #d73a49;
+  font-weight: 600;
+}
+.token.string {
+  color: #032f62;
+}
+.token.number {
+  color: #005cc5;
+}
+.token.comment {
+  color: #6a737d;
+  font-style: italic;
+}
+main.article pre .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: var(--text);
+}
+main.article pre .code-copy-btn:hover {
+  background: #f0f0f0;
+}
+
+main.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+main.article th,
+main.article td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+}
+main.article thead th {
+  background: #f7f7f9;
+}
+
+main.article img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main.article hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+main.article > p > small {
+  color: var(--muted);
+}
+
+/* layout with sidebar toc */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.doc-toc {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  overflow: auto;
+  padding-top: 2rem;
+}
+.toc-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.toc-list,
+.toc-sub {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.toc-item {
+  margin: 0.25rem 0;
+}
+.toc-sub {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.25rem;
+}
+.toc-list a {
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.2);
+}
+.toc-list a.active {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+  color: var(--accent);
+}
+
+/* TOC toggle button - hidden by default on desktop */
+.toc-fab {
+  display: none;
+}
+
+@media (max-width: 960px) {
+
+  body {
+    padding-left: 1rem !important;
+  }
+  /* tighten global paddings */
+  .doc-layout {
+    padding: 0 0.5rem;
+    gap: 16px;
+  }
+  .header {
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+  main.article {
+    padding-left: 0.25rem;
+    border-left: none;
+  }
+
+  /* article spacing */
+  main.article h1 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.6rem;
+  }
+  main.article h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  main.article h3 {
+    margin: 0.75rem 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  main.article p {
+    margin: 0.6rem 0;
+  }
+  main.article ul,
+  main.article ol {
+    padding-left: 1rem;
+    margin: 0.6rem 0;
+  }
+  main.article li {
+    margin: 0.25rem 0;
+  }
+  main.article blockquote {
+    margin: 0.6rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+  main.article pre {
+    padding: 0.75rem;
+  }
+  main.article table {
+    margin: 0.6rem 0;
+    font-size: 0.95em;
+  }
+  .h1 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* nav spacing */
+  .nav li {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+  }
+  .doc-toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
+    max-width: 80vw;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+    overflow: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  body.toc-open .doc-toc {
+    transform: translateX(0);
+  }
+  .toc-fab {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1100;
+    cursor: pointer;
+  }
+  .toc-fab::before {
+    content: "☰";
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text);
+  }
+}
+
+/* TOC overlay for mobile: click to close */
+.toc-overlay {
+  display: none;
+}
+@media (max-width: 960px) {
+  .toc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    display: none;
+  }
+  body.toc-open .toc-overlay {
+    display: block;
+  }
+}
+
+/* back-to-top floating button with progress ring */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: conic-gradient(var(--accent) var(--progress, 0%), #e9ecef 0%);
+  mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  -webkit-mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  z-index: 1100;
+}
+.back-to-top .arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--text);
+  transform: translateY(-2px);
+}
+
+/* Back-to-top button with progress ring */
+:root {
+  --back-to-top-c-bg: #fff;
+  --back-to-top-c-accent-bg: #2bbc8a;
+  --back-to-top-c-shadow: rgba(0, 0, 0, 0.08);
+  --back-to-top-c-accent-hover: #cc2a41;
+}
+.vp-back-to-top-button {
+  position: fixed !important;
+  inset-inline-end: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-width: 0;
+  border-radius: 50%;
+  background: var(--back-to-top-c-bg);
+  color: var(--back-to-top-c-accent-bg);
+  box-shadow: 2px 2px 10px 4px var(--back-to-top-c-shadow);
+  cursor: pointer;
+}
+@media (max-width: 959px) {
+  .vp-back-to-top-button {
+    transform: scale(0.8);
+    transform-origin: 100% 100%;
+  }
+}
+@media print {
+  .vp-back-to-top-button {
+    display: none;
+  }
+}
+.vp-back-to-top-button:hover {
+  color: var(--back-to-top-c-accent-hover);
+}
+.vp-back-to-top-button .back-to-top-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  position: relative;
+}
+.vp-back-to-top-button .back-to-top-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid currentColor;
+}
+.vp-scroll-progress {
+  position: absolute;
+  inset-inline-end: -2px;
+  bottom: -2px;
+  width: 52px;
+  height: 52px;
+}
+.vp-scroll-progress svg {
+  width: 100%;
+  height: 100%;
+}
+.vp-scroll-progress circle {
+  opacity: 0.9;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+  /* offline token styles */
+  .token.keyword{ color:#d73a49; font-weight:600; }
+  .token.string{ color:#032f62; }
+  .token.number{ color:#005cc5; }
+  .token.comment{ color:#6a737d; font-style: italic; }
+  </style>
+  <link rel="stylesheet" href="./highlight/github.min.css">
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(../pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#projects">程序</a></li>
+            <li><a href="../index.html#writes">文章</a></li>
+            <li><a href="../index.html#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <div class="toc-title"><a href="#article-top">骑行 厦门-梅州-广州</a></div>
+        
+      </aside>
+      <main class="article">
+        <h1 id="article-top">骑行 厦门-梅州-广州</h1>
+        <p><small>2016-03-12 · life</small></p>
+        <article>
+<p>上回说到我因怀旧单骑去了厦门，接着我犹豫了几天，该不该跟人分享后面的旅程。因为接下来从厦门回家的那两天实在太刺激了、太找死了，只怕说出来有些人会怀疑我吹牛逼，相信我的人大多也会站在谴责的立场。<br>
+但仔细一想，大家各有自己的生活，看看我的经历只是一时娱乐，我何必庸人自扰？</p>
+<p>我大二这年的骑行经历根据地理位置可以分为两个部分，后半部分当然就是美丽的川藏之行，日后再谈。前半部分便是正在诉说的旅程，基本上是靠近广东海岸线溜达。这溜达的开端是因为无聊，想去看看大海和朝阳。这溜达的发展是由于怀旧，去见见那些个大学。这溜达的高潮，便是即将诉说的回家之旅。</p>
+<p>微信上的痕迹提醒我，当初离开厦门那天是 2015 年 2 月 15 日，而除夕是 2 月 18 日。你当时在家吗？</p>
+<p>基本上，我们出去骑行都是在终点搭车回家的，但是我嫌麻烦。再加上前两次的成功，使我的自信心大大地膨胀，更让我那小小的英雄情结燃烧成了熊熊烈火。</p>
+<p>一个青年的中二之行，从厦门到梅州到广州。</p>
+<p>我那天 16:17 发了一条朋友圈，我说，“扑面而来的雨最具装逼的快感，以及凉爽。兄弟朋友们，我在回家的路上了。”</p>
+<p>看我说得那么轻松，你肯定猜不出当时的雨有多大——我想肯定不比天气预报所预测的大雨要小。我的全身是湿透的，因为我没穿雨衣。我的包袱不防水，所以我选择把雨衣用来包住行李，那里面可有我带给亲朋好友的明信片以及礼物。对于当时被热血冲昏大脑的我来说，礼物象征着此行的荣耀，士可杀不可辱。</p>
+<p>我不是找不到避雨的地方，但我享受那种搏击风雨的快感。我相信每个人小时候看到课本或者电视上类似的剧情，都免不了激动一番吧？我想当一回主角。</p>
+<p>冷是一定的，累也是必须的，但我就是不想停下踩踏的双脚，虽然我骑得很慢。我当时真的成了一根筋，似乎我只要克服这场风雨就能变得强大。当然，现在我认为，那只是一种受身体激素分泌影响的狂热症状。关键是，那真是一种美妙的体验。</p>
+<p>这场雨很快变小了，接着持续了起码两个小时。由于眼镜被雨水打湿，很模糊。为了避开雨水，我一直低着头。以至于我错过了路牌的指示，走了岔路。直到二十多公里之后，我见路越来越小，不似省道，才跟小卖部老板打听了一下醒悟过来。我仍记得小卖部老板那疑惑又带着小小愤怒的语气，说我怎么那么蠢，不会躲雨。她要送我雨衣，但我趁着她进屋的片刻溜走了。</p>
+<p>我说的这些你不要拿来和小说、电影对比，你可以试试不穿雨衣去雨中骑个三四小时，便能更好地理解我的辛苦，以及糊涂。</p>
+<p>到接近天黑的时候，也许是雨停了，也许是我冲出了下雨的区域。但天空还是阴沉的。我找了家沙县小吃，借厕所换了干爽的衣服，更喝了两大碗热水，整个人舒服多了。</p>
+<p>到那时刻，我是不是该找家旅馆了？</p>
+<p>但我没有。我想起了第一次骑行时迷人的黑夜。我想，反正就要回家了，难说以后还想骑车，干脆最后体验一下吧。我当时真的没想过以后还要去什么地方骑行。我现在从川藏线回来也想着日后不要骑行了。但以后的事谁敢肯定？</p>
+<p>至于危险？你不该去问一名自信心爆炸、目中无人的骑士。</p>
+<p>我还记得当时心里是这么想的，“连搭个车都会出事！生与死只是概率的问题，谋事在人，成事在天。”我很想把这句话发个朋友圈的，但又怕朋友说我装逼，还是算了。</p>
+<p>那晚我骑了个通宵，严格意义来说是推了个通宵。因为很幸运地进了山区，起起伏伏，而且过了午夜，肚子就饿极了。上坡太累骑不动，下坡太黑骑不快，也是推车的速度。</p>
+<p>我发现无论多晚，省道上都不缺车辆。我发现天上的星星不多，但是很亮。我发现人独自走在荒郊野岭难免会想到以前看过的恐怖片，然后真的很恐怖。我发现自己也不算独一无二，村庄里的流浪汉还在觅食。我发现压缩饼干其实并没有鸟用。我发现数着省道的里程碑赶路心里会比较安稳。我想到屋子真他 ma 有安全感、带被子的床铺真他 ma 舒服、有油有盐的饭菜真他 ma 好吃、自己平时觉得无聊的生活真他 ma 幸福······</p>
+<p>我本来一直觉得自己的朋友不够多，家人不过亲密，而且所有人似乎都可有可无。现在，我还能说什么？原来平日里就在身边的宿友、偶尔相见的朋友、难得相聚的家人甚至于喜欢的女孩子，真的有非常非常非常深刻的意义。面对孤寂和黑暗，你渺小得就像池塘里游泳的蚂蚁，你空虚到怀疑自己存在的价值，你只能从上述所说的人身上找到存在感。</p>
+<p>啊！我也不知道自己哪来的乐观，我告诉自己这种情形只有一晚，只要再忍耐八九个小时就过去了。所以我是亲身体验了所谓人只要有希望就能顽强地坚持下去。</p>
+<p>直到第二天天亮我依旧是平平安安，昨天晚上的经历就好像一场梦一样。我说过，人之所以认为某件事情好像一场梦一样，是因为当他回到熟悉的情景时，发现一切的一切并没有什么变化，他找到了熟悉的舞台，熟悉的剧本也就塞满了他的灵肉，按部就班。但是我当时发誓，我再走夜路就是傻逼！说明热血已经冷却了下来，某种激素也不再过度分泌，现实的体验把我从英雄主义情节里脱离出来了。</p>
+<p>看看百度地图，已经到了福建的边界地区平和县，很快我就要回到广东了。</p>
+<p>我熟悉地继续推车、骑车，我熟悉地拍下隧道的照片，我熟悉地发朋友圈，我熟悉地查看百度地图，我熟悉地吃压缩饼干喝矿泉水，我熟悉地试着在下坡刷新自己的记录，最后达到了 60 码······</p>
+<p>很快，我踏入了故乡梅州市的土地。我经过朋友的家乡大浦县的门户，高兴地合影。我听到了熟悉的乡音，竟然有点鼻子酸酸的，我对自己的反应感到诧异，我一向是不相信这种东西的。</p>
+<p>中午的时候我骑着骑着打瞌睡，翻车了。幸好老天眷顾，这是一段平路，旁边只是个草地。那也是一种很奇妙的感觉。明明在骑车，但我很确定有那么一刻我完全睡着了，对外界没有任何意识，直到坠落感重新激活我的大脑。</p>
+<p>再后来我找了家小菜馆，吃了个晚饭，看看百度地图，发现路程出乎意料的长，我的精神几乎是崩溃的。以下是我当时发的朋友圈。</p>
+<p>“我已经六点开始从平和县踩到现在，翻了一座又一座的山坡，下坡时刷新了一个又一个的个人时速，累到打瞌睡了，觉得应该顶多还有 80 公里就可以解放了，结果一看，尼玛，简直是要人命。 ”</p>
+<p>当时那个终点的位置，正是梅县，我打算今晚去大伯家借宿。并且我已经把这个打算告诉了大伯。</p>
+<p>当时是 13:33 分，离天黑大概还有五个小时。你不要奢望经历了昨日劳累的我还能在天黑之前骑完这 120.9 公里，于是逼不得已，我又走夜路了，我不想失约。期间问过路，走的时候老远还听那大叔吐槽我的经历，“真嘎绝杀哦，年关头了还敢按搞，系涯细仔里来打啊其掰哦！（就要过年了还这样玩，要是我儿子这样就打断他的腿！）”</p>
+<p>是啊，当天是 2 月 16 号，后天晚上就是除夕夜了！团聚的日子。</p>
+<p>我这时候才反应过来，自己昨天的行为是多么自私，如果出事了，那全家人这春节也不用过了。但是我又不知道为什么涌起一股过来人的自信和淡定——其实，根本没什么危险啊。</p>
+<p>而且我心里腹诽着，“就算你儿子这时候骑车回家也会像我一样瞒着父母的，放心吧！”</p>
+<p>一路上亲戚也等急了，很担心，打了好几个电话来，还说赶不到就找个地方投宿吧。久旱逢甘雨，我是挺感动的。</p>
+<p>但我已经很想很想回家了，无法再耽搁一天的时间。赶夜路就赶夜路吧！又不是没尝过！</p>
+<p>当天晚上几点到的？我记不清了，朋友圈也没有记录，隐约的印象是接近十一点吧，因为大伯和伯母招待了我一会就去睡了，肯定不早了。我进到屋里最深的感受是，全身趴在坚实的墙壁上，好有安全感！</p>
+<p>第二天我就回到家了，但也不太平安</p>
+<p>任性的我是吃了午饭才出发的，选了一条最近的路，也是山路。在一个拐弯的地方我又摔了一跤，这回可把我给摔疼了，那膝盖一开始动弹不得。休息了一个多小时，又是云南白药又是活络油又是袁氏自创的按摩大法，才总算恢复到能骑行的地步，虽然依旧疼，但和那次骑行去大陆最南端时一样，咬牙还是能坚持的。</p>
+<p>路上遇到一朵云，像极了天使掉落的羽毛，果断抓拍。</p>
+<p>如果现在有罗岗的老乡在看我的回忆，请你日后搭车经过甘专后面“推里梁”那个很陡的坡道时，试着想想在除夕前一天的夜里，你的朋友我正艰难地推着自行车回家。夜风微冷。</p>
+<p>到了镇上，我已经有了解脱的感觉，因为我实在太熟悉这里了，我在这里度过了青春的头几年，每个星期都骑着飞鸽牌自行车往返于学校和家之间。</p>
+<p>我知道加油站旁边就是进入母校的小路，我知道马路右边哪家是当年通宵的佳佳网吧，我知道前面路口应该左转才经过朋友的家门······</p>
+<p>我送了第一份礼物，是朋友母亲接的，我没久留。我送的第二份礼物，是朋友自己接的，她大概是想去拿回礼，但我太想回家了，趁她离开我也离开。我送的第三份礼物也是朋友自己接的，事到如今我实在很高兴，我感觉自己总算回报了一点当年的友谊。</p>
+<p>我骑车回家的事泄露了，爸妈已经知晓。在靠近家门的路上我就透过敞开的大门看到了爸妈、哥哥、奶奶还有大伯以及一个邻居大伯坐在客厅里喝茶。相信是在等我。但我觉得难为情，加速骑过，想从后门溜进去。可惜后门锁着。我便敲门、叫唤老爸。我听到有人迅速起身，还有老妈的碎碎念。老爸打开门后忍不住责备一句怎么那么晚，电话又打不通······</p>
+<p>我只是笑笑，已经不想再说什么。</p>
+<p>我只要回到家便觉得再好不过了。</p>
+<p>而且我意识到，从这一刻起，我该拿起熟悉的剧本回到熟悉的舞台。前几天骑行的事只不过是梦一场，不必与人多谈，大家高高兴兴过大年。</p>
+<p>······</p>
+<p>过了年，我又从家里骑回广州的学校，一切顺利，只不过那膝盖似乎还没好，微痛微痛。一切正如朋友圈所说——假使从未去过广州，这也将是一趟向往繁华的旅程，现实却是偏执神经病加浪漫幻想症。看过小说上写道，“身为一名骑士，假使你的坐骑不曾辜负你，你就不能背叛它，不要无故让马蹄离开孤野磅礴的大地。前路漫漫，但你已手握刀剑，那便准备战斗。”拒绝托运，拒绝快递，拒绝放在家里，拒绝卖做废铁。明早开始，带你回广州。</p>
+<p>总而言之，我当时就是脑子有病。</p>
+</article>
+      </main>
+    </div>
+    <button class="toc-fab" aria-label="目录"></button>
+    <div class="toc-overlay" aria-hidden="true"></div>
+    <button type="button" class="vp-back-to-top-button" aria-label="返回顶部">
+      <span class="vp-scroll-progress" role="progressbar" aria-labelledby="loadinglabel" aria-valuenow="0">
+        <svg><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="0 151"></circle></svg>
+      </span>
+      <div class="back-to-top-icon"></div>
+    </button>
+    <script>
+      (function(){
+        const links = Array.from(document.querySelectorAll('.toc-list a'));
+        const headings = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        function onScroll(){
+          let activeIndex = 0;
+          for (let i=0;i<headings.length;i++){
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= 100) activeIndex = i;
+          }
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[activeIndex]) links[activeIndex].classList.add('active');
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // copy buttons (offline)
+        document.querySelectorAll('pre > code').forEach(code => {
+          const pre = code.parentElement;
+          const raw = code.textContent || '';
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(raw); btn.textContent = '已复制'; setTimeout(()=>btn.textContent='复制', 1200); } catch(e) { btn.textContent='失败'; setTimeout(()=>btn.textContent='复制', 1200); }
+          });
+          pre.style.position = 'relative';
+          pre.appendChild(btn);
+        });
+
+        // ensure images use lazy loading
+        document.querySelectorAll('img').forEach(img=>{ if(!img.loading) img.loading = 'lazy'; });
+
+        // mobile TOC toggle (top-right hamburger)
+        const tocFab = document.querySelector('.toc-fab');
+        const tocOverlay = document.querySelector('.toc-overlay');
+        if (tocFab) {
+          const closeToc = () => document.body.classList.remove('toc-open');
+          tocFab.addEventListener('click', () => { document.body.classList.toggle('toc-open'); });
+          links.forEach(a => a.addEventListener('click', closeToc));
+          if (tocOverlay) tocOverlay.addEventListener('click', closeToc);
+        }
+
+        // back-to-top with progress ring
+        const backBtn = document.querySelector('.vp-back-to-top-button');
+        const circle = document.querySelector('.vp-scroll-progress circle');
+        const PROG_LEN = 2 * Math.PI * 24; // r=24
+        function updateProgress(){
+          const st = document.documentElement.scrollTop || document.body.scrollTop;
+          const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const p = Math.max(0, Math.min(100, h ? (st / h) * 100 : 0));
+          if (backBtn) backBtn.querySelector('.vp-scroll-progress').setAttribute('aria-valuenow', p.toFixed(2));
+          if (circle) circle.setAttribute('stroke-dasharray', ((p/100)*PROG_LEN) + ' ' + PROG_LEN);
+        }
+        updateProgress();
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        if (backBtn) backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
+  </body>
+</html>
+
+

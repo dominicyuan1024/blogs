@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>等一个电话 - Dominic's blog</title>
+  <link rel="icon" type="image/x-icon" href="../pitaya.svg">
+  <style>
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --pitaya-pink: #cc2a41;
+  --pitaya-green: #2bbc8a;
+  --pitaya-white: #f8f8f8;
+  --pitaya-dark: #2c2c2c;
+  --pitaya-light-pink: #ffe6ef;
+  --pitaya-light-green: #e8f5e8;
+}
+
+.link {
+  cursor: pointer;
+  background-image: linear-gradient(transparent, transparent 5px, #22272a 5px, #22272a);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.link:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+}
+
+html {
+  border-top: 2px solid rgb(34, 39, 42);
+}
+body {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 48rem;
+  margin: auto;
+  color: rgb(34, 39, 42);
+  font-family: "Menlo", "Meslo LG", monospace;
+  text-rendering: geometricPrecision;
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-image: url(pitaya.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nick-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+  line-height: 1.2;
+}
+
+.best-flow-title {
+  background: linear-gradient(135deg, var(--pitaya-pink), var(--pitaya-green), var(--pitaya-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: gradientFlow 2s linear forwards;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 250% 0;
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background-position: 0% 0;
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+.nav ul {
+  display: flex;
+}
+.nav li {
+  border-right: 1px dotted;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.nav a:hover {
+  background-image: linear-gradient(transparent, transparent 4px, rgba(86, 124, 119, 0.4) 4px, rgba(86, 124, 119, 0.4));
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+.nav li:first-child {
+  padding-left: 0;
+}
+.nav li:last-child {
+  border-right: none;
+}
+.h1 {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--pitaya-pink);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+.projects li,
+.writes li {
+  margin-bottom: 1rem;
+}
+.projects li:last-child,
+.writes li:last-child {
+  margin-bottom: 0;
+}
+.writes time {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.writes a {
+  margin-right: 1rem;
+}
+.writes .category {
+  background-color: var(--pitaya-dark);
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-transform: capitalize;
+  opacity: 0.2;
+  font-size: 0.4rem;
+  display: none;
+}
+
+.category.life {
+  background-color: var(--pitaya-pink);
+}
+.category.skill {
+  background-color: var(--pitaya-dark);
+}
+.category.english {
+  background-color: var(--pitaya-green);
+}
+.writes .summary {
+  margin-right: 1rem;
+  color: rgb(102, 102, 102);
+}
+.footer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+@media (max-width: 960px) {
+  .footer {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+  </style>
+  <style>
+/* Minimal article typography inspired by Typora SprIng */
+:root {
+  --text: #000;
+  --bg: #fafafa;
+  --primary: #2bbc8a;
+  --accent: #cc2a41;
+  --muted: #666;
+  --code-bg: #f6f8fa;
+  --border: #e5e7eb;
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--text);
+  max-width: 980px !important;
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Inter, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+}
+
+.header {
+  margin-left: 13rem;
+}
+
+main.article {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+main.article h1,
+main.article h2,
+main.article h3,
+main.article h4,
+main.article h5,
+main.article h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.6em 0 0.8em;
+}
+main.article h1 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+main.article h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+main.article h3 {
+  font-size: 1.25rem;
+}
+
+main.article p {
+  margin: 0.9em 0;
+}
+main.article a {
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.35);
+}
+main.article a:hover {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+}
+
+main.article ul,
+main.article ol {
+  padding-left: 1.25rem;
+  margin: 0.8em 0;
+}
+main.article li {
+  margin: 0.3em 0;
+}
+
+main.article blockquote {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  color: var(--muted);
+  border-left: 4px solid var(--primary);
+  background: #f9fbfa;
+  border-radius: 4px;
+}
+
+main.article pre code {
+  background: transparent;
+  padding: 0;
+}
+main.article code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+main.article pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+/* Wrap long lines in code to avoid horizontal scrolling */
+main.article pre,
+main.article code {
+  white-space: pre-wrap; /* wrap long lines */
+  word-break: break-word; /* break long tokens */
+  overflow-wrap: anywhere; /* allow breaking anywhere if needed */
+}
+main.article pre {
+  overflow-x: hidden;
+}
+
+/* token fallback colors (keep in sync with template inline) */
+.token.keyword {
+  color: #d73a49;
+  font-weight: 600;
+}
+.token.string {
+  color: #032f62;
+}
+.token.number {
+  color: #005cc5;
+}
+.token.comment {
+  color: #6a737d;
+  font-style: italic;
+}
+main.article pre .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: var(--text);
+}
+main.article pre .code-copy-btn:hover {
+  background: #f0f0f0;
+}
+
+main.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+main.article th,
+main.article td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+}
+main.article thead th {
+  background: #f7f7f9;
+}
+
+main.article img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main.article hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+main.article > p > small {
+  color: var(--muted);
+}
+
+/* layout with sidebar toc */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.doc-toc {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  overflow: auto;
+  padding-top: 2rem;
+}
+.toc-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.toc-list,
+.toc-sub {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.toc-item {
+  margin: 0.25rem 0;
+}
+.toc-sub {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.25rem;
+}
+.toc-list a {
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(43, 188, 138, 0.2);
+}
+.toc-list a.active {
+  box-shadow: inset 0 -2px 0 rgba(204, 42, 65, 0.35);
+  color: var(--accent);
+}
+
+/* TOC toggle button - hidden by default on desktop */
+.toc-fab {
+  display: none;
+}
+
+@media (max-width: 960px) {
+
+  body {
+    padding-left: 1rem !important;
+  }
+  /* tighten global paddings */
+  .doc-layout {
+    padding: 0 0.5rem;
+    gap: 16px;
+  }
+  .header {
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+  main.article {
+    padding-left: 0.25rem;
+    border-left: none;
+  }
+
+  /* article spacing */
+  main.article h1 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.6rem;
+  }
+  main.article h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  main.article h3 {
+    margin: 0.75rem 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  main.article p {
+    margin: 0.6rem 0;
+  }
+  main.article ul,
+  main.article ol {
+    padding-left: 1rem;
+    margin: 0.6rem 0;
+  }
+  main.article li {
+    margin: 0.25rem 0;
+  }
+  main.article blockquote {
+    margin: 0.6rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+  main.article pre {
+    padding: 0.75rem;
+  }
+  main.article table {
+    margin: 0.6rem 0;
+    font-size: 0.95em;
+  }
+  .h1 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* nav spacing */
+  .nav li {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+  }
+  .doc-toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
+    max-width: 80vw;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+    overflow: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  body.toc-open .doc-toc {
+    transform: translateX(0);
+  }
+  .toc-fab {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1100;
+    cursor: pointer;
+  }
+  .toc-fab::before {
+    content: "☰";
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text);
+  }
+}
+
+/* TOC overlay for mobile: click to close */
+.toc-overlay {
+  display: none;
+}
+@media (max-width: 960px) {
+  .toc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    display: none;
+  }
+  body.toc-open .toc-overlay {
+    display: block;
+  }
+}
+
+/* back-to-top floating button with progress ring */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: conic-gradient(var(--accent) var(--progress, 0%), #e9ecef 0%);
+  mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  -webkit-mask: radial-gradient(circle 20px at center, transparent 28px, #000 29px);
+  z-index: 1100;
+}
+.back-to-top .arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--text);
+  transform: translateY(-2px);
+}
+
+/* Back-to-top button with progress ring */
+:root {
+  --back-to-top-c-bg: #fff;
+  --back-to-top-c-accent-bg: #2bbc8a;
+  --back-to-top-c-shadow: rgba(0, 0, 0, 0.08);
+  --back-to-top-c-accent-hover: #cc2a41;
+}
+.vp-back-to-top-button {
+  position: fixed !important;
+  inset-inline-end: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-width: 0;
+  border-radius: 50%;
+  background: var(--back-to-top-c-bg);
+  color: var(--back-to-top-c-accent-bg);
+  box-shadow: 2px 2px 10px 4px var(--back-to-top-c-shadow);
+  cursor: pointer;
+}
+@media (max-width: 959px) {
+  .vp-back-to-top-button {
+    transform: scale(0.8);
+    transform-origin: 100% 100%;
+  }
+}
+@media print {
+  .vp-back-to-top-button {
+    display: none;
+  }
+}
+.vp-back-to-top-button:hover {
+  color: var(--back-to-top-c-accent-hover);
+}
+.vp-back-to-top-button .back-to-top-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  position: relative;
+}
+.vp-back-to-top-button .back-to-top-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid currentColor;
+}
+.vp-scroll-progress {
+  position: absolute;
+  inset-inline-end: -2px;
+  bottom: -2px;
+  width: 52px;
+  height: 52px;
+}
+.vp-scroll-progress svg {
+  width: 100%;
+  height: 100%;
+}
+.vp-scroll-progress circle {
+  opacity: 0.9;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+  /* offline token styles */
+  .token.keyword{ color:#d73a49; font-weight:600; }
+  .token.string{ color:#032f62; }
+  .token.number{ color:#005cc5; }
+  .token.comment{ color:#6a737d; font-style: italic; }
+  </style>
+  <link rel="stylesheet" href="./highlight/github.min.css">
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo" style="background-image: url(../pitaya.svg);">
+      </div>
+      <nav class="nav">
+      <p class="nick-name best-flow-title">Dominic Yuan</p>
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#projects">程序</a></li>
+            <li><a href="../index.html#writes">文章</a></li>
+            <li><a href="../index.html#tech">技术</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <div class="toc-title"><a href="#article-top">等一个电话</a></div>
+        
+      </aside>
+      <main class="article">
+        <h1 id="article-top">等一个电话</h1>
+        <p><small>2015-05-30 · life</small></p>
+        <article>
+<p>“喔哦，怪你过分美丽…” “哔…哔…哔…哔… 哔…”</p>
+<p>张国荣深情的歌声与公交车刷卡的声音同时响起，各干各的，一点也不尊重对方。</p>
+<p>卡拉伸手掏出一部滑盖手机，屏幕上闪烁着一串生硬数字，他仅仅撇了一眼就按下了红键。</p>
+<p>“我就知道”卡拉心想，“肯定是电话诈骗。”</p>
+<p>这已经是第九十九次了，卡拉绝不会记错。自从换了号码到现在，他一直在想号码簿中谁会第一个打电话来呢 ？</p>
+<p>“喂，谁啊？”</p>
+<p>“你大爷，在干嘛呢！”</p>
+<p>“有事说事，没事滚蛋。”<br>
+······</p>
+<p>“喂，美女，咋这么有空找我啊？”</p>
+<p>“呵呵，想你喽，在干嘛啊。”</p>
+<p>“写诗呢。”</p>
+<p>“哇，好厉害啊。”<br>
+······</p>
+<p>以上对话或者短信都只存在于他的幻想中。他一开始坚信着，然后期待着，之后抱有一丝希望，最后连一线可能都被他抛弃了。在接到连续三十一次诈骗电话和短信后，卡拉就对陌生的号码深恶痛绝，每次遇上，直接关闭。至今，尚无人问候卡拉。</p>
+<p>“卡拉啊！你就是一条赤裸裸的屌丝呵，连手机也被牵连着寂寞无垠啊。” ——《卡拉日记》</p>
+<p>现在正是太阳下山、草民归巢、公路堵塞的时间段，卡拉不曾奢望过座位，径直走向末尾，抓杆站稳。举起的双手像是在投降。站着的人向坐着的人投降，公交车向小轿车投降，人们想生活投降。</p>
+<p>不知是黑夜追赶汽车，还是汽车驶向黑夜，反正，天它就黑了，路灯它就亮了，高楼大厦它就璀璨了，卡拉也不知怎的就伤感了。他想啊，下辈子就不能这样了。投个好人家，不要再被人遗弃了，上学的时候认真读书，考它个清华北大，都多面子啊！大学的时候不能一个人闷着，应该找些推心置腹的好友，大口喝酒，大块吃肉，多潇洒啊！毕业了就不要去找工作了，写一部精彩绝伦的小说，再拿去画漫画，做游戏，拍电影，名利双收，多让人羡慕啊！赚的钱就捐一部分改善交通好了······下辈子，一定要好好珍惜拥有的美好，一定要。下辈子······卡拉此时觉得自己老了。但他才刚从大学毕业一年啊，人生路漫漫，下辈子遥遥无期。</p>
+<p>“唉······”幻想破灭的卡拉忍不住叹了口气。马上又意识到自己在公共场所，不方便大声喧哗，有点讪讪地看了看周围的人。坐着的在玩手机，站着的也在玩手机。手机，远比卡拉这个活人重要，哪怕他异常地叹了口气，卡拉幻想中好奇的眼光一丝也不曾存在，只有他旁边的大叔不动声色与他拉开了一点距离。卡拉失望了，他总是不自禁地失望。</p>
+<p>公交车走走停停，卡拉无聊地数起了窗外的路灯。<br>
+······</p>
+<p>“卡拉永远 OK !&quot;谁的电话铃声响起。</p>
+<p>这是的深圳卫视节目&quot;年代秀&quot;里的一句话，卡拉看过好几次这个节目，他最恨这句话了，每次听到，都想跑到那胖胖的主持人面前，给他讲一个卡拉与 OK 的悲剧，然后狠狠骂他妖言惑众。这句话是在热辣辣地讽刺他啊，卡拉觉得。</p>
+<p>卡拉已经知道声音的源头在哪里了，原来他旁边的大叔在他夜观星像时已经换成了 一位女孩子了，女孩背对着他的左侧，若卡拉面向车头的话，女孩的头顶就在卡拉的鼻子面前。卡拉的目光马上就被女孩的马尾吸引了，马尾又长又直，乌黑发亮，以浅蓝色的 T 裇为背景，宛如碧海蓝天间跃然而起的一尾墨黑鲤鱼。</p>
+<p>“所谓，飘柔就是这样自信，也不过如此吧！”卡拉心想。</p>
+<p>多么温馨的马尾啊，初中经常坐卡拉前面的班花也有一条骄傲的马尾，卡拉在上课时总是忍不住要看着它发呆，卡拉觉得这么柔顺的头发握在手里一定舒服极了，有很多次他想伸出手摸摸，又觉得她一定会生气的，同学一定会笑话他的，蠢蠢欲动的手被自卑与面子死死钉住，只隔了三四厘米的空气啊。 最后卡拉只能眼巴巴看着马尾一跳一跳地去了另一所高中，不带走一片云彩······</p>
+<p>卡拉又看到眼前女孩那绑马尾的绳子上还有一个装饰，椭圆形的，上面的英文字母是，“OK”? 卡拉笑了，是回应 O 与 K 之间的笑脸表情吗？还是说他想起了他的小笔友？</p>
+<p>卡拉曾经有也只有一位笔友，是个女孩，她本来是卡拉的小学同桌，后来转学了，但两人一直保持通信，无话不说，是纸上的青梅竹马。也许正是如此，卡拉讨厌其他联系方式，对书信情有独钟。可惜，只有笔名为“OK”的女孩理解卡拉的爱好，其他同学都觉得卡拉老土，这也许是卡拉一直无法融入身边世界的原因之一吧。后来，笔友敌不过女友，两年前，当卡拉第一次向 OK 炫耀他的爱情时，女孩只回了三个字——我等你，然后了无音信，彻底从卡拉的世界消失。卡拉当时那一个悔啊，仿佛心里多了一个空洞，凉飕飕的，苦溜溜的，怎么也无法填补，他反而希望自己从没有谈过恋爱，比起女友，卡拉更舍不得笔友，这个笔友已经陪伴了他十几年了，已经是卡拉心田里弥漫的草原了。“唉！人总要等到失去以后才懂得珍惜”卡拉当时心里暗叹道。后来，卡拉每次见到女友都会想起”逝去“的笔友，心里不是滋味，只好分手了。现在，卡拉只剩下自己了。</p>
+<p>“生活就是拿这样东西去换那样东西，直到一无所有。”——《卡拉日记》</p>
+<p>公交车上挺拥挤的，卡拉死死抓紧扶手，怕因为汽车颠簸，唐突佳人。尽管如此，女孩的发梢还是会时不时挑逗他的神经，丝丝痒痒的。卡拉突然有一股很强的冲动，他忍不住微微低头，嗅了一下。“好淡啊。”卡拉心想，微弱的香气几乎没什么味道，但他就喜欢这种朴素的感觉。卡拉又将头转向车窗，玻璃上隐约显现着女孩模糊的侧脸，看不清楚，卡拉觉得没啥意思，他还是更喜欢头发的味道，又转过了头。让卡拉吃惊的是，女孩忽然要转过身来。“被发现了？”卡拉的心都跳到了大脑里，咚咚直响，他有点做贼心虚地向后仰了仰身子。</p>
+<p>“那个，你好······我可以借一下你的手机吗？”女孩有点脸红地看着卡拉。</p>
+<p>“啊！？”卡拉明显呆愣了一下，他有点反应不过来，警察叔叔贴的告示上都说了，不要借陌生人手机！这个女孩，刚从火星上来？</p>
+<p>“我的，没电了，······”女孩欲言又止。</p>
+<p>此刻，卡拉心里有两只嘴巴在争执着。</p>
+<p>“借了吧，说不定人家有急事呢？而且是个美女呦，或许会感激你，交个朋友啊·····”</p>
+<p>“千万别上当，这人肯定是个骗子，别看她长得漂亮，你忘了张无忌他妈说的了，越是漂亮的女人越会骗人······”</p>
+<p>结果，卡拉还是递给了女孩他的手机，反正，屌丝的手机就是拿来当闹钟用的，卡拉这么想。其实，他心里还有另一种想法——被骗也总比被无视好。卡拉觉得自己快没得救了。</p>
+<p>女孩接过手机，道了声谢谢，然后很快发了一条短信，就把手机还给了卡拉，女孩有道了一声谢，笑得两眼眯起，有点狡黠，在卡拉眼里和动漫中穿水手服的妹子一样可爱。</p>
+<p>卡啦其实很想搭讪几句的，千金难得，美女更难求，能在六十多亿茫茫人海中有所瓜葛，就是缘分吧！也许对方就是自己命中注定的另一半呢······卡拉幸福地幻想着，忘了说话了，看着女孩转过身去······卡拉觉得自己真是个羞涩的男人。</p>
+<p>“七夕桥，到了，请乘客从后门下车，开门请注意······”</p>
+<p>七夕桥正是卡拉所住的地方， 是一个城中村，一个职场菜鸟的聚居地。车上大多数年轻男女的终点都是这里。那漂亮女孩也在这儿下车了，随人流飘走，渐渐离开了卡拉的视野。卡拉收回目光，低头走向另一个方向。“又是无聊的一天啊，这日子啥时候到头啊！唉！”卡拉的心里很郁闷，特别是脑海中依然晃动着一根马尾，他记得 OK 说她也是扎着马尾的，一定很好看。卡拉觉得，也许回去该把一箱子信拿出来重温一下了，在无数个失眠的夜里，他都是这么做的，之后他就会做个好梦，梦中他追逐着一根俏皮的马尾，直到春暖花开，直到与子偕老。 卡拉不得不承认他想 OK 了，很想很想，他想啊，要是两个人能在一起该有多好啊······</p>
+<p>“怪我过分着迷······”张国荣深情的歌声又响起了。卡拉掏出手机，有一条新短信，又是一串冷涩的数字。第一百次了，卡拉有种摔手机的冲动······</p>
+<p>“算了，第一百次啊，值得纪念。”卡拉打开了短信，本以为的“你已被某某节目抽中为幸运嘉宾快来领奖”之类的文字没有出现，上面反而写着：卡拉，你还是那么笨啊！不懂和女孩子搭讪。</p>
+<p>卡拉突然就停下脚步了······卡拉突然就转头飞奔了······他已经很久没这样跑过了，很久没这样撞人了，很久没这样闯红灯了，卡拉此时感觉老天爷对他真好。</p>
+<p>卡拉很快就跑回了公交车站，气喘吁吁。他又停下脚步了，他始终望着那个方向，出神。就像古时躲在墙角的穷酸书生，眼睁睁看着大小姐出嫁。卡拉突然不知道自己该去何方，他只是卡拉啊，爱幻想的卡拉啊 ，不 OK 的卡拉啊。卡拉转身要回去了，他决定把宿舍里所有的泡面都煮了吃，一直吃，吃到昏迷不醒就最好了，明天醒来就去上班，然后下班，然后上班，然后下班·····</p>
+<p>&quot;嘿！你是在找我吗？&quot;有人从后面拍了一下卡拉的肩膀，是一个漂亮女孩，眯着眼，那笑脸就像一只奸计得逞的小狐狸 。</p>
+<p>“你是 OK？”卡拉凝视着对方的眼眸。</p>
+<p>“你是卡拉我就是 OK。”女孩微仰着头，也看着卡拉，依旧笑靥如花，让昏黄路灯黯然无光。</p>
+<p>她是 OK，只有 OK 知道卡拉的笔名是卡拉，卡拉只在写信或写日记时叫卡拉。</p>
+<p>“这剧情会不会太狗血了。”卡拉不自禁笑了，不自禁。</p>
+<p>“管它呢，喜欢就好啦！”<br>
+······</p>
+<p>”人生就是得到又失去，失去又得到，最后剩下喜欢的。“——《卡拉日记》</p>
+</article>
+      </main>
+    </div>
+    <button class="toc-fab" aria-label="目录"></button>
+    <div class="toc-overlay" aria-hidden="true"></div>
+    <button type="button" class="vp-back-to-top-button" aria-label="返回顶部">
+      <span class="vp-scroll-progress" role="progressbar" aria-labelledby="loadinglabel" aria-valuenow="0">
+        <svg><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="0 151"></circle></svg>
+      </span>
+      <div class="back-to-top-icon"></div>
+    </button>
+    <script>
+      (function(){
+        const links = Array.from(document.querySelectorAll('.toc-list a'));
+        const headings = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        function onScroll(){
+          let activeIndex = 0;
+          for (let i=0;i<headings.length;i++){
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= 100) activeIndex = i;
+          }
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[activeIndex]) links[activeIndex].classList.add('active');
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // copy buttons (offline)
+        document.querySelectorAll('pre > code').forEach(code => {
+          const pre = code.parentElement;
+          const raw = code.textContent || '';
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(raw); btn.textContent = '已复制'; setTimeout(()=>btn.textContent='复制', 1200); } catch(e) { btn.textContent='失败'; setTimeout(()=>btn.textContent='复制', 1200); }
+          });
+          pre.style.position = 'relative';
+          pre.appendChild(btn);
+        });
+
+        // ensure images use lazy loading
+        document.querySelectorAll('img').forEach(img=>{ if(!img.loading) img.loading = 'lazy'; });
+
+        // mobile TOC toggle (top-right hamburger)
+        const tocFab = document.querySelector('.toc-fab');
+        const tocOverlay = document.querySelector('.toc-overlay');
+        if (tocFab) {
+          const closeToc = () => document.body.classList.remove('toc-open');
+          tocFab.addEventListener('click', () => { document.body.classList.toggle('toc-open'); });
+          links.forEach(a => a.addEventListener('click', closeToc));
+          if (tocOverlay) tocOverlay.addEventListener('click', closeToc);
+        }
+
+        // back-to-top with progress ring
+        const backBtn = document.querySelector('.vp-back-to-top-button');
+        const circle = document.querySelector('.vp-scroll-progress circle');
+        const PROG_LEN = 2 * Math.PI * 24; // r=24
+        function updateProgress(){
+          const st = document.documentElement.scrollTop || document.body.scrollTop;
+          const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const p = Math.max(0, Math.min(100, h ? (st / h) * 100 : 0));
+          if (backBtn) backBtn.querySelector('.vp-scroll-progress').setAttribute('aria-valuenow', p.toFixed(2));
+          if (circle) circle.setAttribute('stroke-dasharray', ((p/100)*PROG_LEN) + ' ' + PROG_LEN);
+        }
+        updateProgress();
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        if (backBtn) backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
+  </body>
+</html>
+
+
