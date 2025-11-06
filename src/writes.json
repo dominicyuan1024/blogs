@@ -1,11 +1,19 @@
 [
   {
-    "title": "我的英文学习经历",
-    "summary": "我为什么要学英文？我是如何学英文的？",
+    "title": "我的英语学习经历",
+    "summary": "从应试教育到英文原著阅读到英文广播剧等泛娱乐，我为什么要学英文？我是如何学英文的？",
     "date": "2025-11-03",
     "category": "english",
     "path": "writes/english-englis-experients.html",
     "originPath": "writes/english/englis-experients.md"
+  },
+  {
+    "title": "我开发了一款英文原著阅读器",
+    "summary": "分享如何用 vue3 vant epubjs 等开发一款带离线翻译功能的英文原著阅读器，其中的前因后果、设计思路、架构选型、关键技术点",
+    "date": "2025-04-01",
+    "category": "skill",
+    "path": "writes/skill-enreader.html",
+    "originPath": "writes/skill/enreader.md"
   },
   {
     "title": "从零搭建一个静态博客系统",

@@ -71,8 +71,15 @@ main.article ol {
   padding-left: 1.25rem;
   margin: 0.8em 0;
 }
+main.article ol {
+  list-style: decimal; /* 有序列表显示数字 */
+}
+main.article ul {
+  list-style: disc; /* 无序列表显示圆点 */
+}
 main.article li {
   margin: 0.3em 0;
+  list-style: inherit; /* 继承父元素的 list-style */
 }
 
 main.article blockquote {
